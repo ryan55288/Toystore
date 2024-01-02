@@ -1,15 +1,3 @@
-@for $s from 4 through 40 {
-  .fs-#{$s * 2} {
-    font-size: $s * 2px;
-  }
-}
-@for $b from 4 through 40 {
-  .fb-#{$b * 2} {
-    font-size: $b * 2px;
-    font-weight: bold;
-  }
-}
-
 :root {
   /* color */
   --green-color1: #2d5654;
@@ -19,3 +7,19 @@
   --orange-color2: #feefda;
   --orange-color3: #ff9f1c;
 }
+.text-green {
+  color: var(--green-color1);
+}
+.text-orange {
+  color: var(--orange-color1);
+}
+.bg-orange1 {
+  background-color: var(--orange-color1);
+}
+.bg-orange2 {
+  background-color: var(--orange-color2);
+}
+.bg-orange3 {
+  background-color: var(--orange-color3);
+}
+// @import url(@/assets/font/Lemon-Regular.ttf);

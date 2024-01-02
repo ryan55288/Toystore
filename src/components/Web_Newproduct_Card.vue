@@ -26,15 +26,9 @@ $(function () {
 <template>
   <div class="d-flex justify-content-center">
     <div class="card">
-      <div class="d-flex justify-content-center">
-        <img
-          src="../assets/img/Product/80toy/麥特把2.png"
-          alt=""
-          class="w-75"
-        />
-      </div>
+      <img src="../assets/img/Product/80toy/鳳凰.png" alt="" class="card-img" />
       <div class="d-flex">
-        <div class="content ms-4">
+        <div class="content ml-50">
           <div class="mb-2">百獸戰隊-天空精靈王</div>
           <div class="mb-2">庫存:1</div>
           <p class="mb-2">NTD:$2,480</p>
@@ -54,7 +48,7 @@ $(function () {
         </div>
       </div>
       <div class="card-bottom">
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mt-20">
           <div class="mx-3">
             <button type="button" class="btn rounded-pill btn-pluscart">
               加入購物車
@@ -94,23 +88,22 @@ $(function () {
   background-color: var(--orange-color2);
   color: #fff;
 }
-.card-bottom {
-  margin-top: 20px;
-}
+
 .myloveIcon {
   cursor: pointer;
 }
 .card {
-  width: 320px;
-  height: 420px;
+  width: 350px;
+  height: 500px;
   background-color: #fff;
 }
 .card:hover {
-  border: 3px solid var(--orange-color3);
-  /* padding: 5px; */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.card img {
-  padding: 20px;
+.card-img {
+  padding: 10px;
+  width: 100%;
+  height: 300px;
 }
 .card p {
   color: var(--orange-color1);

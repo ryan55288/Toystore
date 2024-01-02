@@ -14,6 +14,14 @@ const routes = [
           title: "首頁",
         },
       },
+      {
+        path: "Grade8",
+        name: "Grade8",
+        component: () => import("@/view/Grade8.vue"),
+        meta: {
+          title: "8年級生區",
+        },
+      },
     ],
   },
   //   {

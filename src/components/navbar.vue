@@ -3,11 +3,13 @@
 <template>
   <div class="box1">
     <div class="box3">
-      <a href="">
-        <div class="logoSET">
-          <img src="../assets/img/logo&icon/logo.svg" alt="" />
-        </div>
-      </a>
+      <router-link to="/Center">
+        <a href="">
+          <div class="logoSET">
+            <img src="../assets/img/logo&icon/logo.svg" alt="" />
+          </div>
+        </a>
+      </router-link>
     </div>
     <div class="box4">
       <input type="text" />
@@ -20,7 +22,7 @@
         <li class="mr-3">
           <div class="dropdown">
             <button
-              class="btn dropdown-toggle btn-sm text-white fw-bold"
+              class="btn dropdown-toggle btn-sm text-white fw-bold fs-24"
               type="button"
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
@@ -28,16 +30,21 @@
             >
               關於我們
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <a class="dropdown-item" href="#">最新消息</a>
-              <a class="dropdown-item" href="#">關於JUNGLE</a>
+            <ul
+              class="dropdown-menu dropdownClass"
+              aria-labelledby="dropdownMenuButton1"
+            >
+              <a class="dropdown-item fw-bold text-white" href="#">最新消息</a>
+              <a class="dropdown-item fw-bold text-white" href="#"
+                >關於JUNGLE</a
+              >
             </ul>
           </div>
         </li>
         <li>
           <div class="dropdown">
             <button
-              class="btn dropdown-toggle btn-sm text-white fw-bold"
+              class="btn dropdown-toggle btn-sm text-white fw-bold fs-24"
               type="button"
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
@@ -45,9 +52,17 @@
             >
               商品頁
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <a class="dropdown-item" href="#">8年級生玩具</a>
-              <a class="dropdown-item" href="#">新潮玩具</a>
+            <ul
+              class="dropdown-menu dropdownClass"
+              aria-labelledby="dropdownMenuButton1"
+            >
+              <router-link to="/Grade8">
+                <a class="dropdown-item text-white fw-bold" href="#"
+                  >8年級生玩具</a
+                >
+              </router-link>
+
+              <a class="dropdown-item text-white fw-bold" href="#">新潮玩具</a>
             </ul>
           </div>
         </li>
@@ -63,6 +78,7 @@
         </div>
       </ul>
     </div>
+    <!--------------------------phone -->
     <div class="phone">
       <div class="d-flex align-items-center pt-1 justify-content-around">
         <div class="dropdown dropdown-menu-start">
@@ -110,6 +126,16 @@
 .phone {
   display: none;
 }
+.dropdownClass {
+  background: rgba(172, 168, 168, 0.5);
+  border-radius: 10px;
+  backdrop-filter: blur(4.1px);
+  -webkit-backdrop-filter: blur(4.1px);
+}
+
+.box5 ul li a {
+  font-size: 24px;
+}
 .box5 ul li {
   padding-left: 40px;
 }
@@ -127,17 +153,18 @@
   width: 100%;
   height: 80px;
   background: rgba(255, 255, 255, 0.33);
-  border-radius: 10px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.1px);
   -webkit-backdrop-filter: blur(4.1px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   position: fixed;
+  z-index: 2;
 }
 .box1 input {
   width: 375px;
   height: 35px;
   border-radius: 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
 }
 
 .searchSet {
