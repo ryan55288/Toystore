@@ -51,4 +51,9 @@ $(function () {
   height: 60px;
   background-size: auto;
 }
+@media (max-width: 1200px) {
+  .anchor {
+    display: none;
+  }
+}
 </style>

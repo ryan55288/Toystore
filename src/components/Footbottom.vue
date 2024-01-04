@@ -26,7 +26,7 @@
 <style scoped>
 .box {
   width: 100%;
-  height: 200px;
+  height: 150px;
   background-color: var(--green-color2);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

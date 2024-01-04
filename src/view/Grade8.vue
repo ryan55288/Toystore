@@ -1,5 +1,5 @@
 <script setup>
-import Product_type from "@/components/Product_type.vue";
+import Product_Type from "@/components/Product_Type.vue";
 import Web_Product_Card from "@/components/Web_Product_Card.vue";
 import Web_Newproduct_Card from "@/components/Web_Newproduct_Card.vue";
 import Page from "@/components/Page.vue";
@@ -29,7 +29,7 @@ import Anchor from "@/components/Anchor.vue";
       </div>
     </div>
   </section>
-  <div><Product_type /></div>
+  <div><Product_Type /></div>
   <section class="section2">
     <div class="pt-40 text-center fs-36 fw-bold text-white">百獸戰隊</div>
     <div class="container mt-40">

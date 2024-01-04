@@ -22,16 +22,40 @@ const routes = [
           title: "8年級生區",
         },
       },
+      {
+        path: "Newtoy",
+        name: "Newtoy",
+        component: () => import("@/view/Newtoy.vue"),
+        meta: {
+          title: "新潮玩具",
+        },
+      },
+      {
+        path: "MemberSign",
+        name: "MemberSign",
+        component: () => import("@/view/MemberSign.vue"),
+        meta: {
+          title: "會員註冊",
+        },
+      },
+      {
+        path: "MemberLogin",
+        name: "MemberLogin",
+        component: () => import("@/view/MemberLogin.vue"),
+        meta: {
+          title: "會員登入",
+        },
+      },
+      {
+        path: "News",
+        name: "News",
+        component: () => import("@/view/News.vue"),
+        meta: {
+          title: "最新消息",
+        },
+      },
     ],
   },
-  //   {
-  //     path: "/Login",
-  //     name: "Login",
-  //     component: () => import("@/view/Login.vue"),
-  //     meta: {
-  //       title: "登入頁面",
-  //     },
-  //   },
 ];
 
 const router = createRouter({

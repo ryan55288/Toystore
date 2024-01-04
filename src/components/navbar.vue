@@ -5,7 +5,7 @@
     <div class="box3">
       <router-link to="/Center">
         <a href="">
-          <div class="logoSET">
+          <div class="logoSET pb-20">
             <img src="../assets/img/logo&icon/logo.svg" alt="" />
           </div>
         </a>
@@ -34,7 +34,12 @@
               class="dropdown-menu dropdownClass"
               aria-labelledby="dropdownMenuButton1"
             >
-              <a class="dropdown-item fw-bold text-white" href="#">最新消息</a>
+              <router-link to="/News"
+                ><a class="dropdown-item fw-bold text-white" href="#"
+                  >最新消息</a
+                >
+              </router-link>
+
               <a class="dropdown-item fw-bold text-white" href="#"
                 >關於JUNGLE</a
               >
@@ -61,21 +66,54 @@
                   >8年級生玩具</a
                 >
               </router-link>
-
-              <a class="dropdown-item text-white fw-bold" href="#">新潮玩具</a>
+              <router-link to="/Newtoy"
+                ><a class="dropdown-item text-white fw-bold" href="#"
+                  >新潮玩具</a
+                ></router-link
+              >
             </ul>
           </div>
         </li>
-        <li class="mt-2 pr-2">
-          <a href="" class="text-white fw-bold">會員中心</a>
+        <li>
+          <div class="dropdown">
+            <button
+              class="btn dropdown-toggle btn-sm text-white fw-bold fs-24"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              會員中心
+            </button>
+            <ul
+              class="dropdown-menu dropdownClass"
+              aria-labelledby="dropdownMenuButton1"
+            >
+              <router-link to="/MemberLogin">
+                <a href="#" class="dropdown-item text-white fw-bold"
+                  >會員登入</a
+                >
+              </router-link>
+
+              <router-link to="/MemberSign">
+                <a href="#" class="dropdown-item text-white fw-bold"
+                  >會員註冊</a
+                >
+              </router-link>
+              <router-link to="/MemberSign">
+                <a href="#" class="dropdown-item text-white fw-bold"
+                  >會員頁面</a
+                >
+              </router-link>
+            </ul>
+          </div>
         </li>
-        <li class="mt-2"><a href="" class="text-white fw-bold">註冊</a></li>
-        <li class="mt-2">
+        <li class="mt-10 d-flex">
           <a href="" class="text-white fw-bold">購物車</a>
+          <div class="web-cart">
+            <img src="../assets/img/logo&icon/cart.svg" class="w-50" alt="" />
+          </div>
         </li>
-        <div class="mt-1 web-cart">
-          <img src="../assets/img/logo&icon/cart.svg" class="w-50" alt="" />
-        </div>
       </ul>
     </div>
     <!--------------------------phone -->
@@ -106,8 +144,8 @@
                 >商品頁<i class="fas fa-sort-down"></i
               ></a>
             </li>
-            <li><a class="dropdown-item" href="#">會員中心</a></li>
-            <li><a class="dropdown-item" href="#">註冊</a></li>
+            <li><a class="dropdown-item" href="#">會員登入</a></li>
+            <li><a class="dropdown-item" href="#">會員註冊</a></li>
             <li><a class="dropdown-item" href="#">購物車</a></li>
           </ul>
         </div>
@@ -137,7 +175,7 @@
   font-size: 24px;
 }
 .box5 ul li {
-  padding-left: 40px;
+  padding-left: 35px;
 }
 .box3 a {
   margin-left: 80px;
@@ -156,7 +194,6 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4.1px);
   -webkit-backdrop-filter: blur(4.1px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
   position: fixed;
   z-index: 2;
 }
@@ -164,7 +201,7 @@
   width: 375px;
   height: 35px;
   border-radius: 5px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .searchSet {

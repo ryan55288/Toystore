@@ -3,11 +3,12 @@
 <template>
   <section class="section1">
     <ul class="d-flex justify-content-center">
-      <li class="product-type">徽章戰士</li>
-      <li class="product-type">百獸戰隊</li>
-      <li class="product-type">彈珠人</li>
-      <li class="product-type">戰鬥陀螺</li>
-      <li class="product-type">數碼寶貝</li>
+      <li class="product-type">鋼彈模型</li>
+      <li class="product-type">模型車</li>
+      <li class="product-type">LEGO</li>
+      <li class="product-type">動漫模型</li>
+      <li class="product-type">漫威</li>
+      <li class="product-type">一番賞區</li>
     </ul>
   </section>
 </template>

@@ -280,7 +280,6 @@ import Anchor from "@/components/Anchor.vue";
       <div class="fs-24 text-center text-white fw-bold pt-4">
         8年級生最新商品
       </div>
-      <Phone_productCard />
     </section>
   </div>
 </template>
