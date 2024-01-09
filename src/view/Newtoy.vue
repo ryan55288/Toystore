@@ -172,55 +172,70 @@ export default {
         :class="{ animate__bounceInDown: shouldAnimate }"
       >
         <!-- 卡片 -->
-        <div class="d-flex justify-content-center pt-50">
-          <div class="">
-            <img src="../assets/img/Product/newtoy/一番賞/hunter.svg" alt="" />
+        <router-link to="OneReward/" class="text-decoration-none">
+          <div class="d-flex justify-content-center pt-50">
+            <div class="">
+              <img
+                src="../assets/img/Product/newtoy/一番賞/hunter.svg"
+                alt=""
+              />
+            </div>
+            <div>
+              <h3 class="d-flex justify-content-center align-items-center">
+                <div class="fs-36 fw-bold">一番賞 獵人XX</div>
+              </h3>
+              <h4 class="d-flex justify-content-center align-items-center">
+                <div class="fs-24 fw-bold">
+                  預定自2020年04月03日(星期五)起逐次發售
+                </div>
+              </h4>
+            </div>
           </div>
-          <div>
-            <h3 class="d-flex justify-content-center align-items-center">
-              <div class="fs-36 fw-bold">一番賞 獵人</div>
-            </h3>
-            <h4 class="d-flex justify-content-center align-items-center">
-              <div class="fs-24 fw-bold">
-                預定自2020年04月03日(星期五)起逐次發售
-              </div>
-            </h4>
+        </router-link>
+        <router-link to="OneReward/" class="text-decoration-none">
+          <div class="d-flex justify-content-center pt-50">
+            <div class="">
+              <img
+                src="../assets/img/Product/newtoy/一番賞/dragonball.svg"
+                alt=""
+              />
+            </div>
+            <div>
+              <h3 class="d-flex justify-content-center align-items-center">
+                <div class="fs-36 fw-bold">一番賞 七龍珠</div>
+              </h3>
+              <h4 class="d-flex justify-content-center align-items-center">
+                <div class="fs-24 fw-bold">
+                  预定自2020年04月05日(星期五)起逐次發售
+                </div>
+              </h4>
+            </div>
           </div>
-        </div>
+        </router-link>
         <!-- 卡片 -->
-        <div class="d-flex justify-content-center pt-50">
-          <div class="">
-            <img
-              src="../assets/img/Product/newtoy/一番賞/dragonball.svg"
-              alt=""
-            />
+
+        <!-- 卡片 -->
+        <router-link to="OneReward/" class="text-decoration-none">
+          <div class="d-flex justify-content-center pt-50">
+            <div class=" ">
+              <img
+                src="../assets/img/Product/newtoy/一番賞/hero.svg"
+                alt=""
+                class=""
+              />
+            </div>
+            <div>
+              <h3 class="d-flex justify-content-center align-items-center">
+                <div class="fs-36 fw-bold">一番賞 我的英雄學院</div>
+              </h3>
+              <h4 class="d-flex justify-content-center align-items-center">
+                <div class="fs-24 fw-bold">
+                  預定自2020年04月03日(星期五)起逐次發售
+                </div>
+              </h4>
+            </div>
           </div>
-          <div>
-            <h3 class="d-flex justify-content-center align-items-center">
-              <div class="fs-36 fw-bold">一番賞 七龍珠</div>
-            </h3>
-            <h4 class="d-flex justify-content-center align-items-center">
-              <div class="fs-24 fw-bold">
-                预定自2020年04月05日(星期五)起逐次發售
-              </div>
-            </h4>
-          </div>
-        </div>
-        <div class="d-flex justify-content-center pt-50">
-          <div class="">
-            <img src="../assets/img/Product/newtoy/一番賞/hero.svg" alt="" />
-          </div>
-          <div>
-            <h3 class="d-flex justify-content-center align-items-center">
-              <div class="fs-36 fw-bold">一番賞 我的英雄學院</div>
-            </h3>
-            <h4 class="d-flex justify-content-center align-items-center">
-              <div class="fs-24 fw-bold">
-                預定自2020年04月03日(星期五)起逐次發售
-              </div>
-            </h4>
-          </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </section>

@@ -54,6 +54,62 @@ const routes = [
           title: "最新消息",
         },
       },
+      {
+        path: "AboutJungle",
+        name: "AboutJungle",
+        component: () => import("@/view/AboutJungle.vue"),
+        meta: {
+          title: "關於Jungle",
+        },
+      },
+      {
+        path: "UserPage",
+        name: "UserPage",
+        component: () => import("@/view/UserPage.vue"),
+        meta: {
+          title: "會員頁面",
+        },
+      },
+      {
+        path: "OneReward",
+        name: "OneReward",
+        component: () => import("@/view/OneReward.vue"),
+        meta: {
+          title: "一番賞",
+        },
+      },
+      {
+        path: "Cart",
+        name: "Cart",
+        component: () => import("@/view/Cart.vue"),
+        meta: {
+          title: "購物車",
+        },
+      },
+      {
+        path: "CheckList1",
+        name: "CheckList1",
+        component: () => import("@/view/CheckList1.vue"),
+        meta: {
+          title: "結帳一",
+        },
+      },
+      {
+        path: "CheckList2",
+        name: "CheckList2",
+        component: () => import("@/view/CheckList2.vue"),
+        meta: {
+          title: "結帳二",
+        },
+      },
+      {
+        path: "CheckList3",
+        name: "CheckList3",
+        component: () => import("@/view/CheckList3.vue"),
+        meta: {
+          title: "結帳三",
+        },
+      },
     ],
   },
 ];

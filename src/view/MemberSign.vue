@@ -111,7 +111,7 @@
   border: 0px;
 }
 .loginBtn {
-  background-color: var(--green-color3);
+  background-color: var(--green-color2);
 }
 .submitBtn {
   background-color: var(--orange-color3);

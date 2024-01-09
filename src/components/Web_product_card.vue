@@ -1,27 +1,4 @@
-<script setup>
-$(function () {
-  $(".qtyplus").click(function (e) {
-    e.preventDefault();
-    fieldName = $(this).attr("field");
-    var currentVal = parseInt($("input[name=" + fieldName + "]").val());
-    if (!isNaN(currentVal)) {
-      $("input[name=" + fieldName + "]").val(currentVal + 1);
-    } else {
-      $("input[name=" + fieldName + "]").val(0);
-    }
-  });
-  $(".qtyminus").click(function (e) {
-    e.preventDefault();
-    fieldName = $(this).attr("field");
-    var currentVal = parseInt($("input[name=" + fieldName + "]").val());
-    if (!isNaN(currentVal) && currentVal > 0) {
-      $("input[name=" + fieldName + "]").val(currentVal - 1);
-    } else {
-      $("input[name=" + fieldName + "]").val(0);
-    }
-  });
-});
-</script>
+<script setup></script>
 
 <template>
   <div class="d-flex justify-content-center">
@@ -33,8 +10,8 @@ $(function () {
           class="w-75"
         />
       </div>
-      <div class="d-flex">
-        <div class="content ms-4">
+      <div class="section2 d-flex">
+        <div class="card-content ms-4">
           <div class="mb-2">百獸戰隊-天空精靈王</div>
           <div class="mb-2">庫存:1</div>
           <p class="mb-2">NTD:$2,480</p>
@@ -70,36 +47,63 @@ $(function () {
 </template>
 
 <style scoped>
-.btn-buy {
-  background-color: var(--orange-color3);
-  color: #fff;
-  font-weight: bold;
-  width: 120px;
-  height: 45px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-.btn-buy:active {
-  background-color: var(--orange-color2);
-  color: #fff;
-}
-.btn-pluscart {
-  background-color: var(--orange-color1);
-  color: #fff;
-  font-weight: bold;
-  width: 120px;
-  height: 45px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-.btn-pluscart:active {
-  background-color: var(--orange-color2);
-  color: #fff;
+.section2 {
+  .card-content {
+    .qtyplus {
+      width: 25px;
+      height: 30px;
+      border: 1px solid #aaa;
+      background-color: #f8f8f8;
+      border-radius: 0px 3px 3px 0px;
+    }
+    .qty {
+      width: 40px;
+      height: 30px;
+      text-align: center;
+      border: 0;
+      border-top: 1px solid #aaa;
+      border-bottom: 1px solid #aaa;
+    }
+  }
+  .qtyminus {
+    width: 25px;
+    height: 30px;
+    border: 1px solid #aaa;
+    background-color: #f8f8f8;
+    border-radius: 3px 0px 0px 3px;
+  }
+  .myloveIcon {
+    cursor: pointer;
+  }
 }
 .card-bottom {
   margin-top: 20px;
+  .btn-buy {
+    background-color: var(--orange-color3);
+    color: #fff;
+    font-weight: bold;
+    width: 120px;
+    height: 45px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    &:hover {
+      background-color: var(--orange-color4);
+      color: #fff;
+    }
+  }
+  .btn-pluscart {
+    background-color: var(--orange-color1);
+    color: #fff;
+    font-weight: bold;
+    width: 120px;
+    height: 45px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    &:hover {
+      background-color: var(--orange-color4);
+      color: #fff;
+    }
+  }
 }
-.myloveIcon {
-  cursor: pointer;
-}
+
 .card {
   width: 320px;
   height: 420px;
@@ -114,29 +118,5 @@ $(function () {
 }
 .card p {
   color: var(--orange-color1);
-}
-.qty {
-  width: 40px;
-  height: 30px;
-  text-align: center;
-  border: 0;
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
-}
-
-input.qtyplus {
-  width: 25px;
-  height: 30px;
-  border: 1px solid #aaa;
-  background: #f8f8f8;
-  border-radius: 0px 3px 3px 0px;
-}
-
-input.qtyminus {
-  width: 25px;
-  height: 30px;
-  border: 1px solid #aaa;
-  background: #f8f8f8;
-  border-radius: 3px 0px 0px 3px;
 }
 </style>

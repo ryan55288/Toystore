@@ -2,91 +2,54 @@
 import Web_Product_Card from "@/components/Web_Product_Card.vue";
 import Web_Newproduct_Card from "@/components/Web_Newproduct_Card.vue";
 import Anchor from "@/components/Anchor.vue";
+</script>
 
-// var myCarousel = document.querySelector("#myCarousel");
-// var carousel = new bootstrap.Carousel(myCarousel, {
-//   interval: 2000,
-//   wrap: true,
-// });
+<script>
+$(document).ready(function () {
+  var carousel = $(".carousel"),
+    currdeg = 0;
+
+  $(".next, .prev").on("click", function (e) {
+    var direction = $(this).hasClass("next") ? "n" : "p";
+
+    if (direction === "n") {
+      currdeg -= 60;
+    }
+    if (direction === "p") {
+      currdeg += 60;
+    }
+
+    carousel.css({
+      "-webkit-transform": "rotateY(" + currdeg + "deg)",
+      "-moz-transform": "rotateY(" + currdeg + "deg)",
+      "-o-transform": "rotateY(" + currdeg + "deg)",
+      transform: "rotateY(" + currdeg + "deg)",
+    });
+  });
+});
 </script>
 
 <template>
   <div class="web">
     <div><Anchor /></div>
-    <section class="box1 section1">
-      <div class="carousel carousel-contant" data-bs-interal="1500">
-        <div
-          id="carouselExampleCaptions"
-          class="carousel slide carouselSet"
-          data-bs-ride="carousel"
-        >
-          <div class="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active w-75" data-bs-interval="1000">
-              <img
-                src="../assets/img/bg/輪播圖片1.svg"
-                class="d-block w-100"
-                alt="..."
-              />
-            </div>
-            <div class="carousel-item w-75">
-              <img
-                src="../assets/img/bg/輪播圖片2.svg"
-                class="d-block w-100"
-                data-bs-interval="1000"
-                alt="..."
-              />
-            </div>
-            <div class="carousel-item w-75">
-              <img
-                src="../assets/img/bg/輪播圖片3.svg"
-                class="d-block w-100"
-                data-bs-interval="1000"
-                alt="..."
-              />
-            </div>
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+    <section class="section1 container-fluid">
+      <div class="container pt-80">
+        <div class="carousel">
+          <div class="item a"></div>
+          <div class="item b"></div>
+          <div class="item c"></div>
+          <div class="item d"></div>
+          <div class="item e"></div>
+          <div class="item f"></div>
         </div>
       </div>
+      <div class="next">
+        <i class="far fa-hand-point-right fa-2x"></i>
+      </div>
+      <div class="prev">
+        <i class="far fa-hand-point-left fa-2x"></i>
+      </div>
+
       <div class="Kong-icon">
         <img
           src="../assets/img/bg/小金剛.svg"
@@ -96,7 +59,7 @@ import Anchor from "@/components/Anchor.vue";
       </div>
     </section>
 
-    <section class="box2 section2">
+    <section class="section2 pt-40">
       <p class="fs-36 text-center text-white fw-bold">8年級生最新商品</p>
       <div class="allCard d-flex justify-content-center no-wrap mt-30">
         <div>
@@ -156,20 +119,22 @@ import Anchor from "@/components/Anchor.vue";
           <div class="row">
             <div class="col-md-6">
               <p class="text-center">一番賞COMEING SOON~Time Collection</p>
-              <div class="moreInfoBox mt-30">
-                <div
-                  class="fs-36 fw-bold text-white d-flex align-items-center pt-20 pl-20"
-                >
-                  更多內容
-                  <div>
-                    <img
-                      src="../assets/img/logo&icon/hand.svg"
-                      alt=""
-                      class="moreInfo ml-10"
-                    />
+              <router-link to="/OneReward" class="text-decoration-none">
+                <div class="moreInfoBox mt-30">
+                  <div
+                    class="fs-36 fw-bold text-white d-flex align-items-center pt-20 pl-20"
+                  >
+                    更多內容
+                    <div>
+                      <img
+                        src="../assets/img/logo&icon/hand.svg"
+                        alt=""
+                        class="moreInfo ml-10"
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
+              </router-link>
             </div>
             <div class="col-md-6">
               <img src="../assets/img/bg/bottom-info1.svg" alt="" />
@@ -185,30 +150,32 @@ import Anchor from "@/components/Anchor.vue";
               <p class="text-center ml-140">
                 一番賞COMEING SOON~Time Collection
               </p>
-              <div class="moreInfoBox mt-30 ml-420">
-                <div
-                  class="fs-36 fw-bold text-white d-flex align-items-center pt-20 pl-20"
-                >
-                  更多內容
-                  <div>
-                    <img
-                      src="../assets/img/logo&icon/handRight.svg"
-                      alt=""
-                      class="moreInfo ml-10"
-                    />
+              <router-link to="/OneReward" class="text-decoration-none">
+                <div class="moreInfoBox mt-30 ml-420">
+                  <div
+                    class="hover fs-36 fw-bold text-white d-flex align-items-center pt-20 pl-20"
+                  >
+                    更多內容
+                    <div>
+                      <img
+                        src="../assets/img/logo&icon/handRight.svg"
+                        alt=""
+                        class="moreInfo ml-10"
+                      />
+                    </div>
                   </div>
-                </div>
-              </div>
+                </div> </router-link
+              >>
             </div>
           </div>
         </div>
       </div>
     </section>
   </div>
-
+  <!-- phone -->
   <div class="phone">
     <section class="centerBg">
-      <div class="box2">
+      <div class="section2">
         <div
           id="carouselExampleControls"
           class="carousel slide"
@@ -285,39 +252,150 @@ import Anchor from "@/components/Anchor.vue";
 </template>
 
 <style scoped>
-.moreInfo {
-  width: 100px;
-  height: 100px;
+.section1 {
+  padding-top: 200px;
+  width: 100%;
+  height: 650px;
+  background-image: url(../assets/img/bg/centerTop-bg.svg);
+  background-repeat: no-repeat;
+  background-color: var(--green-color1);
+  .Kong-icon {
+    position: absolute;
+    bottom: 150px;
+    left: 300px;
+  }
+  body {
+    background: #333;
+    padding: 70px 0;
+    font: 15px/20px Arial, sans-serif;
+  }
+
+  .container {
+    margin: 0 auto;
+    width: 250px;
+    height: 200px;
+    position: relative;
+    perspective: 1000px;
+  }
+
+  .carousel {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+  }
+
+  .item {
+    display: block;
+    position: absolute;
+    background: #000;
+    width: 250px;
+    height: 300px;
+    line-height: 200px;
+    font-size: 5em;
+    text-align: center;
+    color: #fff;
+    opacity: 0.95;
+    border-radius: 10px;
+  }
+
+  .a {
+    transform: rotateY(0deg) translateZ(250px);
+    background: rgba(57, 56, 56, 0.5);
+    background-image: url(../assets/img/Product/80toy/麥特比1.svg);
+    background-size: cover;
+  }
+  .b {
+    transform: rotateY(60deg) translateZ(250px);
+    background: rgba(172, 168, 168, 0.5);
+    background-image: url(../assets/img/Product/80toy/龍騎士.svg);
+    background-size: cover;
+  }
+  .c {
+    transform: rotateY(120deg) translateZ(250px);
+    background: rgba(172, 168, 168, 1);
+    background-image: url(../assets/img/bg/carousel/1.svg);
+    background-size: cover;
+  }
+  .d {
+    transform: rotateY(180deg) translateZ(250px);
+    background: rgba(172, 168, 168, 0.5);
+    background-image: url(../assets/img/bg/carousel/2.svg);
+    background-size: cover;
+  }
+  .e {
+    transform: rotateY(240deg) translateZ(250px);
+    background: rgba(172, 168, 168, 0.5);
+    background-image: url(../assets/img/bg/carousel/3.svg);
+    background-size: cover;
+  }
+  .f {
+    transform: rotateY(300deg) translateZ(250px);
+    background: rgba(172, 168, 168, 0.2);
+    background-image: url(../assets/img/bg/carousel/4.svg);
+    background-size: cover;
+  }
+
+  .next,
+  .prev {
+    background-color: var(--orange-color3);
+    color: #fff;
+    position: absolute;
+    top: 100px;
+    padding: 1em 2em;
+    cursor: pointer;
+    border-radius: 5px;
+    border-top: 1px solid var(--orange-color3);
+    box-shadow: 0 5px 0 var(--orange-color1);
+    transition: box-shadow 0.1s, top 0.1s;
+  }
+  .next:hover,
+  .prev:hover {
+    color: var(--orange-color1);
+  }
+  .next:active,
+  .prev:active {
+    top: 104px;
+    box-shadow: 0 1px 0 #999;
+  }
+  .next {
+    margin-top: 210px;
+    right: 5px;
+  }
+  .prev {
+    margin-top: 210px;
+    left: 5px;
+  }
 }
-.moreInfoBox {
-  cursor: pointer;
-  background-color: var(--orange-color3);
-  width: 300px;
-  height: 135px;
-  border-radius: 60px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-.moreInfoBox:active {
-  background-color: var(--orange-color1);
-  color: #000;
-}
-.section5 .container p {
-  background-color: var(--orange-color1);
-  color: #fff;
-  padding: 50px;
-  font-weight: bold;
-  font-size: 36px;
-  width: 580px;
-}
+
 .section5 {
   background-image: url(../assets/img/bg/center-BG-bottom.svg);
   width: 100%;
   height: 1200px;
-}
-.section4 {
-  background-color: var(--green-color1);
-  width: 100%;
-  height: 500px;
+  .container p {
+    background-color: var(--orange-color1);
+    color: #fff;
+    padding: 50px;
+    font-weight: bold;
+    font-size: 36px;
+    width: 580px;
+  }
+  .moreInfo {
+    width: 100px;
+    height: 100px;
+  }
+  .moreInfoBox {
+    cursor: pointer;
+    background-color: var(--orange-color3);
+    width: 300px;
+    height: 135px;
+    border-radius: 60px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    &:hover {
+      background-color: var(--orange-color2);
+    }
+  }
 }
 .section3 {
   background-image: url(../assets/img/bg/center-content-bg.svg);
@@ -325,11 +403,17 @@ import Anchor from "@/components/Anchor.vue";
   height: 360px;
   background-color: var(--green-color1);
   z-index: 2;
+  p {
+    padding-top: 40px;
+    font-size: 36px;
+  }
 }
-.section3 p {
-  padding-top: 40px;
-  font-size: 36px;
+.section4 {
+  background-color: var(--green-color1);
+  width: 100%;
+  height: 500px;
 }
+
 .btn-more {
   margin-top: 80px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -340,54 +424,28 @@ import Anchor from "@/components/Anchor.vue";
   border-radius: 60px;
   font-weight: bold;
   font-size: 24px;
-}
-.btn-more:hover {
-  background-color: var(--orange-color2);
-  color: var(--orange-color3);
-}
-.btn-more:active {
-  background-color: var(--orange-color1);
-  color: var(--orange-color2);
+  &:hover {
+    background-color: var(--orange-color2);
+    color: var(--orange-color3);
+  }
+  &:active {
+    background-color: var(--orange-color1);
+    color: var(--orange-color2);
+  }
 }
 .allCard div {
   padding: 5px 15px;
 }
-.carousel-indicators button {
-  width: 50px;
-  height: 15px;
-  border-radius: 20px;
-}
-.carousel-contant {
-  position: relative;
-  height: 940px;
-}
-.Kong-icon {
-  position: absolute;
-  bottom: -100px;
-  left: 150px;
-}
-.phone {
-  display: none;
-}
-.box1 {
-  width: 100%;
-  background-image: url(../assets/img/bg/center-bg.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: var(--green-color1);
-  z-index: 1;
-}
-.box2 {
+
+.section2 {
   background-color: var(--green-color1);
   width: 100%;
   height: 1200px;
   margin: 0 auto;
 }
-.carouselSet {
-  padding-top: 200px;
-}
-.carousel-item {
-  margin-left: 170px;
+
+.phone {
+  display: none;
 }
 
 @media (max-width: 375px) {
@@ -400,10 +458,6 @@ import Anchor from "@/components/Anchor.vue";
   .centerBg {
     background-image: url(../assets/img/bg/center-bg.svg);
     height: 450px;
-  }
-  .carousel-item img {
-    margin: 0 auto;
-    height: 250px;
   }
   .project2 {
     margin: 0 auto;

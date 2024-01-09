@@ -5,7 +5,7 @@
   <div class="d-flex justify-content-center">
     <div class="bg-1 d-flex justify-content-center pt-120">
       <section class="section3">
-        <div class="text-center fs-36 fw-bold text-green pt-40">會員登入</div>
+        <div class="text-center fs-36 fw-bold text-green pt-50">會員登入</div>
         <div class="d-flex justify-content-center">
           <form class="formSet">
             <div class="mb-3 mt-40">
@@ -65,7 +65,7 @@
   border: 0px;
 }
 .loginBtn {
-  background-color: var(--green-color3);
+  background-color: var(--green-color2);
 }
 .submitBtn {
   background-color: var(--orange-color3);
@@ -81,13 +81,13 @@
 .section3 {
   border-radius: 10px;
   width: 600px;
-  height: 680px;
+  height: 630px;
   background-color: #fff;
 }
 .bg-1 {
   background-image: url(../assets/img/bg/Member/member-bg.svg);
   width: 100%;
-  height: 850px;
+  height: 800px;
   background-repeat: no-repeat;
 }
 

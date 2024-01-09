@@ -2,10 +2,10 @@
   /* color */
   --green-color1: #2d5654;
   --green-color2: #1f875c;
-  --green-color3: #41a24a;
   --orange-color1: #e64614;
   --orange-color2: #feefda;
   --orange-color3: #ff9f1c;
+  --orange-color4: #af350e;
 }
 .text-green {
   color: var(--green-color1);
@@ -22,4 +22,13 @@
 .bg-orange3 {
   background-color: var(--orange-color3);
 }
-// @import url(@/assets/font/Lemon-Regular.ttf);
+@font-face {
+  font-family: "Lemon"; //重命名字体名
+  src: url("../font/Lemon-Regular.ttf"); //引入字体
+  font-weight: bold;
+  font-style: normal;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}

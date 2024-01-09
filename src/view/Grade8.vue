@@ -118,6 +118,7 @@ import Anchor from "@/components/Anchor.vue";
   animation: marquee 8s linear infinite;
   display: flex;
   align-items: center;
+  font-family: "Lemon";
 }
 
 .marquee-content2 {
@@ -129,6 +130,7 @@ import Anchor from "@/components/Anchor.vue";
   display: inline-block;
   white-space: nowrap;
   animation: marquee 8s linear infinite;
+  font-family: "Lemon";
 }
 
 @keyframes marquee {

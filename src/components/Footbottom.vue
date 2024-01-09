@@ -1,8 +1,27 @@
-<script setup></script>
+<script setup>
+$(function () {
+  $(".footerHome").click(function () {
+    $("html, template").animate(
+      {
+        scrollTop: 0,
+      },
+      500
+    );
+  });
+
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 200) {
+      $(".footerHome").fadeIn("fast");
+    } else {
+      $(".footerHome").stop().fadeOut("fast");
+    }
+  });
+});
+</script>
 
 <template>
   <section class="box d-flex align-items-center justify-content-around">
-    <div class="">
+    <div class="footerHome">
       <img src="../assets/img/logo&icon/logo.svg" alt="" />
     </div>
     <div class="fs-24 text-white">
@@ -29,5 +48,8 @@
   height: 150px;
   background-color: var(--green-color2);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.footerHome {
+  cursor: pointer;
 }
 </style>
