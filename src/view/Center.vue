@@ -32,7 +32,7 @@ $(document).ready(function () {
 <template>
   <div class="web">
     <div><Anchor /></div>
-    <section class="section1 container-fluid">
+    <section class="section1">
       <div class="container pt-80">
         <div class="carousel">
           <div class="item a"></div>
@@ -98,9 +98,9 @@ $(document).ready(function () {
       <p class="text-white fw-bold text-center">新潮玩具</p>
       <div class="container">
         <div class="allCard row mt-30">
-          <div class="col"><Web_Newproduct_Card /></div>
-          <div class="col"><Web_Newproduct_Card /></div>
-          <div class="col"><Web_Newproduct_Card /></div>
+          <div class="col-md-4"><Web_Newproduct_Card /></div>
+          <div class="col-md-4"><Web_Newproduct_Card /></div>
+          <div class="col-md-4"><Web_Newproduct_Card /></div>
         </div>
       </div>
       <div class="d-flex justify-content-center">
@@ -253,15 +253,15 @@ $(document).ready(function () {
 
 <style scoped>
 .section1 {
-  padding-top: 200px;
   width: 100%;
-  height: 650px;
+  padding-top: 200px;
+  height: 690px;
   background-image: url(../assets/img/bg/centerTop-bg.svg);
   background-repeat: no-repeat;
   background-color: var(--green-color1);
   .Kong-icon {
     position: absolute;
-    bottom: 150px;
+    bottom: 100px;
     left: 300px;
   }
   body {
@@ -276,6 +276,7 @@ $(document).ready(function () {
     height: 200px;
     position: relative;
     perspective: 1000px;
+    font-family: "Lemon";
   }
 
   .carousel {
@@ -284,6 +285,42 @@ $(document).ready(function () {
     position: absolute;
     transform-style: preserve-3d;
     transition: transform 1s;
+    .a {
+      transform: rotateY(0deg) translateZ(250px);
+      background: rgba(57, 56, 56, 0.5);
+      background-image: url(../assets/img/Product/80toy/麥特比1.svg);
+      background-size: cover;
+    }
+    .b {
+      transform: rotateY(60deg) translateZ(250px);
+      background: rgba(172, 168, 168, 0.5);
+      background-image: url(../assets/img/Product/80toy/龍騎士.svg);
+      background-size: cover;
+    }
+    .c {
+      transform: rotateY(120deg) translateZ(250px);
+      background: rgba(172, 168, 168, 1);
+      background-image: url(../assets/img/bg/carousel/1.svg);
+      background-size: cover;
+    }
+    .d {
+      transform: rotateY(180deg) translateZ(250px);
+      background: rgba(172, 168, 168, 0.5);
+      background-image: url(../assets/img/bg/carousel/2.svg);
+      background-size: cover;
+    }
+    .e {
+      transform: rotateY(240deg) translateZ(250px);
+      background: rgba(172, 168, 168, 0.5);
+      background-image: url(../assets/img/bg/carousel/3.svg);
+      background-size: cover;
+    }
+    .f {
+      transform: rotateY(300deg) translateZ(250px);
+      background: rgba(172, 168, 168, 0.2);
+      background-image: url(../assets/img/bg/carousel/4.svg);
+      background-size: cover;
+    }
   }
 
   .item {
@@ -298,43 +335,6 @@ $(document).ready(function () {
     color: #fff;
     opacity: 0.95;
     border-radius: 10px;
-  }
-
-  .a {
-    transform: rotateY(0deg) translateZ(250px);
-    background: rgba(57, 56, 56, 0.5);
-    background-image: url(../assets/img/Product/80toy/麥特比1.svg);
-    background-size: cover;
-  }
-  .b {
-    transform: rotateY(60deg) translateZ(250px);
-    background: rgba(172, 168, 168, 0.5);
-    background-image: url(../assets/img/Product/80toy/龍騎士.svg);
-    background-size: cover;
-  }
-  .c {
-    transform: rotateY(120deg) translateZ(250px);
-    background: rgba(172, 168, 168, 1);
-    background-image: url(../assets/img/bg/carousel/1.svg);
-    background-size: cover;
-  }
-  .d {
-    transform: rotateY(180deg) translateZ(250px);
-    background: rgba(172, 168, 168, 0.5);
-    background-image: url(../assets/img/bg/carousel/2.svg);
-    background-size: cover;
-  }
-  .e {
-    transform: rotateY(240deg) translateZ(250px);
-    background: rgba(172, 168, 168, 0.5);
-    background-image: url(../assets/img/bg/carousel/3.svg);
-    background-size: cover;
-  }
-  .f {
-    transform: rotateY(300deg) translateZ(250px);
-    background: rgba(172, 168, 168, 0.2);
-    background-image: url(../assets/img/bg/carousel/4.svg);
-    background-size: cover;
   }
 
   .next,
@@ -378,8 +378,9 @@ $(document).ready(function () {
     color: #fff;
     padding: 50px;
     font-weight: bold;
-    font-size: 36px;
+    font-size: 24px;
     width: 580px;
+    font-family: "Lemon";
   }
   .moreInfo {
     width: 100px;
@@ -393,29 +394,35 @@ $(document).ready(function () {
     border-radius: 60px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     &:hover {
+      background-color: var(--orange-color4);
+      color: #fff;
+    }
+    &:active {
       background-color: var(--orange-color2);
+      color: #fff;
     }
   }
 }
 .section3 {
   background-image: url(../assets/img/bg/center-content-bg.svg);
   width: 100%;
-  height: 360px;
+  height: 350px;
   background-color: var(--green-color1);
   z-index: 2;
   p {
     padding-top: 40px;
     font-size: 36px;
+    font-family: "Lemon";
   }
 }
 .section4 {
   background-color: var(--green-color1);
   width: 100%;
-  height: 500px;
+  height: 390px;
 }
 
 .btn-more {
-  margin-top: 80px;
+  margin-top: 40px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 160px;
   height: 60px;
@@ -425,23 +432,26 @@ $(document).ready(function () {
   font-weight: bold;
   font-size: 24px;
   &:hover {
-    background-color: var(--orange-color2);
-    color: var(--orange-color3);
+    background-color: var(--orange-color4);
+    color: #fff;
   }
   &:active {
-    background-color: var(--orange-color1);
-    color: var(--orange-color2);
+    background-color: var(--orange-color2);
+    color: #fff;
   }
-}
-.allCard div {
-  padding: 5px 15px;
 }
 
 .section2 {
   background-color: var(--green-color1);
   width: 100%;
-  height: 1200px;
+  height: 1160px;
   margin: 0 auto;
+  p {
+    font-family: "Lemon";
+  }
+  .allCard div {
+    padding: 5px 10px;
+  }
 }
 
 .phone {
@@ -464,6 +474,15 @@ $(document).ready(function () {
     height: 500px;
     width: 375px;
     background-color: var(--green-color1);
+  }
+  .section2 {
+    background-color: var(--green-color1);
+    width: 100%;
+    height: 1200px;
+    margin: 0 auto;
+    .allCard div {
+      padding-top: 50px;
+    }
   }
 }
 </style>

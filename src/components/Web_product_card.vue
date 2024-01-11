@@ -1,4 +1,22 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const quantity = ref(0);
+
+const increment = () => {
+  quantity.value++;
+};
+
+const decrement = () => {
+  if (quantity.value > 0) {
+    quantity.value--;
+  }
+};
+
+const handleSubmit = () => {
+  console.log("Form submitted with quantity:", quantity.value);
+};
+</script>
 
 <template>
   <div class="d-flex justify-content-center">
@@ -15,11 +33,26 @@
           <div class="mb-2">百獸戰隊-天空精靈王</div>
           <div class="mb-2">庫存:1</div>
           <p class="mb-2">NTD:$2,480</p>
-          <form id="myform" method="POST" action="#">
-            <label for=""> </label
-            ><input type="button" value="-" class="qtyminus" field="quantity" />
-            <input type="text" name="quantity" value="0" class="qty" />
-            <input type="button" value="+" class="qtyplus" field="quantity" />
+          <form id="myform" @submit.prevent="handleSubmit">
+            <label>
+              <input
+                type="button"
+                value="-"
+                class="qtyminus"
+                @click="decrement"
+                field="quantity"
+              />
+            </label>
+            <input type="text" name="quantity" :value="quantity" class="qty" />
+            <label>
+              <input
+                type="button"
+                value="+"
+                class="qtyplus"
+                @click="increment"
+                field="quantity"
+              />
+            </label>
           </form>
         </div>
         <div class="ms-5">
@@ -37,9 +70,11 @@
               加入購物車
             </button>
           </div>
-          <button type="button" class="btn rounded-pill btn-buy">
-            直接購買
-          </button>
+          <router-link to="/Product">
+            <button type="button" class="btn rounded-pill btn-buy">
+              直接購買
+            </button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -89,6 +124,9 @@
       background-color: var(--orange-color4);
       color: #fff;
     }
+    &:active {
+      background-color: var(--orange-color2);
+    }
   }
   .btn-pluscart {
     background-color: var(--orange-color1);
@@ -100,6 +138,9 @@
     &:hover {
       background-color: var(--orange-color4);
       color: #fff;
+    }
+    &:active {
+      background-color: var(--orange-color2);
     }
   }
 }

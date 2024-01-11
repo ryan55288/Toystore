@@ -41,9 +41,9 @@ $(function () {
   background-color: var(--orange-color2);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   &:hover {
-    background-color: var(--orange-color1);
+    background-color: var(--orange-color3);
     i {
-      color: #000;
+      color: #fff;
     }
   }
   .img {

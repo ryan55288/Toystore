@@ -110,6 +110,14 @@ const routes = [
           title: "結帳三",
         },
       },
+      {
+        path: "Product",
+        name: "Product",
+        component: () => import("@/view/Product.vue"),
+        meta: {
+          title: "產品頁",
+        },
+      },
     ],
   },
 ];
