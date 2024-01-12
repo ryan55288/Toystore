@@ -1,28 +1,7 @@
 <script setup>
-import Web_Product_Card from "@/components/Web_Product_Card.vue";
+import WebProductCard from "@/components/WebProductCard.vue";
 </script>
-<script>
-// export default {
-//   data() {
-//     return {
-//       shouldAnimate: false,
-//     };
-//   },
-//   mounted() {
-//     $(window).scroll(this.handleScroll);
-//   },
-//   beforeUnmount() {
-//     $(window).off("scroll", this.handleScroll);
-//   },
-//   methods: {
-//     handleScroll() {
-//       const section4Rect = this.$refs.section4.getBoundingClientRect();
-//       this.shouldAnimate =
-//         section4Rect.top < window.innerHeight && section4Rect.bottom > 0;
-//     },
-//   },
-// };
-</script>
+<script></script>
 
 <template>
   <div class="box1"></div>
@@ -37,16 +16,16 @@ import Web_Product_Card from "@/components/Web_Product_Card.vue";
         <div id="oneReward" class="reel-body animate__animated">
           <div class="container pt-40">
             <div class="row">
-              <div class="col-4"><Web_Product_Card /></div>
-              <div class="col-4"><Web_Product_Card /></div>
-              <div class="col-4"><Web_Product_Card /></div>
+              <div class="col-4"><WebProductCard /></div>
+              <div class="col-4"><WebProductCard /></div>
+              <div class="col-4"><WebProductCard /></div>
             </div>
           </div>
           <div class="container pt-40">
             <div class="row">
-              <div class="col-4"><Web_Product_Card /></div>
-              <div class="col-4"><Web_Product_Card /></div>
-              <div class="col-4"><Web_Product_Card /></div>
+              <div class="col-4"><WebProductCard /></div>
+              <div class="col-4"><WebProductCard /></div>
+              <div class="col-4"><WebProductCard /></div>
             </div>
           </div>
         </div>
@@ -97,6 +76,12 @@ import Web_Product_Card from "@/components/Web_Product_Card.vue";
 </template>
 
 <style scoped lang="scss">
+.box1 {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  background-color: var(--green-color2);
+}
 .section1 {
   height: 2500px;
   background-color: var(--orange-color2);
@@ -148,11 +133,4 @@ import Web_Product_Card from "@/components/Web_Product_Card.vue";
 // .animate__bounceInDown {
 //   opacity: 1; /* 滚动到可见时设置透明度为 1，触发动画 */
 // }
-
-.box1 {
-  width: 100%;
-  height: 80px;
-  position: fixed;
-  background-color: var(--green-color2);
-}
 </style>

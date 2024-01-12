@@ -1,6 +1,5 @@
 <script setup>
 import UserComponents from "@/components/UserComponents.vue";
-import Web_Product_Card from "@/components/Web_Product_Card.vue";
 </script>
 
 <template>

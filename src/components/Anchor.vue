@@ -57,9 +57,4 @@ $(function () {
     color: rgb(161, 160, 160);
   }
 }
-@media (max-width: 1200px) {
-  .anchor {
-    display: none;
-  }
-}
 </style>

@@ -24,7 +24,7 @@
         <li class="mr-3">
           <div class="dropdown">
             <div
-              class="btn dropdown-toggle btn-sm text-white fw-bold mr-20 fs-24"
+              class="btn dropdown-toggle btn-sm text-white fw-bold mr-20 fs-24 aboutus"
               type="button"
               id="dropdownMenuButton1"
               data-bs-toggle="dropdown"
@@ -214,6 +214,29 @@
 </template>
 
 <style scoped>
+.box1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.33);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.1px);
+  -webkit-backdrop-filter: blur(4.1px);
+  position: fixed;
+  z-index: 2;
+  input {
+    width: 375px;
+    height: 35px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+  ul li a {
+    text-decoration: none;
+  }
+  /* @include flex-all-center; */
+}
 .dropdown span img {
   width: 20px;
   height: 20px;
@@ -303,29 +326,21 @@
   }
 }
 
-.box1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 80px;
-  background-color: rgba(255, 255, 255, 0.33);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4.1px);
-  -webkit-backdrop-filter: blur(4.1px);
-  position: fixed;
-  z-index: 2;
-  input {
-    width: 375px;
-    height: 35px;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+@media (max-width: 1440px) {
+  .section4 {
+    input {
+      display: none;
+    }
+    .searchSet {
+      display: none;
+    }
   }
-  ul li a {
-    text-decoration: none;
+  .section3 {
+    img {
+      margin-right: 50px;
+    }
   }
 }
-
 @media (max-width: 375px) {
   .box1 {
     border-radius: 10px;

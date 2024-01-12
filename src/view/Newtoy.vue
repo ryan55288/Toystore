@@ -1,6 +1,6 @@
 <script setup>
-import NewProduct_Type from "@/components/NewProduct_Type.vue";
-import Web_Product_Card from "@/components/Web_Product_Card.vue";
+import NewProductType from "@/components/NewProductType.vue";
+import NewProductCard from "@/components/NewProductCard.vue";
 import Anchor from "@/components/Anchor.vue";
 import Page from "@/components/Page.vue";
 </script>
@@ -117,24 +117,24 @@ export default {
     </div>
   </section>
 
-  <section class="section2"><NewProduct_Type class="pt-20" /></section>
+  <section class="section2"><NewProductType class="pt-20" /></section>
 
   <section class="section3">
     <div class="text-white text-center fw-bold fs-36 pt-40">鋼彈模型</div>
     <div class="container">
       <div class="row pt-40">
-        <div class="col-md-3"><Web_Product_Card /></div>
-        <div class="col-md-3"><Web_Product_Card /></div>
-        <div class="col-md-3"><Web_Product_Card /></div>
-        <div class="col-md-3"><Web_Product_Card /></div>
+        <div class="col-md-3"><NewProductCard /></div>
+        <div class="col-md-3"><NewProductCard /></div>
+        <div class="col-md-3"><NewProductCard /></div>
+        <div class="col-md-3"><NewProductCard /></div>
       </div>
     </div>
     <div class="container">
       <div class="row pt-40">
-        <div class="col-md-3"><Web_Product_Card /></div>
-        <div class="col-md-3"><Web_Product_Card /></div>
-        <div class="col-md-3"><Web_Product_Card /></div>
-        <div class="col-md-3"><Web_Product_Card /></div>
+        <div class="col-md-3"><NewProductCard /></div>
+        <div class="col-md-3"><NewProductCard /></div>
+        <div class="col-md-3"><NewProductCard /></div>
+        <div class="col-md-3"><NewProductCard /></div>
       </div>
     </div>
     <div class="d-flex justify-content-center">
@@ -142,20 +142,6 @@ export default {
     </div>
   </section>
 
-  <!-- <section class="section4">
-    <div class="d-flex justify-content-center">
-      <img
-        src="../assets/img/bg/newToyPage/reel-bottom.svg"
-        alt=""
-        class="reel"
-      />
-    </div>
-    <div class="d-flex justify-content-center">
-      <div
-        class="reel-body mb-200 animate__bounceInDown animate__animated"
-      ></div>
-    </div>
-  </section> -->
   <section class="section4" ref="section4">
     <div class="d-flex justify-content-center">
       <img
@@ -308,7 +294,7 @@ export default {
   background-color: var(--green-color1);
 }
 .section3 {
-  height: 1150px;
+  height: 1300px;
   background-color: var(--green-color1);
 }
 .carouselImg {

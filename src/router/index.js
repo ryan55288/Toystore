@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   {
     path: "/",
+    redirect: "/Center",
     name: "Layout",
     component: () => import("@/view/Layout.vue"),
     children: [

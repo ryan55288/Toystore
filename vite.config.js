@@ -12,4 +12,11 @@ export default defineConfig({
       },
     ],
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/assets/scss/_function.scss";`,
+      },
+    },
+  },
 });

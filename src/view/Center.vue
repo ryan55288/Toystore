@@ -1,6 +1,6 @@
 <script setup>
-import Web_Product_Card from "@/components/Web_Product_Card.vue";
-import Web_Newproduct_Card from "@/components/Web_Newproduct_Card.vue";
+import WebProductCard from "@/components/WebProductCard.vue";
+import NewProductCard from "@/components/NewProductCard.vue";
 import Anchor from "@/components/Anchor.vue";
 </script>
 
@@ -31,9 +31,9 @@ $(document).ready(function () {
 
 <template>
   <div class="web">
-    <div><Anchor /></div>
+    <div class="Anchor"><Anchor /></div>
     <section class="section1">
-      <div class="container pt-80">
+      <div class="container">
         <div class="carousel">
           <div class="item a"></div>
           <div class="item b"></div>
@@ -61,32 +61,36 @@ $(document).ready(function () {
 
     <section class="section2 pt-40">
       <p class="fs-36 text-center text-white fw-bold">8年級生最新商品</p>
-      <div class="allCard d-flex justify-content-center no-wrap mt-30">
-        <div>
-          <Web_Product_Card />
-        </div>
-        <div>
-          <Web_Product_Card />
-        </div>
-        <div>
-          <Web_Product_Card />
-        </div>
-        <div>
-          <Web_Product_Card />
+      <div class="allCard d-flex justify-content-center mt-30 container-fluid">
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+            <WebProductCard />
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <WebProductCard />
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <WebProductCard />
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <WebProductCard />
+          </div>
         </div>
       </div>
-      <div class="allCard d-flex justify-content-center mt-30">
-        <div>
-          <Web_Product_Card />
-        </div>
-        <div>
-          <Web_Product_Card />
-        </div>
-        <div>
-          <Web_Product_Card />
-        </div>
-        <div>
-          <Web_Product_Card />
+      <div class="allCard d-flex justify-content-center container-fluid">
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+            <WebProductCard />
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <WebProductCard />
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <WebProductCard />
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <WebProductCard />
+          </div>
         </div>
       </div>
       <div class="d-flex justify-content-center">
@@ -96,11 +100,11 @@ $(document).ready(function () {
 
     <section class="section3">
       <p class="text-white fw-bold text-center">新潮玩具</p>
-      <div class="container">
+      <div class="container mb-20">
         <div class="allCard row mt-30">
-          <div class="col-md-4"><Web_Newproduct_Card /></div>
-          <div class="col-md-4"><Web_Newproduct_Card /></div>
-          <div class="col-md-4"><Web_Newproduct_Card /></div>
+          <div class="col-md-6 col-lg-4"><NewProductCard /></div>
+          <div class="col-md-6 col-lg-4"><NewProductCard /></div>
+          <div class="col-md-6 col-lg-4"><NewProductCard /></div>
         </div>
       </div>
       <div class="d-flex justify-content-center">
@@ -252,6 +256,10 @@ $(document).ready(function () {
 </template>
 
 <style scoped>
+.Anchor {
+  z-index: 3;
+  position: fixed;
+}
 .section1 {
   width: 100%;
   padding-top: 200px;
@@ -259,7 +267,9 @@ $(document).ready(function () {
   background-image: url(../assets/img/bg/centerTop-bg.svg);
   background-repeat: no-repeat;
   background-color: var(--green-color1);
+  background-position: center;
   .Kong-icon {
+    background-position: left;
     position: absolute;
     bottom: 100px;
     left: 300px;
@@ -271,11 +281,12 @@ $(document).ready(function () {
   }
 
   .container {
+    padding-top: 90px;
     margin: 0 auto;
     width: 250px;
-    height: 200px;
+    height: 250px;
     position: relative;
-    perspective: 1000px;
+    perspective: 1200px;
     font-family: "Lemon";
   }
 
@@ -289,37 +300,43 @@ $(document).ready(function () {
       transform: rotateY(0deg) translateZ(250px);
       background: rgba(57, 56, 56, 0.5);
       background-image: url(../assets/img/Product/80toy/麥特比1.svg);
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
     .b {
       transform: rotateY(60deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
       background-image: url(../assets/img/Product/80toy/龍騎士.svg);
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
     .c {
       transform: rotateY(120deg) translateZ(250px);
       background: rgba(172, 168, 168, 1);
       background-image: url(../assets/img/bg/carousel/1.svg);
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
     .d {
       transform: rotateY(180deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
       background-image: url(../assets/img/bg/carousel/2.svg);
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
     .e {
       transform: rotateY(240deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
       background-image: url(../assets/img/bg/carousel/3.svg);
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
     .f {
       transform: rotateY(300deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.2);
       background-image: url(../assets/img/bg/carousel/4.svg);
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
   }
 
@@ -360,11 +377,11 @@ $(document).ready(function () {
     box-shadow: 0 1px 0 #999;
   }
   .next {
-    margin-top: 210px;
+    margin-top: 270px;
     right: 5px;
   }
   .prev {
-    margin-top: 210px;
+    margin-top: 270px;
     left: 5px;
   }
 }
@@ -405,10 +422,8 @@ $(document).ready(function () {
 }
 .section3 {
   background-image: url(../assets/img/bg/center-content-bg.svg);
-  width: 100%;
   height: 350px;
   background-color: var(--green-color1);
-  z-index: 2;
   p {
     padding-top: 40px;
     font-size: 36px;
@@ -417,12 +432,11 @@ $(document).ready(function () {
 }
 .section4 {
   background-color: var(--green-color1);
-  width: 100%;
   height: 390px;
 }
 
 .btn-more {
-  margin-top: 40px;
+  margin-top: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 160px;
   height: 60px;
@@ -443,8 +457,7 @@ $(document).ready(function () {
 
 .section2 {
   background-color: var(--green-color1);
-  width: 100%;
-  height: 1160px;
+  height: 1120px;
   margin: 0 auto;
   p {
     font-family: "Lemon";
@@ -456,6 +469,16 @@ $(document).ready(function () {
 
 .phone {
   display: none;
+}
+@media (max-width: 1440px) {
+  .section1 {
+    .Kong-icon {
+      display: none;
+    }
+  }
+  .allCard div {
+    padding: 5px 10px;
+  }
 }
 
 @media (max-width: 375px) {

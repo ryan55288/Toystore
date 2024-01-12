@@ -1,7 +1,7 @@
 <script setup>
-import Product_Type from "@/components/Product_Type.vue";
-import Web_Product_Card from "@/components/Web_Product_Card.vue";
-import Web_Newproduct_Card from "@/components/Web_Newproduct_Card.vue";
+import ProductType from "@/components/ProductType.vue";
+import WebProductCard from "@/components/WebProductCard.vue";
+import NewProductCard from "@/components/NewProductCard.vue";
 import Page from "@/components/Page.vue";
 import Anchor from "@/components/Anchor.vue";
 </script>
@@ -29,27 +29,29 @@ import Anchor from "@/components/Anchor.vue";
       </div>
     </div>
   </section>
-  <div><Product_Type /></div>
+  <div><ProductType /></div>
+
   <section class="section2">
     <div class="pt-40 text-center fs-36 fw-bold text-white">百獸戰隊</div>
     <div class="container mt-40">
       <div class="row">
-        <div class="col-md-3"><Web_Product_Card /></div>
-        <div class="col-md-3"><Web_Product_Card /></div>
-        <div class="col-md-3"><Web_Product_Card /></div>
-        <div class="col-md-3"><Web_Product_Card /></div>
+        <div class="col-md-3"><WebProductCard /></div>
+        <div class="col-md-3"><WebProductCard /></div>
+        <div class="col-md-3"><WebProductCard /></div>
+        <div class="col-md-3"><WebProductCard /></div>
       </div>
     </div>
     <div class="container mt-40">
       <div class="row">
-        <div class="col-md-3"><Web_Product_Card /></div>
-        <div class="col-md-3"><Web_Product_Card /></div>
-        <div class="col-md-3"><Web_Product_Card /></div>
-        <div class="col-md-3"><Web_Product_Card /></div>
+        <div class="col-md-3"><WebProductCard /></div>
+        <div class="col-md-3"><WebProductCard /></div>
+        <div class="col-md-3"><WebProductCard /></div>
+        <div class="col-md-3"><WebProductCard /></div>
       </div>
     </div>
     <div class="page"><Page /></div>
   </section>
+
   <section class="section3">
     <div class="fs-36 fw-bold text-white text-center pt-40">熱銷商品</div>
     <div class="container mt-40">
@@ -58,19 +60,19 @@ import Anchor from "@/components/Anchor.vue";
           <span class="hot-icon fs-24 fw-bold"
             >HOT1<i class="fas fa-fire-alt"></i
           ></span>
-          <Web_Newproduct_Card />
+          <NewProductCard />
         </div>
         <div class="col-md-4">
           <span class="hot-icon fs-24 fw-bold"
             >HOT2<i class="fas fa-fire-alt"></i
           ></span>
-          <Web_Newproduct_Card />
+          <NewProductCard />
         </div>
         <div class="col-md-4">
           <span class="hot-icon fs-24 fw-bold"
             >HOT3<i class="fas fa-fire-alt"></i
           ></span>
-          <Web_Newproduct_Card />
+          <NewProductCard />
         </div>
       </div>
     </div>
@@ -78,59 +80,66 @@ import Anchor from "@/components/Anchor.vue";
 </template>
 
 <style scoped>
-.hot-icon {
-  z-index: 1;
-  position: relative;
-  top: 36px;
-  left: 32px;
-  background-color: var(--orange-color1);
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px;
-}
-.section3 {
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 730px;
-  background-image: url(../assets/img/bg/80ToyPage/bottom-bg-1.svg);
+.section1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 400px;
+    height: 400px;
+    padding: 20px;
+  }
+  .marquee-all {
+    overflow: hidden;
+    overflow-x: hidden;
+    .marquee-content {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 8s linear infinite;
+      display: flex;
+      align-items: center;
+      font-family: "Lemon";
+    }
+
+    .marquee-content2 {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 8s ease-in-out infinite;
+    }
+    .marquee-content3 {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 8s linear infinite;
+      font-family: "Lemon";
+    }
+  }
 }
 .section2 {
   height: 1200px;
   width: 100%;
   background-color: var(--green-color1);
 }
+.section3 {
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 730px;
+  background-image: url(../assets/img/bg/80ToyPage/bottom-bg-1.svg);
+  .hot-icon {
+    z-index: 1;
+    position: relative;
+    top: 36px;
+    left: 18px;
+    background-color: var(--orange-color1);
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+  }
+}
+
 .box1 {
   background-image: url(../assets/img/bg/80ToyPage/top-bg1.svg);
   width: 100%;
   height: 750px;
-}
-.box div {
-  color: #fff;
-}
-.marquee-all {
-  overflow: hidden;
-  overflow-x: hidden;
-}
-
-.marquee-content {
-  display: inline-block;
-  white-space: nowrap;
-  animation: marquee 8s linear infinite;
-  display: flex;
-  align-items: center;
-  font-family: "Lemon";
-}
-
-.marquee-content2 {
-  display: inline-block;
-  white-space: nowrap;
-  animation: marquee 8s ease-in-out infinite;
-}
-.marquee-content3 {
-  display: inline-block;
-  white-space: nowrap;
-  animation: marquee 8s linear infinite;
-  font-family: "Lemon";
 }
 
 @keyframes marquee {
@@ -156,16 +165,5 @@ import Anchor from "@/components/Anchor.vue";
   100% {
     transform: translateX(0);
   }
-}
-
-.section1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.section1 img {
-  width: 400px;
-  height: 400px;
-  padding: 20px;
 }
 </style>
