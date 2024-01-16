@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-
 const routes = [
   {
     path: "/",
@@ -67,6 +66,33 @@ const routes = [
         path: "UserPage",
         name: "UserPage",
         component: () => import("@/view/UserPage.vue"),
+        //再新增3個頁面
+        children: [
+          {
+            path: "UserInfo",
+            name: "UserInfo",
+            component: () => import("@/view/UserInfo.vue"),
+            meta: {
+              title: "會員資訊",
+            },
+          },
+          {
+            path: "MyLove",
+            name: "MyLove",
+            component: () => import("@/view/MyLove.vue"),
+            meta: {
+              title: "會員資訊",
+            },
+          },
+          {
+            path: "HistoryOrder",
+            name: "HistoryOrder",
+            component: () => import("@/view/HistoryOrder.vue"),
+            meta: {
+              title: "會員資訊",
+            },
+          },
+        ],
         meta: {
           title: "會員頁面",
         },

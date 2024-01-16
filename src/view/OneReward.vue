@@ -5,6 +5,7 @@ import WebProductCard from "@/components/WebProductCard.vue";
 
 <template>
   <div class="box1"></div>
+  <!--  -->
   <section class="section1 pt-140">
     <div class="d-flex justify-content-center">
       <section class="reel-body1">
@@ -16,16 +17,16 @@ import WebProductCard from "@/components/WebProductCard.vue";
         <div id="oneReward" class="reel-body animate__animated">
           <div class="container pt-40">
             <div class="row">
-              <div class="col-4"><WebProductCard /></div>
-              <div class="col-4"><WebProductCard /></div>
-              <div class="col-4"><WebProductCard /></div>
+              <div class="col-md-4"><WebProductCard /></div>
+              <div class="col-md-4"><WebProductCard /></div>
+              <div class="col-md-4"><WebProductCard /></div>
             </div>
           </div>
           <div class="container pt-40">
             <div class="row">
-              <div class="col-4"><WebProductCard /></div>
-              <div class="col-4"><WebProductCard /></div>
-              <div class="col-4"><WebProductCard /></div>
+              <div class="col-md-4"><WebProductCard /></div>
+              <div class="col-md-4"><WebProductCard /></div>
+              <div class="col-md-4"><WebProductCard /></div>
             </div>
           </div>
         </div>
@@ -36,7 +37,7 @@ import WebProductCard from "@/components/WebProductCard.vue";
       <hr />
     </div>
 
-    <section class="section5" ref="section4">
+    <section class="section5" ref="section5">
       <div class="d-flex justify-content-center">
         <img src="../assets/img/bg/newToyPage/reel-bottom3.svg" alt="" />
       </div>
@@ -46,7 +47,7 @@ import WebProductCard from "@/components/WebProductCard.vue";
           <div class="container pt-50">
             <div class="row justify-content-center">
               <div class="col-md-12 reel-contant">
-                <h3 class="mt-10">一番賞是什麼？</h3>
+                <h3 class="mt-40">一番賞是什麼？</h3>
                 <p>
                   一番賞是來自日文「一番くじ」，是2003年由日本萬代南宮夢（bandai
                   namco）旗下的萬代魂（bandai
@@ -95,11 +96,6 @@ import WebProductCard from "@/components/WebProductCard.vue";
     width: 1200px;
     height: 1200px;
     background-color: var(--green-color2);
-    // position: relative;
-    // top: -15px;
-    // left: 0px;
-    //   opacity: 0; /* 初始时设置透明度为 0 */
-    //   transition: opacity 1s; /* 添加渐变效果 */
   }
 }
 .section5 {
@@ -122,15 +118,6 @@ import WebProductCard from "@/components/WebProductCard.vue";
     width: 1200px;
     height: 800px;
     background-color: var(--green-color2);
-    // position: relative;
-    // top: -15px;
-    // left: 0px;
-    // opacity: 0; /* 初始时设置透明度为 0 */
-    //   transition: opacity 1s; /* 添加渐变效果 */
   }
 }
-
-// .animate__bounceInDown {
-//   opacity: 1; /* 滚动到可见时设置透明度为 1，触发动画 */
-// }
 </style>

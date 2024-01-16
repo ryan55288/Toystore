@@ -228,21 +228,6 @@ export default {
 </template>
 
 <style scoped>
-.reel-body h3 {
-  background-color: #fff;
-  width: 610px;
-  height: 215px;
-}
-.reel-body h4 {
-  background-color: var(--orange-color3);
-  width: 610px;
-  height: 85px;
-}
-.animate__bounceInDown {
-  animation-name: bounceInDown;
-  animation-duration: 1.5s;
-}
-
 @keyframes bounceInDown {
   from,
   60%,
@@ -284,40 +269,63 @@ export default {
   left: 0px;
   opacity: 0; /* 初始时设置透明度为 0 */
   transition: opacity 1s; /* 添加渐变效果 */
+  h3 {
+    background-color: #fff;
+    width: 610px;
+    height: 215px;
+    color: var(--green-color1);
+    &:hover {
+      color: var(--green-color2);
+    }
+  }
+  h4 {
+    background-color: var(--orange-color3);
+    width: 610px;
+    height: 85px;
+    color: var(--green-color1);
+    &:hover {
+      color: var(--green-color2);
+    }
+  }
 }
 
-.animate__bounceInDown {
-  opacity: 1; /* 滚动到可见时设置透明度为 1，触发动画 */
-}
 .section4 {
   height: 1400px;
   background-color: var(--green-color1);
+  .animate__bounceInDown {
+    animation-name: bounceInDown;
+    animation-duration: 1.5s;
+    opacity: 1;
+  }
 }
 .section3 {
   height: 1300px;
   background-color: var(--green-color1);
 }
-.carouselImg {
-  height: 600px;
+.section2 {
+  .carouselImg {
+    height: 600px;
+  }
+  .carouselAll {
+    width: 440px;
+    height: 550px;
+  }
+  .bg-1 {
+    background-image: url(../assets/img/bg/newToyPage/bg-top1.svg);
+    width: 750px;
+    height: 600px;
+  }
+  .bg-2 {
+    background-image: url(../assets/img/bg/newToyPage/bg-top2.svg);
+    background-repeat: no-repeat;
+    width: 1000px;
+    height: 600px;
+  }
 }
+
 .section0 {
   height: 80px;
   width: 100%;
   background-color: var(--green-color1);
-}
-.carouselAll {
-  width: 440px;
-  height: 550px;
-}
-.bg-1 {
-  background-image: url(../assets/img/bg/newToyPage/bg-top1.svg);
-  width: 750px;
-  height: 600px;
-}
-.bg-2 {
-  background-image: url(../assets/img/bg/newToyPage/bg-top2.svg);
-  background-repeat: no-repeat;
-  width: 1000px;
-  height: 600px;
 }
 </style>

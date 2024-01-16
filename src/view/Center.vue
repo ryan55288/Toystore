@@ -263,7 +263,7 @@ $(document).ready(function () {
 .section1 {
   width: 100%;
   padding-top: 200px;
-  height: 690px;
+  height: 780px;
   background-image: url(../assets/img/bg/centerTop-bg.svg);
   background-repeat: no-repeat;
   background-color: var(--green-color1);
@@ -284,14 +284,13 @@ $(document).ready(function () {
     padding-top: 90px;
     margin: 0 auto;
     width: 250px;
-    height: 250px;
+    height: 200px;
     position: relative;
     perspective: 1200px;
     font-family: "Lemon";
   }
 
   .carousel {
-    height: 100%;
     width: 100%;
     position: absolute;
     transform-style: preserve-3d;
@@ -378,11 +377,11 @@ $(document).ready(function () {
   }
   .next {
     margin-top: 270px;
-    right: 5px;
+    right: 390px;
   }
   .prev {
     margin-top: 270px;
-    left: 5px;
+    left: 390px;
   }
 }
 

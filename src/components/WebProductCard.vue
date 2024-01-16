@@ -65,16 +65,24 @@ const handleSubmit = () => {
       </div>
       <div class="card-bottom">
         <div class="d-flex justify-content-center">
-          <div class="mx-3">
-            <button type="button" class="btn rounded-pill btn-pluscart">
-              加入購物車
-            </button>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mx-3">
+                  <button type="button" class="btn rounded-pill btn-pluscart">
+                    加入購物車
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <router-link to="/Product">
+                  <button type="button" class="btn rounded-pill btn-buy">
+                    直接購買
+                  </button>
+                </router-link>
+              </div>
+            </div>
           </div>
-          <router-link to="/Product">
-            <button type="button" class="btn rounded-pill btn-buy">
-              直接購買
-            </button>
-          </router-link>
         </div>
       </div>
     </div>
