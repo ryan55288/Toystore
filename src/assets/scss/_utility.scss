@@ -22,6 +22,17 @@
 .bg-orange3 {
   background-color: var(--orange-color3);
 }
+.bg-green {
+  background-color: var(--green-color2);
+}
+
+a {
+  text-decoration: none;
+}
+.button-shadow {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 @font-face {
   font-family: "Lemon"; //重命名字体名
   src: url("../font/Lemon-Regular.ttf");
@@ -29,9 +40,6 @@
   font-style: normal;
 }
 
-a {
-  text-decoration: none;
-}
 // img {
 //   display: block;
 //   width: 100%;

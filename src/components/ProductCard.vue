@@ -1,66 +1,55 @@
-<script setup>
-import { ref } from "vue";
-
-const quantity = ref(0);
-
-const increment = () => {
-  quantity.value++;
-};
-
-const decrement = () => {
-  if (quantity.value > 0) {
-    quantity.value--;
-  }
-};
-
-const handleSubmit = () => {
-  console.log("Form submitted with quantity:", quantity.value);
-};
-</script>
-
 <template>
   <div class="d-flex justify-content-center">
     <div class="card">
       <div class="d-flex justify-content-center">
         <img
-          src="../assets/img/Product/80toy/麥特把2.png"
+          src="../assets/img/Product/80toy/天空精靈王.png"
           alt=""
           class="w-75"
         />
       </div>
       <div class="card-top d-flex">
-        <div class="card-content ms-4">
-          <div class="mb-2">百獸戰隊-天空精靈王</div>
-          <div class="mb-2">庫存:1</div>
-          <p class="mb-2">NTD:$2,480</p>
-          <form id="myform" @submit.prevent="handleSubmit">
-            <label>
-              <input
-                type="button"
-                value="-"
-                class="qtyminus"
-                @click="decrement"
-                field="quantity"
+        <div class="card-content container">
+          <div class="row">
+            <div class="col-md-8">
+              <p>百獸戰隊-天空精靈王</p>
+              <p>庫存:1</p>
+              <p>NTD:$2,480</p>
+              <form id="myform" @submit.prevent="handleSubmit">
+                <label>
+                  <input
+                    type="button"
+                    value="-"
+                    class="qtyminus"
+                    @click="decrement"
+                    field="quantity"
+                  />
+                </label>
+                <input
+                  type="text"
+                  name="quantity"
+                  :value="quantity"
+                  class="qty"
+                />
+                <label>
+                  <input
+                    type="button"
+                    value="+"
+                    class="qtyplus"
+                    @click="increment"
+                    field="quantity"
+                  />
+                </label>
+              </form>
+            </div>
+            <div class="col-md-4">
+              <img
+                src="../assets/img/logo&icon/mylove.svg"
+                alt=""
+                class="myloveIcon"
               />
-            </label>
-            <input type="text" name="quantity" :value="quantity" class="qty" />
-            <label>
-              <input
-                type="button"
-                value="+"
-                class="qtyplus"
-                @click="increment"
-                field="quantity"
-              />
-            </label>
-          </form>
-        </div>
-        <div class="ms-5">
-          <img
-            src="../assets/img/logo&icon/mylove.svg"
-            alt=""
-            class="myloveIcon"
-          />
+            </div>
+          </div>
         </div>
       </div>
       <div class="card-bottom">
@@ -68,7 +57,7 @@ const handleSubmit = () => {
           <div class="container">
             <div class="row">
               <div class="col-md-6">
-                <div class="mx-3">
+                <div class="mx-1">
                   <button type="button" class="btn rounded-pill btn-pluscart">
                     加入購物車
                   </button>
@@ -88,6 +77,29 @@ const handleSubmit = () => {
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      quantity: 0,
+    };
+  },
+  methods: {
+    increment() {
+      this.quantity++;
+    },
+    decrement() {
+      if (this.quantity > 0) {
+        this.quantity--;
+      }
+    },
+    handleSubmit() {
+      console.log("Form submitted with quantity:", this.quantity);
+    },
+  },
+};
+</script>
 
 <style scoped>
 .card-top {
@@ -117,6 +129,13 @@ const handleSubmit = () => {
   }
   .myloveIcon {
     cursor: pointer;
+    &:active {
+      background-image: url(../assets/img/logo&icon/fullLove.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 50px;
+      height: 50px;
+    }
   }
 }
 
@@ -125,10 +144,11 @@ const handleSubmit = () => {
   height: 430px;
   background-color: #fff;
   p {
-    color: var(--orange-color1);
-  }
-  img {
-    padding: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    &:nth-child(3) {
+      color: var(--orange-color1);
+    }
   }
   &:hover {
     border: 3px solid var(--orange-color3);

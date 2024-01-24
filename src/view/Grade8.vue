@@ -1,6 +1,6 @@
 <script setup>
 import ProductType from "@/components/ProductType.vue";
-import WebProductCard from "@/components/WebProductCard.vue";
+import WebProductCard from "@/components/ProductCard.vue";
 import NewProductCard from "@/components/NewProductCard.vue";
 import Page from "@/components/Page.vue";
 import Anchor from "@/components/Anchor.vue";
@@ -19,7 +19,7 @@ import Anchor from "@/components/Anchor.vue";
         <div>
           <img src="../assets/img/Product/80toy/天空精靈王.png" alt="" />
         </div>
-        <div><img src="../assets/img/Product/80toy/金剛.png" alt="" /></div>
+        <div><img src="../assets/img/Product/80toy/kong.svg" alt="" /></div>
         <div><img src="../assets/img/Product/80toy/電車.png" alt="" /></div>
         <div><img src="../assets/img/Product/80toy/鳳凰.png" alt="" /></div>
         <div><img src="../assets/img/Product/80toy/麥特把2.png " alt="" /></div>
@@ -121,7 +121,6 @@ import Anchor from "@/components/Anchor.vue";
 }
 .section3 {
   background-repeat: no-repeat;
-  width: 100%;
   height: 730px;
   background-image: url(../assets/img/bg/80ToyPage/bottom-bg-1.svg);
   .hot-icon {

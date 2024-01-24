@@ -1,40 +1,12 @@
-<script setup>
-import WebProductCard from "@/components/WebProductCard.vue";
-import NewProductCard from "@/components/NewProductCard.vue";
-import Anchor from "@/components/Anchor.vue";
-</script>
-
-<script>
-$(document).ready(function () {
-  var carousel = $(".carousel"),
-    currdeg = 0;
-
-  $(".next, .prev").on("click", function (e) {
-    var direction = $(this).hasClass("next") ? "n" : "p";
-
-    if (direction === "n") {
-      currdeg -= 60;
-    }
-    if (direction === "p") {
-      currdeg += 60;
-    }
-
-    carousel.css({
-      "-webkit-transform": "rotateY(" + currdeg + "deg)",
-      "-moz-transform": "rotateY(" + currdeg + "deg)",
-      "-o-transform": "rotateY(" + currdeg + "deg)",
-      transform: "rotateY(" + currdeg + "deg)",
-    });
-  });
-});
-</script>
-
 <template>
   <div class="web">
     <div class="Anchor"><Anchor /></div>
     <section class="section1">
-      <div class="container">
-        <div class="carousel">
+      <div class="container animate__animated animate__zoomInDown">
+        <div
+          class="carousel"
+          :style="{ transform: 'rotateY(' + rotation + 'deg)' }"
+        >
           <div class="item a"></div>
           <div class="item b"></div>
           <div class="item c"></div>
@@ -44,10 +16,14 @@ $(document).ready(function () {
         </div>
       </div>
       <div class="next">
-        <i class="far fa-hand-point-right fa-2x"></i>
+        <button @click="rotateCarousel('p')">
+          <i class="far fa-hand-point-right fa-2x"></i>
+        </button>
       </div>
       <div class="prev">
-        <i class="far fa-hand-point-left fa-2x"></i>
+        <button @click="rotateCarousel('n')">
+          <i class="far fa-hand-point-left fa-2x"></i>
+        </button>
       </div>
 
       <div class="Kong-icon">
@@ -61,46 +37,53 @@ $(document).ready(function () {
 
     <section class="section2 pt-40">
       <p class="fs-36 text-center text-white fw-bold">8年級生最新商品</p>
-      <div class="allCard d-flex justify-content-center mt-30 container-fluid">
+      <div
+        :class="{ animate__backInLeft: shouldAnimate }"
+        class="allCard d-flex justify-content-center mt-30 container-fluid animate__animated"
+      >
         <div class="row">
           <div class="col-md-6 col-lg-3">
-            <WebProductCard />
+            <ProductCard />
           </div>
           <div class="col-md-6 col-lg-3">
-            <WebProductCard />
+            <ProductCard />
           </div>
           <div class="col-md-6 col-lg-3">
-            <WebProductCard />
+            <ProductCard />
           </div>
           <div class="col-md-6 col-lg-3">
-            <WebProductCard />
+            <ProductCard />
           </div>
         </div>
       </div>
-      <div class="allCard d-flex justify-content-center container-fluid">
+      <div
+        class="allCard d-flex justify-content-center container-fluid animate__animated animate__backInRight"
+      >
         <div class="row">
           <div class="col-md-6 col-lg-3">
-            <WebProductCard />
+            <ProductCard />
           </div>
           <div class="col-md-6 col-lg-3">
-            <WebProductCard />
+            <ProductCard />
           </div>
           <div class="col-md-6 col-lg-3">
-            <WebProductCard />
+            <ProductCard />
           </div>
           <div class="col-md-6 col-lg-3">
-            <WebProductCard />
+            <ProductCard />
           </div>
         </div>
       </div>
       <div class="d-flex justify-content-center">
-        <button class="btn btn-more">看更多</button>
+        <router-link to="/Grade8">
+          <button class="btn btn-more">看更多</button>
+        </router-link>
       </div>
     </section>
 
     <section class="section3">
       <p class="text-white fw-bold text-center">新潮玩具</p>
-      <div class="container mb-20">
+      <div class="container">
         <div class="allCard row mt-30">
           <div class="col-md-6 col-lg-4"><NewProductCard /></div>
           <div class="col-md-6 col-lg-4"><NewProductCard /></div>
@@ -108,7 +91,9 @@ $(document).ready(function () {
         </div>
       </div>
       <div class="d-flex justify-content-center">
-        <button class="btn btn-more">看更多</button>
+        <router-link to="/Newtoy">
+          <button class="btn btn-more">看更多</button>
+        </router-link>
       </div>
     </section>
 
@@ -176,94 +161,107 @@ $(document).ready(function () {
       </div>
     </section>
   </div>
-  <!-- phone -->
-  <div class="phone">
-    <section class="centerBg">
-      <div class="section2">
-        <div
-          id="carouselExampleControls"
-          class="carousel slide"
-          data-bs-ride="carousel"
-        >
-          <div class="carousel-inner">
-            <div class="carousel-item active mt-5">
-              <img
-                src="../assets/img/Product/麥特比1.svg"
-                class="d-block"
-                alt="..."
-              />
-              <div class="fs-36 fw-bold mt-3 text-center text-white">
-                經典回憶
-              </div>
-              <div class="fs-24 fw-bold mt-2 text-center text-white">
-                徽章戰士-麥特比
-              </div>
-            </div>
-            <div class="carousel-item mt-5">
-              <img
-                src="../assets/img/Product/金剛.svg"
-                class="d-block"
-                alt="..."
-              />
-              <div class="fs-36 fw-bold mt-3 text-center text-white">
-                經典回憶
-              </div>
-              <div class="fs-24 fw-bold mt-2 text-center text-white">
-                百獸戰隊-牙吠騎士
-              </div>
-            </div>
-            <div class="carousel-item mt-5">
-              <img
-                src="../assets/img/Product/龍騎士.svg"
-                class="d-block"
-                alt="..."
-              />
-              <div class="fs-36 fw-bold mt-3 text-center text-white">
-                經典回憶
-              </div>
-              <div class="fs-24 fw-bold mt-2 text-center text-white">
-                戰鬥陀螺-龍騎士
-              </div>
-            </div>
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleControls"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
-    </section>
-    <section class="project2">
-      <div class="fs-24 text-center text-white fw-bold pt-4">
-        8年級生最新商品
-      </div>
-    </section>
-  </div>
 </template>
 
-<style scoped>
-.Anchor {
-  z-index: 3;
-  position: fixed;
+<script>
+import NewProductCard from "@/components/NewProductCard.vue";
+import ProductCard from "@/components/ProductCard.vue";
+import Anchor from "@/components/Anchor.vue";
+export default {
+  components: { NewProductCard, ProductCard, Anchor },
+
+  data() {
+    return {
+      shouldAnimate: false,
+      items: ["a", "b", "c", "d", "e", "f"],
+      rotation: 0,
+      deg: 60,
+    };
+  },
+  mounted() {
+    $(window).scroll(this.handleScroll);
+  },
+  beforeUnmount() {
+    $(window).off("scroll", this.handleScroll);
+  },
+  methods: {
+    next() {
+      this.rotation -= this.deg;
+    },
+    prev() {
+      this.rotation += this.deg;
+    },
+    handleScroll() {
+      const section2Rect = this.$refs.section2.getBoundingClientRect();
+      this.shouldAnimate =
+        section2Rect.top < window.innerHeight && section2Rect.bottom > 0;
+    },
+  },
+};
+</script>
+
+<!-- <script>
+$(document).ready(function () {
+  var carousel = $(".carousel"),
+    currdeg = 0;
+
+  $(".next, .prev").on("click", function (e) {
+    var direction = $(this).hasClass("next") ? "n" : "p";
+
+    if (direction === "n") {
+      currdeg -= 60;
+    }
+    if (direction === "p") {
+      currdeg += 60;
+    }
+
+    carousel.css({
+      "-webkit-transform": "rotateY(" + currdeg + "deg)",
+      "-moz-transform": "rotateY(" + currdeg + "deg)",
+      "-o-transform": "rotateY(" + currdeg + "deg)",
+      transform: "rotateY(" + currdeg + "deg)",
+    });
+  });
+});
+</script> -->
+
+<style lang="scss" scoped>
+@keyframes backInLeft {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -1500px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    transform: none;
+  }
 }
+
 .section1 {
   width: 100%;
-  padding-top: 200px;
-  height: 780px;
+  padding-top: 300px;
+  height: 900px;
   background-image: url(../assets/img/bg/centerTop-bg.svg);
   background-repeat: no-repeat;
   background-color: var(--green-color1);
@@ -271,8 +269,8 @@ $(document).ready(function () {
   .Kong-icon {
     background-position: left;
     position: absolute;
-    bottom: 100px;
-    left: 300px;
+    bottom: 50px;
+    left: 250px;
   }
   body {
     background: #333;
@@ -298,14 +296,14 @@ $(document).ready(function () {
     .a {
       transform: rotateY(0deg) translateZ(250px);
       background: rgba(57, 56, 56, 0.5);
-      background-image: url(../assets/img/Product/80toy/麥特比1.svg);
+      background-image: url(../assets/img/Product/80toy/beetle1.svg);
       background-size: contain;
       background-repeat: no-repeat;
     }
     .b {
       transform: rotateY(60deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
-      background-image: url(../assets/img/Product/80toy/龍騎士.svg);
+      background-image: url(../assets/img/Product/80toy/dragon.svg);
       background-size: contain;
       background-repeat: no-repeat;
     }
@@ -376,15 +374,51 @@ $(document).ready(function () {
     box-shadow: 0 1px 0 #999;
   }
   .next {
-    margin-top: 270px;
+    margin-top: 300px;
     right: 390px;
   }
   .prev {
-    margin-top: 270px;
+    margin-top: 300px;
     left: 390px;
   }
+  .prev button,
+  .next button {
+    border: 0px solid #fff;
+    background-color: var(--orange-color3);
+    color: #fff;
+  }
 }
-
+.section2 {
+  background-color: var(--green-color1);
+  height: 1140px;
+  margin: 0 auto;
+  p {
+    font-family: "Lemon";
+  }
+  .allCard div {
+    padding: 5px 10px;
+  }
+  .animate__backInLeft {
+    animation-name: backInLeft;
+    animation-duration: 1.5s;
+    opacity: 1;
+  }
+}
+.section3 {
+  background-image: url(../assets/img/bg/center-content-bg.svg);
+  display: block;
+  height: 350px;
+  background-color: var(--green-color1);
+  p {
+    padding-top: 50px;
+    font-size: 36px;
+    font-family: "Lemon";
+  }
+}
+.section4 {
+  background-color: var(--green-color1);
+  height: 390px;
+}
 .section5 {
   background-image: url(../assets/img/bg/center-BG-bottom.svg);
   width: 100%;
@@ -419,20 +453,6 @@ $(document).ready(function () {
     }
   }
 }
-.section3 {
-  background-image: url(../assets/img/bg/center-content-bg.svg);
-  height: 350px;
-  background-color: var(--green-color1);
-  p {
-    padding-top: 40px;
-    font-size: 36px;
-    font-family: "Lemon";
-  }
-}
-.section4 {
-  background-color: var(--green-color1);
-  height: 390px;
-}
 
 .btn-more {
   margin-top: 20px;
@@ -453,17 +473,12 @@ $(document).ready(function () {
     color: #fff;
   }
 }
-
-.section2 {
-  background-color: var(--green-color1);
-  height: 1120px;
-  margin: 0 auto;
-  p {
-    font-family: "Lemon";
-  }
-  .allCard div {
-    padding: 5px 10px;
-  }
+.web {
+  overflow-y: hidden;
+}
+.Anchor {
+  z-index: 3;
+  position: fixed;
 }
 
 .phone {
@@ -477,6 +492,9 @@ $(document).ready(function () {
   }
   .allCard div {
     padding: 5px 10px;
+  }
+  .Anchor {
+    display: none;
   }
 }
 

@@ -23,34 +23,47 @@ const handleSubmit = () => {
     <div class="card">
       <img src="../assets/img/Product/80toy/鳳凰.png" alt="" class="card-img" />
       <div class="d-flex card-middle">
-        <div class="content ml-50">
-          <div class="mb-2">戰鬥陀螺-鳳凰</div>
-          <div class="mb-2">庫存:1</div>
-          <p class="mb-2">NTD:$2,480</p>
-          <form id="myform" @submit.prevent="handleSubmit">
-            <label>
-              <input
-                type="button"
-                value="-"
-                class="qtyminus"
-                @click="decrement"
-                field="quantity"
+        <div class="container card-middle">
+          <div class="row">
+            <div class="col-md-8">
+              <p>百獸戰隊-天空精靈王</p>
+              <p>庫存:1</p>
+              <p>NTD:$2,480</p>
+              <form id="myform" @submit.prevent="handleSubmit">
+                <label>
+                  <input
+                    type="button"
+                    value="-"
+                    class="qtyminus"
+                    @click="decrement"
+                    field="quantity"
+                  />
+                </label>
+                <input
+                  type="text"
+                  name="quantity"
+                  :value="quantity"
+                  class="qty"
+                />
+                <label>
+                  <input
+                    type="button"
+                    value="+"
+                    class="qtyplus"
+                    @click="increment"
+                    field="quantity"
+                  />
+                </label>
+              </form>
+            </div>
+            <div class="col-md-4">
+              <img
+                src="../assets/img/logo&icon/mylove.svg"
+                alt=""
+                class="myloveIcon"
               />
-            </label>
-            <input type="text" name="quantity" :value="quantity" class="qty" />
-            <label>
-              <input
-                type="button"
-                value="+"
-                class="qtyplus"
-                @click="increment"
-                field="quantity"
-              />
-            </label>
-          </form>
-        </div>
-        <div class="ms-5">
-          <img src="../assets/img/logo&icon/mylove.svg" alt="" class="" />
+            </div>
+          </div>
         </div>
       </div>
       <div class="card-bottom">
@@ -77,18 +90,22 @@ const handleSubmit = () => {
 
 <style scoped>
 .card {
-  width: 380px;
   height: 500px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   p {
-    color: var(--orange-color1);
+    font-weight: bold;
+    margin-bottom: 10px;
+    &:nth-child(3) {
+      color: var(--orange-color1);
+    }
   }
   .card-img {
     height: 300px;
   }
 }
 .card-middle {
+  padding: 0px 30px;
   .qtyminus {
     width: 25px;
     height: 30px;
@@ -120,7 +137,7 @@ const handleSubmit = () => {
     background-color: var(--orange-color1);
     color: #fff;
     font-weight: bold;
-    width: 120px;
+    width: 130px;
     height: 45px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     &:hover {
@@ -134,7 +151,7 @@ const handleSubmit = () => {
     background-color: var(--orange-color3);
     color: #fff;
     font-weight: bold;
-    width: 120px;
+    width: 130px;
     height: 45px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     &:hover {

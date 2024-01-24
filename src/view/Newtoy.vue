@@ -1,34 +1,5 @@
-<script setup>
-import NewProductType from "@/components/NewProductType.vue";
-import NewProductCard from "@/components/NewProductCard.vue";
-import Anchor from "@/components/Anchor.vue";
-import Page from "@/components/Page.vue";
-</script>
-<script>
-export default {
-  data() {
-    return {
-      shouldAnimate: false,
-    };
-  },
-  mounted() {
-    $(window).scroll(this.handleScroll);
-  },
-  beforeUnmount() {
-    $(window).off("scroll", this.handleScroll);
-  },
-  methods: {
-    handleScroll() {
-      const section4Rect = this.$refs.section4.getBoundingClientRect();
-      this.shouldAnimate =
-        section4Rect.top < window.innerHeight && section4Rect.bottom > 0;
-    },
-  },
-};
-</script>
-
 <template>
-  <div><Anchor /></div>
+  <div class="Anchor"><Anchor /></div>
   <section class="section0"></section>
   <section class="section2 d-flex">
     <div class="bg-1"></div>
@@ -59,12 +30,6 @@ export default {
           data-bs-slide-to="2"
           aria-label="Slide 3"
         ></button>
-        <!-- <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button> -->
       </div>
       <div class="carousel-inner carouselImg">
         <div class="carousel-item active" data-bs-interval="1500">
@@ -88,13 +53,6 @@ export default {
             alt="..."
           />
         </div>
-        <!-- <div class="carousel-item">
-          <img
-            src="../assets/img/Product/newtoy/鋼彈模型/egg4.svg"
-            class="d-block"
-            alt="..."
-          />
-        </div> -->
       </div>
       <button
         class="carousel-control-prev"
@@ -122,19 +80,19 @@ export default {
   <section class="section3">
     <div class="text-white text-center fw-bold fs-36 pt-40">鋼彈模型</div>
     <div class="container">
-      <div class="row pt-40">
-        <div class="col-md-3"><NewProductCard /></div>
-        <div class="col-md-3"><NewProductCard /></div>
-        <div class="col-md-3"><NewProductCard /></div>
-        <div class="col-md-3"><NewProductCard /></div>
+      <div class="row">
+        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
+        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
+        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
+        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
       </div>
     </div>
     <div class="container">
-      <div class="row pt-40">
-        <div class="col-md-3"><NewProductCard /></div>
-        <div class="col-md-3"><NewProductCard /></div>
-        <div class="col-md-3"><NewProductCard /></div>
-        <div class="col-md-3"><NewProductCard /></div>
+      <div class="row">
+        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
+        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
+        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
+        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
       </div>
     </div>
     <div class="d-flex justify-content-center">
@@ -226,8 +184,36 @@ export default {
     </div>
   </section>
 </template>
+<script>
+import NewProductType from "@/components/NewProductType.vue";
+import NewProductCard from "@/components/NewProductCard.vue";
+import Anchor from "@/components/Anchor.vue";
+import Page from "@/components/Page.vue";
+export default {
+  components: { NewProductType, NewProductCard, Anchor, Page },
 
-<style scoped>
+  data() {
+    return {
+      shouldAnimate: false,
+    };
+  },
+  mounted() {
+    $(window).scroll(this.handleScroll);
+  },
+  beforeUnmount() {
+    $(window).off("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const section4Rect = this.$refs.section4.getBoundingClientRect();
+      this.shouldAnimate =
+        section4Rect.top < window.innerHeight && section4Rect.bottom > 0;
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
 @keyframes bounceInDown {
   from,
   60%,
@@ -301,6 +287,9 @@ export default {
 .section3 {
   height: 1300px;
   background-color: var(--green-color1);
+  .row {
+    padding-top: 40px;
+  }
 }
 .section2 {
   .carouselImg {
@@ -327,5 +316,10 @@ export default {
   height: 80px;
   width: 100%;
   background-color: var(--green-color1);
+}
+@media (max-width: 1440px) {
+  .Anchor {
+    display: none;
+  }
 }
 </style>

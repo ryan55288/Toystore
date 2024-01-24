@@ -14,7 +14,7 @@
       <div class="list-group pt-60">
         <router-link to="/UserPage/UserInfo">
           <a
-            class="list-group-item bg-green list-group-item-action list-group-item-success"
+            class="list-group-item bg-green list-group-item-action"
             aria-current="true"
             data-toggle="list"
           >
@@ -28,7 +28,7 @@
         </router-link>
         <router-link to="/UserPage/MyLove">
           <a
-            class="list-group-item bg-green list-group-item-action list-group-item-success"
+            class="list-group-item bg-green list-group-item-action"
             aria-current="true"
             data-toggle="list"
           >
@@ -42,7 +42,7 @@
         </router-link>
         <router-link to="/UserPage/HistoryOrder">
           <a
-            class="list-group-item bg-green list-group-item-action list-group-item-success"
+            class="list-group-item bg-green list-group-item-action"
             aria-current="true"
             data-toggle="list"
           >
@@ -88,6 +88,12 @@
     }
     .list-group .bg-green {
       background-color: var(--green-color2);
+      div {
+        border-radius: 10px;
+        &:hover {
+          background-color: rgba(223, 222, 222, 0.5);
+        }
+      }
     }
   }
   .page-content {

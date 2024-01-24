@@ -64,7 +64,7 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              商品頁
+              商品區
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
@@ -92,8 +92,16 @@
               會員中心
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">會員註冊</a></li>
-              <li><a class="dropdown-item" href="#">會員登入</a></li>
+              <li>
+                <router-link to="/MemberSign">
+                  <a class="dropdown-item">會員註冊</a>
+                </router-link>
+              </li>
+              <li>
+                <router-link to="/MemberLogin">
+                  <a class="dropdown-item" href="#">會員登入</a>
+                </router-link>
+              </li>
               <li>
                 <router-link to="/UserPage">
                   <a class="dropdown-item" href="#">會員頁面</a>
@@ -101,7 +109,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown Cart">
             <a
               class="nav-link dropdown-toggle"
               href="#"
@@ -150,6 +158,7 @@
               </li>
             </ul>
           </li>
+          <img src="../assets/img/logo&icon/cart.svg" alt="" />
         </ul>
       </div>
     </div>
@@ -193,6 +202,23 @@
     font-size: 20px;
     color: #fff;
     margin-right: 25px;
+    &::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 3px;
+      background-color: #fff;
+      border-right: 0px;
+      border-left: 0px;
+      border-top: 1px;
+    }
+    &:hover::after {
+      width: 100%;
+      transition: 0.3s;
+    }
+  }
+  ul li {
+    height: 35px;
   }
   .dropdown-menu {
     background-color: rgba(75, 73, 73, 0.5);
@@ -202,38 +228,43 @@
       background-color: rgba(223, 222, 222, 0.5);
     }
   }
-
-  .thead-dark {
-    color: #fff;
-    font-weight: bold;
-  }
-  tbody {
-    th,
-    td {
+  .Cart {
+    cursor: pointer;
+    ul li {
+      height: 100%;
+    }
+    .thead-dark {
       color: #fff;
       font-weight: bold;
     }
-    i {
-      color: #fff;
-      &:hover {
-        color: var(--orange-color1);
+    tbody {
+      th,
+      td {
+        color: #fff;
+        font-weight: bold;
+      }
+      i {
+        color: #fff;
+        &:hover {
+          color: var(--orange-color1);
+        }
       }
     }
-  }
-  .table-size {
-    width: 300px;
-  }
-  .checkout {
-    background-color: var(--orange-color3);
-    font-size: 18px;
-    font-weight: bolder;
-    color: #fff;
-    border: 0px solid;
-    border-radius: 10px;
-    padding: 10px 110px;
-    &:hover {
-      background-color: var(--orange-color1);
+    .table-size {
+      width: 300px;
+    }
+    .checkout {
+      background-color: var(--orange-color3);
+      font-size: 18px;
+      font-weight: bolder;
       color: #fff;
+      border: 0px solid;
+      border-radius: 10px;
+      padding: 10px 110px;
+      &:hover {
+        background-color: var(--orange-color1);
+        color: #fff;
+      }
     }
   }
 }

@@ -4,7 +4,7 @@
   <div class="box1"></div>
   <div class="d-flex justify-content-center">
     <div class="bg-1 d-flex justify-content-center pt-120">
-      <section class="section3">
+      <section class="section1">
         <div class="text-center fs-36 fw-bold text-green pt-50">會員登入</div>
         <div class="d-flex justify-content-center">
           <form class="formSet">
@@ -57,32 +57,50 @@
 </template>
 
 <style scoped>
-.btnSet {
-  width: 440px;
-  height: 60px;
-  border-radius: 60px;
-  color: #fff;
-  border: 0px;
-}
-.loginBtn {
+.box1 {
+  position: fixed;
+  width: 100%;
+  height: 80px;
   background-color: var(--green-color2);
 }
-.submitBtn {
-  background-color: var(--orange-color3);
-}
-.form-label {
-  font-style: 24px;
-  font-weight: bold;
-  color: var(--green-color1);
-}
-.formSet {
-  width: 450px;
-}
-.section3 {
+.section1 {
   border-radius: 10px;
   width: 600px;
   height: 630px;
   background-color: #fff;
+  .formSet {
+    width: 450px;
+    .form-label {
+      font-style: 24px;
+      font-weight: bold;
+      color: var(--green-color1);
+    }
+  }
+  .btnSet {
+    width: 440px;
+    height: 60px;
+    border-radius: 60px;
+    color: #fff;
+    border: 0px;
+  }
+  .loginBtn {
+    background-color: var(--green-color2);
+    &:hover {
+      background-color: var(--green-color1);
+    }
+    &:active {
+      background-color: var(--orange-color2);
+    }
+  }
+  .submitBtn {
+    background-color: var(--orange-color3);
+    &:hover {
+      background-color: var(--orange-color4);
+    }
+    &:active {
+      background-color: var(--orange-color2);
+    }
+  }
 }
 .bg-1 {
   background-image: url(../assets/img/bg/Member/member-bg.svg);
@@ -93,31 +111,6 @@
 
 .phone {
   display: none;
-}
-.dropdownClass {
-  background: rgba(172, 168, 168, 0.5);
-  backdrop-filter: blur(4.1px);
-  -webkit-backdrop-filter: blur(4.1px);
-}
-
-.box5 ul li a {
-  font-size: 24px;
-}
-.box5 ul li {
-  padding-left: 40px;
-}
-.box3 a {
-  margin-left: 80px;
-}
-.box4 input {
-  margin-left: 40px;
-  border: 1px gray solid;
-}
-.box1 {
-  width: 100%;
-  height: 80px;
-  position: fixed;
-  background-color: var(--green-color2);
 }
 
 @media (max-width: 375px) {
@@ -137,9 +130,7 @@
   .phone-logo {
     margin-left: 30px;
   }
-  .box3 {
-    display: none;
-  }
+
   .box1 {
     background-color: var(--green-color2);
   }
