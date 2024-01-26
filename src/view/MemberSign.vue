@@ -20,37 +20,37 @@
               />
             </div>
             <div class="mb-3 pt-20">
-              <label for="exampleInputPassword1" class="form-label"
+              <label for="exampleInputPassword2" class="form-label"
                 >Email:</label
               >
               <input
                 type="password"
                 class="form-control"
-                id="exampleInputPassword3"
+                id="exampleInputPassword2"
                 placeholder="請輸入Email"
                 autocomplete="on"
               />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
+              <label for="exampleInputPassword3" class="form-label"
                 >帳號:</label
               >
               <input
                 type="password"
                 class="form-control"
-                id="exampleInputPassword4"
+                id="exampleInputPassword3"
                 placeholder="請輸入帳號"
                 autocomplete="on"
               />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
+              <label for="exampleInputPassword4" class="form-label"
                 >密碼:</label
               >
               <input
                 type="password"
                 class="form-control"
-                id="exampleInputPassword2"
+                id="exampleInputPassword4"
                 placeholder="請輸入密碼"
                 autocomplete="on"
               />

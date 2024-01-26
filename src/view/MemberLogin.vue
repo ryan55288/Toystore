@@ -15,13 +15,13 @@
               <input
                 type="password"
                 class="form-control"
-                id="exampleInputPassword"
+                id="exampleInputPassword1"
                 placeholder="請輸入帳號"
                 autocomplete="on"
               />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
+              <label for="exampleInputPassword2" class="form-label"
                 >密碼:</label
               >
               <input
@@ -35,9 +35,11 @@
             <div class="text-center fs-24 fw-bold pt-20 text-green">
               忘記密碼?
             </div>
-            <button type="submit" class="loginBtn btnSet fs-24 fw-bold mt-20">
-              登入
-            </button>
+            <router-link to="/UserPage">
+              <button type="submit" class="loginBtn btnSet fs-24 fw-bold mt-20">
+                登入
+              </button>
+            </router-link>
             <div class="text-center fs-24 fw-bold pt-20 text-green">
               還不是會員?
             </div>

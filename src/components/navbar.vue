@@ -102,11 +102,11 @@
                   <a class="dropdown-item" href="#">會員登入</a>
                 </router-link>
               </li>
-              <li>
+              <!-- <li>
                 <router-link to="/UserPage">
                   <a class="dropdown-item" href="#">會員頁面</a>
                 </router-link>
-              </li>
+              </li> -->
             </ul>
           </li>
           <li class="nav-item dropdown Cart">
@@ -134,17 +134,21 @@
                   <tbody>
                     <tr>
                       <th>
-                        <a
-                          href="#"
-                          class="del"
-                          data-target="#del"
-                          data-toggle="modal"
-                          data-title="超好吃拉麵"
-                        >
+                        <a href="#" class="del" data-target="#del">
                           <i class="far fa-trash-alt fa-1x"></i>
                         </a>
                       </th>
                       <td>自由鋼彈</td>
+                      <td scope="row">1</td>
+                      <td class="text-right">$500</td>
+                    </tr>
+                    <tr>
+                      <th>
+                        <a href="#" class="del" data-target="#del">
+                          <i class="far fa-trash-alt fa-1x"></i>
+                        </a>
+                      </th>
+                      <td>脈衝鋼彈</td>
                       <td scope="row">1</td>
                       <td class="text-right">$500</td>
                     </tr>
