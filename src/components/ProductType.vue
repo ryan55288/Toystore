@@ -5,7 +5,7 @@
     <ul class="d-flex justify-content-center">
       <li>徽章戰士</li>
       <li>百獸戰隊</li>
-      <li>彈珠人</li>
+      <li>彈珠超人</li>
       <li>戰鬥陀螺</li>
       <li>數碼寶貝</li>
     </ul>

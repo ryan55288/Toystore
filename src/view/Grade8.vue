@@ -34,7 +34,7 @@ import Anchor from "@/components/Anchor.vue";
   <section class="section2">
     <div class="pt-40 text-center fs-36 fw-bold text-white">百獸戰隊</div>
     <div class="container mt-40">
-      <div class="row">
+      <div class="row animate__animated animate__backInLeft">
         <div class="col-md-3"><WebProductCard /></div>
         <div class="col-md-3"><WebProductCard /></div>
         <div class="col-md-3"><WebProductCard /></div>
@@ -42,7 +42,7 @@ import Anchor from "@/components/Anchor.vue";
       </div>
     </div>
     <div class="container mt-40">
-      <div class="row">
+      <div class="row animate__animated animate__backInRight">
         <div class="col-md-3"><WebProductCard /></div>
         <div class="col-md-3"><WebProductCard /></div>
         <div class="col-md-3"><WebProductCard /></div>
@@ -55,7 +55,7 @@ import Anchor from "@/components/Anchor.vue";
   <section class="section3">
     <div class="fs-36 fw-bold text-white text-center pt-40">熱銷商品</div>
     <div class="container mt-40">
-      <div class="row">
+      <div class="row animate__animated animate__bounceIn">
         <div class="col-md-4">
           <span class="hot-icon fs-24 fw-bold"
             >HOT1<i class="fas fa-fire-alt"></i

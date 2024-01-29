@@ -39,7 +39,7 @@
       <p class="fs-36 text-center text-white fw-bold">8年級生最新商品</p>
       <div
         :class="{ animate__backInLeft: shouldAnimate }"
-        class="allCard d-flex justify-content-center mt-30 container-fluid animate__animated"
+        class="allCard d-flex justify-content-center mt-30 container-fluid animate__animated animate__backInLeft"
       >
         <div class="row">
           <div class="col-md-6 col-lg-3">
@@ -82,8 +82,12 @@
     </section>
 
     <section class="section3">
-      <p class="text-white fw-bold text-center">新潮玩具</p>
-      <div class="container">
+      <p
+        class="text-white fw-bold text-center animate__animated animate__rubberBand"
+      >
+        新潮玩具
+      </p>
+      <div class="container animate__animated animate__rubberBand">
         <div class="allCard row mt-30">
           <div class="col-md-6 col-lg-4"><NewProductCard /></div>
           <div class="col-md-6 col-lg-4"><NewProductCard /></div>
@@ -200,6 +204,7 @@ export default {
 };
 </script>
 
+<!--------------------輪播動畫JQ寫法----------->
 <!-- <script>
 $(document).ready(function () {
   var carousel = $(".carousel"),
@@ -397,11 +402,6 @@ $(document).ready(function () {
   }
   .allCard div {
     padding: 5px 10px;
-  }
-  .animate__backInLeft {
-    animation-name: backInLeft;
-    animation-duration: 1.5s;
-    opacity: 1;
   }
 }
 .section3 {

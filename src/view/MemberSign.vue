@@ -4,7 +4,7 @@
   <div class="box1"></div>
   <div class="d-flex justify-content-center">
     <div class="bg-1 d-flex justify-content-center pt-120">
-      <section class="section1">
+      <section class="section1 animate__animated animate__pulse">
         <div class="text-center fs-36 fw-bold text-green pt-40">會員註冊</div>
         <div class="d-flex justify-content-center">
           <form class="formSet">

@@ -78,8 +78,12 @@
   <section class="section2"><NewProductType class="pt-20" /></section>
 
   <section class="section3">
-    <div class="text-white text-center fw-bold fs-36 pt-40">鋼彈模型</div>
-    <div class="container">
+    <div
+      class="text-white text-center fw-bold fs-36 pt-40 animate__animated animate__flipInX"
+    >
+      鋼彈模型
+    </div>
+    <div class="container animate__animated animate__flipInX">
       <div class="row">
         <div class="col-md-6 col-lg-3"><NewProductCard /></div>
         <div class="col-md-6 col-lg-3"><NewProductCard /></div>
@@ -87,7 +91,7 @@
         <div class="col-md-6 col-lg-3"><NewProductCard /></div>
       </div>
     </div>
-    <div class="container">
+    <div class="container animate__animated animate__flipInX">
       <div class="row">
         <div class="col-md-6 col-lg-3"><NewProductCard /></div>
         <div class="col-md-6 col-lg-3"><NewProductCard /></div>
