@@ -8,6 +8,7 @@
           <img src="../assets/img/logo&icon/logo.svg" alt=""
         /></a>
       </router-link>
+      <!-- 手機版漢堡選單 -->
       <!-- <button
         class="navbar-toggler"
         type="button"
@@ -102,11 +103,6 @@
                   <a class="dropdown-item" href="#">會員登入</a>
                 </router-link>
               </li>
-              <!-- <li>
-                <router-link to="/UserPage">
-                  <a class="dropdown-item" href="#">會員頁面</a>
-                </router-link>
-              </li> -->
             </ul>
           </li>
           <li class="nav-item dropdown Cart">
@@ -162,7 +158,10 @@
               </li>
             </ul>
           </li>
-          <img src="../assets/img/logo&icon/cart.svg" alt="" />
+          <li class="d-flex align-items-center position-relative">
+            <img src="../assets/img/logo&icon/cart.svg" alt="" />
+            <div class="cart-amount position-absolute text-center">5</div>
+          </li>
         </ul>
       </div>
     </div>
@@ -200,6 +199,18 @@
       background-color: var(--orange-color1);
     }
   }
+  ul li {
+    .cart-amount {
+      padding-top: 5px;
+      top: -4px;
+      right: 2px;
+      background-color: var(--orange-color1);
+      width: 28px;
+      height: 28px;
+      border-radius: 60px;
+      color: #fff;
+    }
+  }
   ul li a {
     font-weight: bolder;
     font-family: "Lemon";
@@ -221,9 +232,6 @@
       transition: 0.3s;
     }
   }
-  ul li {
-    height: 35px;
-  }
   .dropdown-menu {
     background-color: rgba(75, 73, 73, 0.5);
   }
@@ -232,9 +240,10 @@
       background-color: rgba(223, 222, 222, 0.5);
     }
   }
+
   .Cart {
-    cursor: pointer;
     ul li {
+      height: 35px;
       height: 100%;
     }
     .thead-dark {

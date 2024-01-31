@@ -76,7 +76,7 @@
       </div>
       <div class="d-flex justify-content-center">
         <router-link to="/Grade8">
-          <button class="btn btn-more">看更多</button>
+          <button class="btn btn-more">更多商品</button>
         </router-link>
       </div>
     </section>
@@ -85,7 +85,7 @@
       <p
         class="text-white fw-bold text-center animate__animated animate__rubberBand"
       >
-        新潮玩具
+        新潮玩具最新商品
       </p>
       <div class="container animate__animated animate__rubberBand">
         <div class="allCard row mt-30">
@@ -96,7 +96,7 @@
       </div>
       <div class="d-flex justify-content-center">
         <router-link to="/Newtoy">
-          <button class="btn btn-more">看更多</button>
+          <button class="btn btn-more">更多商品</button>
         </router-link>
       </div>
     </section>

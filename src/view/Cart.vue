@@ -1,8 +1,5 @@
-<script setup></script>
-
 <template>
   <div class="box1"></div>
-
   <section class="section2 d-flex justify-content-center pt-40">
     <div class="header">
       <div>商品內容</div>
@@ -23,10 +20,30 @@
             value=""
             id="flexCheckDefault"
           />
-          <label class="form-check-label" for="flexCheckDefault"> </label>
         </span>
+        <label class="form-check-label" for="flexCheckDefault"> </label>
       </div>
-      <div>1</div>
+      <form id="myform" @submit.prevent="handleSubmit">
+        <label>
+          <input
+            type="button"
+            value="-"
+            class="qtyminus"
+            @click="decrement"
+            field="quantity"
+          />
+        </label>
+        <input type="text" name="quantity" :value="quantity" class="qty" />
+        <label>
+          <input
+            type="button"
+            value="+"
+            class="qtyplus"
+            @click="increment"
+            field="quantity"
+          />
+        </label>
+      </form>
       <div>$500</div>
       <div><i class="fas fa-trash fa-2x"></i></div>
     </div>
@@ -45,7 +62,27 @@
           <label class="form-check-label" for="flexCheckDefault"> </label>
         </span>
       </div>
-      <div>1</div>
+      <form id="myform" @submit.prevent="handleSubmit">
+        <label>
+          <input
+            type="button"
+            value="-"
+            class="qtyminus"
+            @click="decrement"
+            field="quantity"
+          />
+        </label>
+        <input type="text" name="quantity" :value="quantity" class="qty" />
+        <label>
+          <input
+            type="button"
+            value="+"
+            class="qtyplus"
+            @click="increment"
+            field="quantity"
+          />
+        </label>
+      </form>
       <div>$500</div>
       <div><i class="fas fa-trash fa-2x"></i></div>
     </div>
@@ -70,6 +107,28 @@
     </router-link>
   </section>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      quantity: 0,
+    };
+  },
+  methods: {
+    increment() {
+      this.quantity++;
+    },
+    decrement() {
+      if (this.quantity > 0) {
+        this.quantity--;
+      }
+    },
+    handleSubmit() {
+      console.log("Form submitted with quantity:", this.quantity);
+    },
+  },
+};
+</script>
 
 <style scoped lang="scss">
 .section6 {
@@ -132,6 +191,29 @@
     .form-check {
       width: 10px;
       height: 10px;
+    }
+
+    .qtyplus {
+      width: 25px;
+      height: 30px;
+      border: 1px solid #aaa;
+      background-color: #f8f8f8;
+      border-radius: 0px 3px 3px 0px;
+    }
+    .qty {
+      width: 40px;
+      height: 30px;
+      text-align: center;
+      border: 0;
+      border-top: 1px solid #aaa;
+      border-bottom: 1px solid #aaa;
+    }
+    .qtyminus {
+      width: 25px;
+      height: 30px;
+      border: 1px solid #aaa;
+      background-color: #f8f8f8;
+      border-radius: 3px 0px 0px 3px;
     }
     > div:nth-child(4) {
       margin-left: 10px;

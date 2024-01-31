@@ -36,8 +36,8 @@ $(function () {
   border-radius: 100%;
   width: 120px;
   height: 120px;
-  bottom: 13.5%;
-  right: 1.5%;
+  bottom: 10.5%;
+  right: 3.5%;
   background-color: var(--orange-color2);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   &:hover {

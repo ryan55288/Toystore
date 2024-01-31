@@ -21,7 +21,11 @@ const handleSubmit = () => {
 <template>
   <div class="d-flex justify-content-center">
     <div class="card">
-      <img src="../assets/img/Product/80toy/鳳凰.png" alt="" class="card-img" />
+      <img
+        src="../assets/img/Product/newtoy/鋼彈模型/IMG.svg"
+        alt=""
+        class="card-img"
+      />
       <div class="d-flex card-middle">
         <div class="container card-middle">
           <div class="row">

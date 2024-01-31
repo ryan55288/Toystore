@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <div class="box1"></div>
   <section class="section1">
@@ -73,10 +71,36 @@
           <div class="container">
             <form class="row">
               <div class="col-md-6">
-                <img src="../assets/img/bg/checkList/creditCard2.svg" alt="" />
+                <div class="d-flex">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="inlineCheckbox1"
+                      value="option1"
+                    />
+                  </div>
+                  <img
+                    src="../assets/img/bg/checkList/creditCard2.svg"
+                    alt=""
+                  />
+                </div>
               </div>
               <div class="col-md-6">
-                <img src="../assets/img/bg/checkList/creditCard1.svg" alt="" />
+                <div class="d-flex">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="inlineCheckbox1"
+                      v-model="visibility"
+                      value="active"
+                    />
+                  </div>
+                  <div>
+                    <p :class="{ active: visibility === 'active' }">貨到付款</p>
+                  </div>
+                </div>
               </div>
               <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">信用卡</label>
@@ -117,21 +141,27 @@
     </div>
   </section>
 
-  <!-- <section class="section7 pt-60 d-flex justify-content-center">
-    <div class="fs-36 fw-bold">選擇付款方式</div>
-  </section> -->
-
   <section class="section6 pt-40 mb-40">
     <div class="all-button">
       <router-link to="/CheckList1" class="text-decoration-none text-white">
         <div><button class="btn1">上一步</button></div></router-link
       >
       <router-link to="/CheckList3" class="text-decoration-none text-white">
-        <div><button class="btn2">下一步</button></div></router-link
+        <div><button class="btn2">完成訂單</button></div></router-link
       >
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      visibility: null,
+    };
+  },
+};
+</script>
 
 <style scoped lang="scss">
 .section7 {
@@ -182,12 +212,28 @@
         padding: 10px;
       }
     }
-    .col-md-12 {
-      .col-md-6 img {
-        &:hover {
+    .col-md-6 {
+      p {
+        text-align: center;
+        padding-top: 20px;
+        font-weight: bold;
+        width: 140px;
+        height: 55px;
+        border: solid 5px var(--orange-color2);
+        border-radius: 10px;
+        &:active {
           border: 5px solid var(--orange-color3);
           border-radius: 10px;
-          cursor: pointer;
+        }
+      }
+    }
+    .col-md-12 {
+      .col-md-6 img {
+        border: solid 5px var(--orange-color2);
+        border-radius: 10px;
+        &:active {
+          border: 5px solid var(--orange-color3);
+          border-radius: 10px;
         }
       }
     }

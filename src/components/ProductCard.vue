@@ -2,11 +2,7 @@
   <div class="d-flex justify-content-center">
     <div class="card">
       <div class="d-flex justify-content-center">
-        <img
-          src="../assets/img/Product/80toy/天空精靈王.png"
-          alt=""
-          class="w-75"
-        />
+        <img src="../assets/img/Product/center/IMG-5.svg" alt="" class="w-75" />
       </div>
       <div class="card-top d-flex">
         <div class="card-content container">
@@ -119,14 +115,15 @@ export default {
       border-top: 1px solid #aaa;
       border-bottom: 1px solid #aaa;
     }
+    .qtyminus {
+      width: 25px;
+      height: 30px;
+      border: 1px solid #aaa;
+      background-color: #f8f8f8;
+      border-radius: 3px 0px 0px 3px;
+    }
   }
-  .qtyminus {
-    width: 25px;
-    height: 30px;
-    border: 1px solid #aaa;
-    background-color: #f8f8f8;
-    border-radius: 3px 0px 0px 3px;
-  }
+
   .myloveIcon {
     cursor: pointer;
     &:active {

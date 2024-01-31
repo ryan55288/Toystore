@@ -6,9 +6,8 @@
       <li>鋼彈模型</li>
       <li>模型車</li>
       <li>LEGO</li>
-      <li>動漫模型</li>
       <li>漫威</li>
-      <li>一番賞區</li>
+      <li>洛克人</li>
     </ul>
   </section>
 </template>
