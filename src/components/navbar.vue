@@ -159,8 +159,8 @@
             </ul>
           </li>
           <li class="d-flex align-items-center position-relative">
-            <img src="../assets/img/logo&icon/cart.svg" alt="" />
-            <div class="cart-amount position-absolute text-center">5</div>
+            <!-- <img src="../assets/img/logo&icon/cart.svg" alt="" /> -->
+            <div class="cart-amount position-absolute text-center mt-2">5</div>
           </li>
         </ul>
       </div>
@@ -216,6 +216,10 @@
     font-family: "Lemon";
     font-size: 20px;
     color: #fff;
+    margin-right: 25px;
+    > a:nth-child(4) {
+      margin-right: 0px;
+    }
     margin-right: 25px;
     &::after {
       content: "";

@@ -3,10 +3,7 @@
     <div class="Anchor"><Anchor /></div>
     <section class="section1">
       <div class="container animate__animated animate__zoomInDown">
-        <div
-          class="carousel"
-          :style="{ transform: 'rotateY(' + rotation + 'deg)' }"
-        >
+        <div class="carousel" :style="{ transform: `rotateY(${rotation}deg)` }">
           <div class="item a"></div>
           <div class="item b"></div>
           <div class="item c"></div>
@@ -16,12 +13,12 @@
         </div>
       </div>
       <div class="next">
-        <button @click="rotateCarousel('p')">
+        <button @click="next">
           <i class="far fa-hand-point-right fa-2x"></i>
         </button>
       </div>
       <div class="prev">
-        <button @click="rotateCarousel('n')">
+        <button @click="prev">
           <i class="far fa-hand-point-left fa-2x"></i>
         </button>
       </div>
@@ -89,9 +86,10 @@
       </p>
       <div class="container animate__animated animate__rubberBand">
         <div class="allCard row mt-30">
+          <!-- <div class="col-md-6 col-lg-4"><NewProductCard /></div>
           <div class="col-md-6 col-lg-4"><NewProductCard /></div>
-          <div class="col-md-6 col-lg-4"><NewProductCard /></div>
-          <div class="col-md-6 col-lg-4"><NewProductCard /></div>
+          <div class="col-md-6 col-lg-4"><NewProductCard /></div> -->
+          <!-- <counter></counter> -->
         </div>
       </div>
       <div class="d-flex justify-content-center">
@@ -171,6 +169,25 @@
 import NewProductCard from "@/components/NewProductCard.vue";
 import ProductCard from "@/components/ProductCard.vue";
 import Anchor from "@/components/Anchor.vue";
+// import Vue from "vue";
+// vue.component("counter", {
+//   data: function () {
+//     return {
+//       counter: 0,
+//     };
+//   },
+//   template: `<div>
+//               你已經點擊
+//               <button
+//                 class="btn btn-outline-secondary btn-sm"
+//                 @click="counter += 1"
+//               >
+//                 {{ counter }}
+//               </button>
+//               下。
+//             </div>`,
+// });
+
 export default {
   components: { NewProductCard, ProductCard, Anchor },
 
@@ -183,10 +200,10 @@ export default {
     };
   },
   mounted() {
-    $(window).scroll(this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll);
   },
   beforeUnmount() {
-    $(window).off("scroll", this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     next() {
@@ -196,39 +213,13 @@ export default {
       this.rotation += this.deg;
     },
     handleScroll() {
-      const section2Rect = this.$refs.section2.getBoundingClientRect();
+      const section2Rect = this.$refs.carousel.getBoundingClientRect();
       this.shouldAnimate =
         section2Rect.top < window.innerHeight && section2Rect.bottom > 0;
     },
   },
 };
 </script>
-
-<!--------------------輪播動畫JQ寫法----------->
-<!-- <script>
-$(document).ready(function () {
-  var carousel = $(".carousel"),
-    currdeg = 0;
-
-  $(".next, .prev").on("click", function (e) {
-    var direction = $(this).hasClass("next") ? "n" : "p";
-
-    if (direction === "n") {
-      currdeg -= 60;
-    }
-    if (direction === "p") {
-      currdeg += 60;
-    }
-
-    carousel.css({
-      "-webkit-transform": "rotateY(" + currdeg + "deg)",
-      "-moz-transform": "rotateY(" + currdeg + "deg)",
-      "-o-transform": "rotateY(" + currdeg + "deg)",
-      transform: "rotateY(" + currdeg + "deg)",
-    });
-  });
-});
-</script> -->
 
 <style lang="scss" scoped>
 @keyframes backInLeft {

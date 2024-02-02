@@ -1,5 +1,6 @@
 import vue from "@vitejs/plugin-vue";
 import { defineConfig } from "vite";
+// import { createVuePlugin } from "vite-plugin-vue";
 import path from "path";
 
 export default defineConfig({
