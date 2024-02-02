@@ -9,7 +9,7 @@
         <div class="d-flex justify-content-center">
           <form class="formSet">
             <div class="pt-20">
-              <label for="exampleInputEmail1" class="form-label">姓名:</label>
+              <label for="exampleInputEmail1" class="form-label">姓名</label>
               <input
                 type="email"
                 class="form-control"
@@ -21,7 +21,7 @@
             </div>
             <div class="mb-3 pt-20">
               <label for="exampleInputPassword2" class="form-label"
-                >Email:</label
+                >Email</label
               >
               <input
                 type="password"
@@ -32,9 +32,7 @@
               />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword3" class="form-label"
-                >帳號:</label
-              >
+              <label for="exampleInputPassword3" class="form-label">帳號</label>
               <input
                 type="password"
                 class="form-control"
@@ -44,9 +42,7 @@
               />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword4" class="form-label"
-                >密碼:</label
-              >
+              <label for="exampleInputPassword4" class="form-label">密碼</label>
               <input
                 type="password"
                 class="form-control"
@@ -56,9 +52,17 @@
               />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
-                >性別:</label
-              >
+              <label for="exampleInputPassword5" class="form-label">載具</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputPassword5"
+                placeholder="請輸入載具"
+                autocomplete="on"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">性別</label>
               <div class="form-check">
                 <div class="form-check form-check-inline">
                   <input
@@ -105,7 +109,7 @@
 .section1 {
   border-radius: 10px;
   width: 600px;
-  height: 680px;
+  height: 720px;
   background-color: #fff;
   .formSet {
     width: 450px;

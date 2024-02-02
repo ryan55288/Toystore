@@ -21,6 +21,10 @@
             <th scope="row" class="text-white fw-bold">性別:</th>
             <td colspan="3" class="text-start bg-light">男</td>
           </tr>
+          <tr>
+            <th scope="row" class="text-white fw-bold">載具:</th>
+            <td colspan="3" class="text-start bg-light">/6WUDFPP</td>
+          </tr>
         </tbody>
       </table>
     </section>

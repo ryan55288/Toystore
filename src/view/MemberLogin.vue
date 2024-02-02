@@ -9,9 +9,7 @@
         <div class="d-flex justify-content-center">
           <form class="formSet">
             <div class="mb-3 mt-40">
-              <label for="exampleInputPassword1" class="form-label"
-                >帳號:</label
-              >
+              <label for="exampleInputPassword1" class="form-label">帳號</label>
               <input
                 type="password"
                 class="form-control"
@@ -21,9 +19,7 @@
               />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword2" class="form-label"
-                >密碼:</label
-              >
+              <label for="exampleInputPassword2" class="form-label">密碼</label>
               <input
                 type="password"
                 class="form-control"

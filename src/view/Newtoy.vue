@@ -34,21 +34,21 @@
       <div class="carousel-inner carouselImg">
         <div class="carousel-item active" data-bs-interval="1500">
           <img
-            src="../assets/img/Product/newtoy/鋼彈模型/egg1.svg"
+            src="../assets/img/Product/newtoy/洛克人/IMG-1.svg"
             class="d-block"
             alt="..."
           />
         </div>
         <div class="carousel-item" data-bs-interval="1500">
           <img
-            src="../assets/img/Product/newtoy/鋼彈模型/egg2.svg"
+            src="../assets/img/Product/newtoy/模型車系列/IMG-2.svg"
             class="d-block"
             alt="..."
           />
         </div>
         <div class="carousel-item" data-bs-interval="1500">
           <img
-            src="../assets/img/Product/newtoy/鋼彈模型/egg3.svg"
+            src="../assets/img/Product/newtoy/鋼彈模型/IMG-3.svg"
             class="d-block"
             alt="..."
           />

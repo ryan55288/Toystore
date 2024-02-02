@@ -10,8 +10,8 @@
           <tr class="text-white fw-bold">
             <th scope="col">訂單編號</th>
             <th scope="col">訂單日期</th>
-            <th scope="col">商品ID</th>
-            <th scope="col">訂單狀態</th>
+            <th scope="col">商品數量</th>
+            <th scope="col">收據方式</th>
             <th scope="col">金額</th>
             <th scope="col">支付方式</th>
           </tr>
@@ -20,8 +20,8 @@
           <tr>
             <th scope="row" class="fw-bold">710112</th>
             <th scope="row" class="fw-bold">20240116</th>
-            <th scope="row" class="fw-bold">01</th>
-            <th scope="row" class="fw-bold">已完成訂單</th>
+            <th scope="row" class="fw-bold">5</th>
+            <th scope="row" class="fw-bold">載具</th>
             <th scope="row" class="fw-bold">500</th>
             <th scope="row" class="fw-bold">貨到付款</th>
           </tr>

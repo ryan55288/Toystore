@@ -10,21 +10,29 @@ import Anchor from "@/components/Anchor.vue";
   <div><Anchor /></div>
   <section class="section1 box1">
     <div class="marquee-all">
-      <div class="marquee-content fs-64 text-white marquee mt-100">
+      <div class="marquee-content fs-48 text-white marquee mt-100">
         Lots of toys you may have missed
       </div>
       <div
-        class="marquee-content2 fs-64 text-white mt-50 d-flex justify-content-center marquee2"
+        class="marquee-content2 mt-50 d-flex justify-content-center marquee2"
       >
         <div>
-          <img src="../assets/img/Product/80toy/天空精靈王.png" alt="" />
+          <img src="../assets/img/Product/80toy/戰隊系列/IMG-3.svg" alt="" />
         </div>
-        <div><img src="../assets/img/Product/80toy/kong.svg" alt="" /></div>
-        <div><img src="../assets/img/Product/80toy/電車.png" alt="" /></div>
-        <div><img src="../assets/img/Product/80toy/鳳凰.png" alt="" /></div>
-        <div><img src="../assets/img/Product/80toy/麥特把2.png " alt="" /></div>
+        <div>
+          <img src="../assets/img/Product/80toy/彈珠超人/IMG-1.svg" alt="" />
+        </div>
+        <div>
+          <img src="../assets/img/Product/80toy/徽章戰士/IMG-2.svg" alt="" />
+        </div>
+        <div>
+          <img src="../assets/img/Product/80toy/戰隊系列/IMG-10.svg" alt="" />
+        </div>
+        <div>
+          <img src="../assets/img/Product/80toy/戰隊系列/IMG-2.svg " alt="" />
+        </div>
       </div>
-      <div class="marquee-content3 fs-64 text-white marquee3">
+      <div class="marquee-content3 fs-48 text-white marquee3">
         But Jungle can help you collect it
       </div>
     </div>

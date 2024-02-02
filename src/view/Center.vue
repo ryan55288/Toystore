@@ -484,6 +484,7 @@ $(document).ready(function () {
 .phone {
   display: none;
 }
+
 @media (max-width: 1440px) {
   .section1 {
     .Kong-icon {

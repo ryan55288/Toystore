@@ -1,26 +1,3 @@
-<script setup></script>
-<script>
-// const app = Vue.createApp({
-//   data() {
-//     return {
-//       quantity: 0,
-//     };
-//   },
-//   methods: {
-//     increment() {
-//       this.quantity++;
-//     },
-//     decrement() {
-//       if (this.quantity > 0) {
-//         this.quantity--;
-//       }
-//     },
-//   },
-// });
-
-// app.mount("#app");
-</script>
-
 <template>
   <div class="box1"></div>
   <div class="box2"></div>
@@ -52,14 +29,14 @@
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img
-                  src="../assets/img/Product/80toy/天空精靈王.png"
+                  src="../assets/img/Product/80toy/戰隊系列/IMG-1.svg"
                   class="d-block w-100"
                   alt="..."
                 />
               </div>
               <div class="carousel-item">
                 <img
-                  src="../assets/img/Product/80toy/天空精靈王2.jpg"
+                  src="../assets/img/Product/80toy/戰隊系列/IMG-1.svg"
                   class="d-block w-100"
                   alt="..."
                 />
@@ -133,13 +110,57 @@
     </div>
   </section>
 </template>
-<style scoped>
+<script>
+export default {
+  data() {
+    return {
+      quantity: 0,
+    };
+  },
+  methods: {
+    increment() {
+      this.quantity++;
+    },
+    decrement() {
+      if (this.quantity > 0) {
+        this.quantity--;
+      }
+    },
+    handleSubmit() {
+      console.log("Form submitted with quantity:", this.quantity);
+    },
+  },
+};
+</script>
+<style lang="scss" scoped>
 .section1 {
   display: flex;
   width: 900px;
   margin: 0 auto;
   background-color: var(--orange-color2);
   .contant {
+    .qtyplus {
+      width: 25px;
+      height: 30px;
+      border: 1px solid #aaa;
+      background-color: #f8f8f8;
+      border-radius: 0px 3px 3px 0px;
+    }
+    .qty {
+      width: 40px;
+      height: 30px;
+      text-align: center;
+      border: 0;
+      border-top: 1px solid #aaa;
+      border-bottom: 1px solid #aaa;
+    }
+    .qtyminus {
+      width: 25px;
+      height: 30px;
+      border: 1px solid #aaa;
+      background-color: #f8f8f8;
+      border-radius: 3px 0px 0px 3px;
+    }
     button {
       &:nth-child(1) {
         color: #fff;
@@ -181,9 +202,10 @@
       padding: 0px 40px 20px;
       .myLove {
         cursor: pointer;
-        &:hover {
+        &:active {
           background-image: url(../assets/img/logo&icon/fullLove.svg);
-          background-size: cover;
+          background-size: contain;
+          background-repeat: no-repeat;
         }
       }
     }
