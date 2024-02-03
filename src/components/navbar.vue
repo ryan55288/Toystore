@@ -128,25 +128,15 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <tr v-for="product in getCartList">
                       <th>
                         <a href="#" class="del" data-target="#del">
                           <i class="far fa-trash-alt fa-1x"></i>
                         </a>
                       </th>
-                      <td>自由鋼彈</td>
-                      <td scope="row">1</td>
-                      <td class="text-right">$500</td>
-                    </tr>
-                    <tr>
-                      <th>
-                        <a href="#" class="del" data-target="#del">
-                          <i class="far fa-trash-alt fa-1x"></i>
-                        </a>
-                      </th>
-                      <td>脈衝鋼彈</td>
-                      <td scope="row">1</td>
-                      <td class="text-right">$500</td>
+                      <td>{{ product.name }}</td>
+                      <td scope="row">{{ product.qty }}</td>
+                      <td class="text-right">${{ product.price }}</td>
                     </tr>
                     <th colspan="4">
                       <router-link to="/Cart">
@@ -160,13 +150,20 @@
           </li>
           <li class="d-flex align-items-center position-relative">
             <!-- <img src="../assets/img/logo&icon/cart.svg" alt="" /> -->
-            <div class="cart-amount position-absolute text-center mt-2">5</div>
+            <div class="cart-amount position-absolute text-center mt-2">{{ getCartList.length }}</div>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
+
+<script setup>
+import { storeToRefs } from 'pinia';
+import { useCartStore } from '@/store/cart'
+const cartStore = useCartStore()
+const { getCartList } = cartStore
+</script>
 
 <style lang="scss" scoped>
 .navbar {

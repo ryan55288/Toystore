@@ -2,16 +2,16 @@
   <div class="d-flex justify-content-center">
     <div class="card">
       <div class="d-flex justify-content-center">
-        <img src="../assets/img/Product/center/IMG-5.svg" alt="" class="w-75" />
+        <img :src="productDetail.picture" alt="" class="w-75" />
       </div>
       <div class="card-top d-flex">
         <div class="card-content container">
           <div class="row">
             <div class="col-md-8">
-              <p>百獸戰隊-天空精靈王</p>
-              <p>庫存:1</p>
-              <p>NTD:$2,480</p>
-              <form id="myform" @submit.prevent="handleSubmit">
+              <p>{{ productDetail.name }}</p>
+              <p>庫存:{{ productDetail.stock }}</p>
+              <p>NTD:${{ productDetail.price }}</p>
+              <form id="myform">
                 <label>
                   <input
                     type="button"
@@ -22,9 +22,9 @@
                   />
                 </label>
                 <input
+                  v-model="productDetail.qty"
                   type="text"
                   name="quantity"
-                  :value="quantity"
                   class="qty"
                 />
                 <label>
@@ -54,7 +54,11 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="mx-1">
-                  <button type="button" class="btn rounded-pill btn-pluscart">
+                  <button 
+                    type="button" 
+                    class="btn rounded-pill btn-pluscart"
+                    @click="addToCart"
+                  >
                     加入購物車
                   </button>
                 </div>
@@ -74,27 +78,33 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      quantity: 0,
-    };
-  },
-  methods: {
-    increment() {
-      this.quantity++;
-    },
-    decrement() {
-      if (this.quantity > 0) {
-        this.quantity--;
-      }
-    },
-    handleSubmit() {
-      console.log("Form submitted with quantity:", this.quantity);
-    },
-  },
-};
+<script setup>
+import { useCartStore } from '../store/cart';
+import { reactive, toRefs } from 'vue';
+
+const cartStore = useCartStore()
+const { addNewProduct, cartState } = cartStore
+const state = reactive({
+  productDetail: {
+    id: 1,
+    name: '百獸戰隊-天空精靈王',
+    stock: 1,
+    price: 2480,
+    picture: new URL('../assets/img/Product/center/IMG-5.svg', import.meta.url),
+    qty: 0
+  }
+})
+const { productDetail } = toRefs(state)
+const increment = () => state.productDetail.qty ++
+const decrement = () => {
+  if (state.productDetail.qty > 0) {
+    state.productDetail.qty--;
+  }
+}
+const addToCart = () => {
+  addNewProduct(state.productDetail)
+  console.log(cartState.cartList);
+}
 </script>
 
 <style scoped>
