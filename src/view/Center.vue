@@ -3,7 +3,10 @@
     <div class="Anchor"><Anchor /></div>
     <section class="section1">
       <div class="container animate__animated animate__zoomInDown">
-        <div class="carousel" :style="{ transform: `rotateY(${rotation}deg)` }">
+        <div 
+          class="carousel" 
+          :style="{ transform: `rotateY(${rotation}deg)` }"
+        >
           <div class="item a"></div>
           <div class="item b"></div>
           <div class="item c"></div>
@@ -12,13 +15,13 @@
           <div class="item f"></div>
         </div>
       </div>
-      <div class="next">
-        <button @click="next">
+      <div class="next" @click="next">
+        <button>
           <i class="far fa-hand-point-right fa-2x"></i>
         </button>
       </div>
-      <div class="prev">
-        <button @click="prev">
+      <div class="prev" @click="prev">
+        <button>
           <i class="far fa-hand-point-left fa-2x"></i>
         </button>
       </div>
@@ -169,24 +172,6 @@
 import NewProductCard from "@/components/NewProductCard.vue";
 import ProductCard from "@/components/ProductCard.vue";
 import Anchor from "@/components/Anchor.vue";
-// import Vue from "vue";
-// vue.component("counter", {
-//   data: function () {
-//     return {
-//       counter: 0,
-//     };
-//   },
-//   template: `<div>
-//               你已經點擊
-//               <button
-//                 class="btn btn-outline-secondary btn-sm"
-//                 @click="counter += 1"
-//               >
-//                 {{ counter }}
-//               </button>
-//               下。
-//             </div>`,
-// });
 
 export default {
   components: { NewProductCard, ProductCard, Anchor },
@@ -199,23 +184,12 @@ export default {
       deg: 60,
     };
   },
-  mounted() {
-    window.addEventListener("scroll", this.handleScroll);
-  },
-  beforeUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
-  },
   methods: {
     next() {
       this.rotation -= this.deg;
     },
     prev() {
       this.rotation += this.deg;
-    },
-    handleScroll() {
-      const section2Rect = this.$refs.carousel.getBoundingClientRect();
-      this.shouldAnimate =
-        section2Rect.top < window.innerHeight && section2Rect.bottom > 0;
     },
   },
 };
@@ -352,7 +326,7 @@ export default {
     background-color: var(--orange-color3);
     color: #fff;
     position: absolute;
-    top: 100px;
+    top: 400px;
     padding: 1em 2em;
     cursor: pointer;
     border-radius: 5px;
@@ -364,17 +338,15 @@ export default {
   .prev:hover {
     color: var(--orange-color1);
   }
-  .next:active,
-  .prev:active {
-    top: 104px;
-    box-shadow: 0 1px 0 #999;
-  }
+  // .next:active,
+  // .prev:active {
+  //   top: 104px;
+  //   box-shadow: 0 1px 0 #999;
+  // }
   .next {
-    margin-top: 300px;
     right: 390px;
   }
   .prev {
-    margin-top: 300px;
     left: 390px;
   }
   .prev button,
