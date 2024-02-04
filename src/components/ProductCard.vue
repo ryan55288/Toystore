@@ -101,7 +101,14 @@ const decrement = () => {
     state.productDetail.qty--;
   }
 }
+const validate = () => {
+  if (!state.productDetail.qty) {
+    alert('請輸入數量')
+    return false
+  }
+}
 const addToCart = () => {
+  if (!validate) return
   addNewProduct(state.productDetail)
   console.log(cartState.cartList);
 }
