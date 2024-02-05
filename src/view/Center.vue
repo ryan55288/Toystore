@@ -266,43 +266,43 @@ export default {
     .a {
       transform: rotateY(0deg) translateZ(250px);
       background: rgba(57, 56, 56, 0.5);
-      background-image: url(../assets/img/Product/80toy/beetle1.svg);
-      background-size: contain;
+      background-image: url(../assets/img/Product/80toy/戰隊系列/IMG-2.svg);
+      background-size: cover;
       background-repeat: no-repeat;
     }
     .b {
       transform: rotateY(60deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
-      background-image: url(../assets/img/Product/80toy/dragon.svg);
-      background-size: contain;
+      background-image: url(../assets/img/Product/80toy/戰隊系列/IMG-10.svg);
+      background-size: cover;
       background-repeat: no-repeat;
     }
     .c {
       transform: rotateY(120deg) translateZ(250px);
       background: rgba(172, 168, 168, 1);
-      background-image: url(../assets/img/bg/carousel/1.svg);
-      background-size: contain;
+      background-image: url(../assets/img/Product/80toy/彈珠超人/IMG-1.svg);
+      background-size: cover;
       background-repeat: no-repeat;
     }
     .d {
       transform: rotateY(180deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
-      background-image: url(../assets/img/bg/carousel/2.svg);
-      background-size: contain;
+      background-image: url(../assets/img/Product/80toy/徽章戰士/IMG-3.svg);
+      background-size: cover;
       background-repeat: no-repeat;
     }
     .e {
       transform: rotateY(240deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
-      background-image: url(../assets/img/bg/carousel/3.svg);
-      background-size: contain;
+      background-image: url(../assets/img/Product/80toy/戰隊系列/IMG-8.svg);
+      background-size: cover;
       background-repeat: no-repeat;
     }
     .f {
       transform: rotateY(300deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.2);
       background-image: url(../assets/img/bg/carousel/4.svg);
-      background-size: contain;
+      background-size: cover;
       background-repeat: no-repeat;
     }
   }

@@ -97,6 +97,9 @@ const handleSubmit = () => {
   height: 500px;
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  &:hover {
+    border: 5px solid var(--orange-color3);
+  }
   p {
     font-weight: bold;
     margin-bottom: 10px;

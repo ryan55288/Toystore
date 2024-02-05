@@ -168,7 +168,7 @@ const addToCart = () => {
     }
   }
   &:hover {
-    border: 3px solid var(--orange-color3);
+    border: 5px solid var(--orange-color3);
   }
   .card-bottom {
     margin-top: 20px;
