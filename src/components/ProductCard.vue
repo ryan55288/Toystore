@@ -54,8 +54,8 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="mx-1">
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     class="btn rounded-pill btn-pluscart"
                     @click="addToCart"
                   >
@@ -82,25 +82,25 @@
 import { useCartStore } from '../store/cart';
 import { onMounted, reactive, toRefs } from 'vue';
 
-const cartStore = useCartStore()
-const { addNewProduct, cartState } = cartStore
+const cartStore = useCartStore();
+const { addNewProduct, cartState } = cartStore;
 const state = reactive({
   productDetail: {
     id: 1,
-    name: '百獸戰隊-天空精靈王',
+    name: "百獸戰隊-天空精靈王",
     stock: 1,
     price: 2480,
-    picture: new URL('../assets/img/Product/center/IMG-5.svg', import.meta.url),
-    qty: 0
-  }
-})
-const { productDetail } = toRefs(state)
-const increment = () => state.productDetail.qty ++
+    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    qty: 0,
+  },
+});
+const { productDetail } = toRefs(state);
+const increment = () => state.productDetail.qty++;
 const decrement = () => {
   if (state.productDetail.qty > 0) {
     state.productDetail.qty--;
   }
-}
+};
 const validate = () => {
   if (!state.productDetail.qty) {
     errorAlert('請輸入數量')
@@ -114,7 +114,7 @@ const addToCart = () => {
   toastSuccess(`${state.productDetail.name}\n數量${state.productDetail.qty}\n成功加入購物車!`)
   state.productDetail.qty = 0
   console.log(cartState.cartList);
-}
+};
 </script>
 
 <style scoped>
@@ -126,6 +126,10 @@ const addToCart = () => {
       border: 1px solid #aaa;
       background-color: #f8f8f8;
       border-radius: 0px 3px 3px 0px;
+      &:active {
+        background-color: #8a8787;
+        color: #f8f8f8;
+      }
     }
     .qty {
       width: 40px;
@@ -141,6 +145,10 @@ const addToCart = () => {
       border: 1px solid #aaa;
       background-color: #f8f8f8;
       border-radius: 3px 0px 0px 3px;
+      &:active {
+        background-color: #8a8787;
+        color: #f8f8f8;
+      }
     }
   }
 

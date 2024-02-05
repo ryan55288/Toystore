@@ -2,7 +2,7 @@
 
 <template>
   <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
+    <div class="container">
       <router-link to="/Center">
         <a class="navbar-brand ml-200" href="#">
           <img src="../assets/img/logo&icon/logo.svg" alt=""
@@ -155,7 +155,9 @@
           </li>
           <li class="d-flex align-items-center position-relative">
             <!-- <img src="../assets/img/logo&icon/cart.svg" alt="" /> -->
-            <div class="cart-amount position-absolute text-center mt-2">{{ getCartList.length }}</div>
+            <div class="cart-amount position-absolute text-center mt-2">
+              {{ getCartList.length }}
+            </div>
           </li>
         </ul>
       </div>
@@ -185,7 +187,6 @@ const removeProductHandle = (productId) => {
   -webkit-backdrop-filter: blur(4.1px);
   position: fixed;
   z-index: 2;
-
   input {
     width: 375px;
     margin-left: 40px;
@@ -222,8 +223,9 @@ const removeProductHandle = (productId) => {
   ul li a {
     font-weight: bolder;
     font-family: "Lemon";
-    font-size: 20px;
-    color: #fff;
+    font-size: 24px;
+    color: #ffffff;
+    margin-right: 25px;
     > a:nth-child(4) {
       margin-right: 0px;
     }

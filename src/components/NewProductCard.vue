@@ -119,15 +119,23 @@ const handleSubmit = () => {
     width: 25px;
     height: 30px;
     border: 1px solid #aaa;
-    background: #f8f8f8;
+    background-color: #f8f8f8;
     border-radius: 3px 0px 0px 3px;
+    &:active {
+      background-color: #8a8787;
+      color: #f8f8f8;
+    }
   }
   .qtyplus {
     width: 25px;
     height: 30px;
     border: 1px solid #aaa;
-    background: #f8f8f8;
+    background-color: #f8f8f8;
     border-radius: 0px 3px 3px 0px;
+    &:active {
+      background-color: #8a8787;
+      color: #f8f8f8;
+    }
   }
   img {
     cursor: pointer;

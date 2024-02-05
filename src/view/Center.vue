@@ -63,16 +63,16 @@
         class="allCard d-flex justify-content-center container-fluid animate__animated animate__backInRight"
       >
         <div class="row">
-          <div class="col-md-6 col-lg-3">
+          <div class="col-md-2 col-lg-3">
             <ProductCard />
           </div>
-          <div class="col-md-6 col-lg-3">
+          <div class="col-md-2 col-lg-3">
             <ProductCard />
           </div>
-          <div class="col-md-6 col-lg-3">
+          <div class="col-md-2 col-lg-3">
             <ProductCard />
           </div>
-          <div class="col-md-6 col-lg-3">
+          <div class="col-md-2 col-lg-3">
             <ProductCard />
           </div>
         </div>
@@ -163,8 +163,8 @@
                       />
                     </div>
                   </div>
-                </div> </router-link
-              >>
+                </div>
+              </router-link>
             </div>
           </div>
         </div>
@@ -189,6 +189,68 @@ export default {
       items: ["a", "b", "c", "d", "e", "f"],
       rotation: 0,
       deg: 60,
+      productList: [
+        {
+          id: 1,
+          name: "洛克人-獵鷹裝甲",
+          stock: 5,
+          price: 1599,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/洛克人/IMG-5.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 2,
+          name: "LEGO -阿光的鈦機械人",
+          stock: 1,
+          price: 2400,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/LEGO/IMG-3.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 3,
+          name: "鋼彈模型- 爆喪女妖",
+          stock: 1,
+          price: 1400,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/鋼彈模型/IMG-3.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 3,
+          name: "鋼彈模型- 異端鋼彈",
+          stock: 1,
+          price: 680,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/鋼彈模型/IMG-1.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+      ],
     };
   },
   methods: {
@@ -325,7 +387,6 @@ export default {
     background: #000;
     width: 250px;
     height: 300px;
-    line-height: 200px;
     font-size: 5em;
     text-align: center;
     color: #fff;
@@ -356,10 +417,10 @@ export default {
   //   box-shadow: 0 1px 0 #999;
   // }
   .next {
-    right: 390px;
+    right: 550px;
   }
   .prev {
-    left: 390px;
+    left: 550px;
   }
   .prev button,
   .next button {
