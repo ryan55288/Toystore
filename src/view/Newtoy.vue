@@ -3,6 +3,7 @@
   <section class="section0"></section>
   <section class="section2 d-flex">
     <div class="bg-1"></div>
+    <div class="bg-3"></div>
     <div class="bg-2"></div>
     <div
       id="carouselExampleIndicators"
@@ -30,25 +31,38 @@
           data-bs-slide-to="2"
           aria-label="Slide 3"
         ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
       </div>
       <div class="carousel-inner carouselImg">
         <div class="carousel-item active" data-bs-interval="1500">
           <img
-            src="../assets/img/Product/newtoy/洛克人/IMG-1.svg"
+            src="../assets/img/Product/newtoy/輪播圖片/egg1.svg"
             class="d-block"
             alt="..."
           />
         </div>
         <div class="carousel-item" data-bs-interval="1500">
           <img
-            src="../assets/img/Product/newtoy/模型車系列/IMG-2.svg"
+            src="../assets/img/Product/newtoy/輪播圖片/egg2.svg"
             class="d-block"
             alt="..."
           />
         </div>
         <div class="carousel-item" data-bs-interval="1500">
           <img
-            src="../assets/img/Product/newtoy/鋼彈模型/IMG-3.svg"
+            src="../assets/img/Product/newtoy/輪播圖片/egg3.svg"
+            class="d-block"
+            alt="..."
+          />
+        </div>
+        <div class="carousel-item" data-bs-interval="1500">
+          <img
+            src="../assets/img/Product/newtoy/輪播圖片/egg4.svg"
             class="d-block"
             alt="..."
           />
@@ -83,22 +97,14 @@
     >
       鋼彈模型
     </div>
-    <div class="container animate__animated animate__flipInX">
+    <div class="container">
       <div class="row">
-        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
-        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
-        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
-        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
+        <div v-for="prod in productList" class="col-md-6 col-lg-3 p-10">
+          <NewProductCard :productDetail="prod" />
+        </div>
       </div>
     </div>
-    <div class="container animate__animated animate__flipInX">
-      <div class="row">
-        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
-        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
-        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
-        <div class="col-md-6 col-lg-3"><NewProductCard /></div>
-      </div>
-    </div>
+
     <div class="d-flex justify-content-center">
       <div class="page pt-40"><Page /></div>
     </div>
@@ -122,11 +128,8 @@
         <!-- 卡片 -->
         <router-link to="OneReward/" class="text-decoration-none">
           <div class="d-flex justify-content-center pt-50">
-            <div class="">
-              <img
-                src="../assets/img/Product/newtoy/一番賞/hunter.svg"
-                alt=""
-              />
+            <div class="bg-white bg-cover">
+              <img src="../assets/img/Product/newtoy/一番賞/IMG-3.svg" alt="" />
             </div>
             <div>
               <h3 class="d-flex justify-content-center align-items-center">
@@ -142,11 +145,8 @@
         </router-link>
         <router-link to="OneReward/" class="text-decoration-none">
           <div class="d-flex justify-content-center pt-50">
-            <div class="">
-              <img
-                src="../assets/img/Product/newtoy/一番賞/dragonball.svg"
-                alt=""
-              />
+            <div class="bg-white">
+              <img src="../assets/img/Product/newtoy/一番賞/IMG-1.svg" alt="" />
             </div>
             <div>
               <h3 class="d-flex justify-content-center align-items-center">
@@ -165,9 +165,9 @@
         <!-- 卡片 -->
         <router-link to="OneReward/" class="text-decoration-none">
           <div class="d-flex justify-content-center pt-50">
-            <div class=" ">
+            <div class="bg-white">
               <img
-                src="../assets/img/Product/newtoy/一番賞/hero.svg"
+                src="../assets/img/Product/newtoy/一番賞/IMG.svg"
                 alt=""
                 class=""
               />
@@ -199,6 +199,128 @@ export default {
   data() {
     return {
       shouldAnimate: false,
+      productList: [
+        {
+          id: 1,
+          name: "鋼彈模型-紅色異端",
+          stock: 10,
+          price: 680,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/鋼彈模型/IMG-1.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 2,
+          name: "鋼彈模型-飛翼零式",
+          stock: 13,
+          price: 700,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/鋼彈模型/Rectangle 6.svg  ",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 3,
+          name: "鋼彈模型-爆喪女妖",
+          stock: 15,
+          price: 1400,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/鋼彈模型/IMG-3.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 3,
+          name: "鋼彈模型-OO鋼彈",
+          stock: 1,
+          price: 820,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/鋼彈模型/IMG.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 3,
+          name: "鋼彈模型-獨角獸",
+          stock: 8,
+          price: 1040,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/鋼彈模型/IMG-2.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 3,
+          name: "鋼彈模型-自由鋼彈",
+          stock: 1,
+          price: 699,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/鋼彈模型/IMG-4.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 3,
+          name: "鋼彈模型-RX-78-2",
+          stock: 1,
+          price: 680,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/鋼彈模型/IMG-5.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 3,
+          name: "鋼彈模型-命運鋼彈",
+          stock: 1,
+          price: 565,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/鋼彈模型/IMG-6.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+      ],
     };
   },
   mounted() {
@@ -300,16 +422,23 @@ export default {
     height: 600px;
   }
   .carouselAll {
-    width: 440px;
+    width: 450px;
     height: 550px;
   }
   .bg-1 {
     background-image: url(../assets/img/bg/newToyPage/bg-top1.svg);
-    width: 750px;
+    width: 500px;
     height: 600px;
+    background-repeat: no-repeat;
   }
   .bg-2 {
     background-image: url(../assets/img/bg/newToyPage/bg-top2.svg);
+    background-repeat: no-repeat;
+    width: 1000px;
+    height: 600px;
+  }
+  .bg-3 {
+    background-image: url(../assets/img/bg/newToyPage/bg-top3.svg);
     background-repeat: no-repeat;
     width: 1000px;
     height: 600px;
