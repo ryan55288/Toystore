@@ -1,11 +1,3 @@
-<script setup>
-import ProductType from "@/components/ProductType.vue";
-import WebProductCard from "@/components/ProductCard.vue";
-import NewProductCard from "@/components/NewProductCard.vue";
-import Page from "@/components/Page.vue";
-import Anchor from "@/components/Anchor.vue";
-</script>
-
 <template>
   <div><Anchor /></div>
   <section class="section1 box1">
@@ -64,7 +56,10 @@ import Anchor from "@/components/Anchor.vue";
     <div class="fs-36 fw-bold text-white text-center pt-40">熱銷商品</div>
     <div class="container mt-40">
       <div class="row animate__animated animate__bounceIn">
-        <div class="col-md-4">
+        <div v-for="prod in productList" class="col-md-6 col-lg-3">
+          <NewProductCard :productDetail="prod" />
+        </div>
+        <!-- <div class="col-md-4">
           <span class="hot-icon fs-24 fw-bold"
             >HOT1<i class="fas fa-fire-alt"></i
           ></span>
@@ -81,11 +76,98 @@ import Anchor from "@/components/Anchor.vue";
             >HOT3<i class="fas fa-fire-alt"></i
           ></span>
           <NewProductCard />
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
 </template>
+
+<script>
+import ProductType from "@/components/ProductType.vue";
+import WebProductCard from "@/components/ProductCard.vue";
+import NewProductCard from "@/components/NewProductCard.vue";
+import Page from "@/components/Page.vue";
+import Anchor from "@/components/Anchor.vue";
+
+export default {
+  components: { ProductType, NewProductCard, WebProductCard, Page, Anchor },
+
+  data() {
+    return {
+      productList: [
+        {
+          id: 1,
+          name: "彈珠人-白寶警察",
+          stock: 5,
+          price: 4500,
+          imgurl: new URL(
+            "../assets/img/Product/80toy/彈珠超人/IMG-1.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 2,
+          name: "忍風戰隊-忍風合體 ",
+          stock: 5,
+          price: 5500,
+          imgurl: new URL(
+            "../assets/img/Product/80toy/戰隊系列/IMG-5.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 3,
+          name: "忍風戰隊- 轟雷神",
+          stock: 1,
+          price: 4500,
+          imgurl: new URL(
+            "../assets/img/Product/80toy/戰隊系列/IMG-8.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 3,
+          name: "戰鬥陀螺-木之宮龍",
+          stock: 1,
+          price: 1900,
+          imgurl: new URL(
+            "../assets/img/Product/80toy/戰鬥陀螺//IMG.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+      ],
+    };
+  },
+  methods: {
+    next() {
+      this.rotation -= this.deg;
+    },
+    prev() {
+      this.rotation += this.deg;
+    },
+  },
+};
+</script>
 
 <style scoped>
 .section1 {
@@ -128,8 +210,9 @@ import Anchor from "@/components/Anchor.vue";
   background-color: var(--green-color1);
 }
 .section3 {
+  width: 100%;
   background-repeat: no-repeat;
-  height: 730px;
+  height: 700px;
   background-image: url(../assets/img/bg/80ToyPage/bottom-bg-1.svg);
   .hot-icon {
     z-index: 1;
