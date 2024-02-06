@@ -105,7 +105,9 @@
     <section class="section4"></section>
 
     <section class="section5">
-      <div class="d-flex justify-content-center">
+      <div
+        class="d-flex justify-content-center animate__animated animate__rubberBand"
+      >
         <img src="../assets/img/bg/coin.svg" alt="" class="mt-60" />
       </div>
       <div>
@@ -358,7 +360,7 @@ export default {
 }
 .section2 {
   background-color: var(--green-color1);
-  height: 1140px;
+  height: 1200px;
   margin: 0 auto;
   p {
     font-family: "Lemon";
@@ -380,7 +382,7 @@ export default {
 }
 .section4 {
   background-color: var(--green-color1);
-  height: 390px;
+  height: 460px;
 }
 .section5 {
   background-image: url(../assets/img/bg/center-BG-bottom.svg);
@@ -418,7 +420,7 @@ export default {
 }
 
 .btn-more {
-  margin-top: 20px;
+  margin-top: 50px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 160px;
   height: 60px;

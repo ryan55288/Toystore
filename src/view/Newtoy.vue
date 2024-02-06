@@ -125,7 +125,6 @@
         class="reel-body mb-200 animate__animated"
         :class="{ animate__bounceInDown: shouldAnimate }"
       >
-        <!-- 卡片 -->
         <router-link to="OneReward/" class="text-decoration-none">
           <div class="d-flex justify-content-center pt-50">
             <div class="d-flex align-items-center bg-orange2">
@@ -145,6 +144,7 @@
             </div>
           </div>
         </router-link>
+
         <router-link to="OneReward/" class="text-decoration-none">
           <div class="d-flex justify-content-center pt-50">
             <div class="d-flex align-items-center bg-orange2">
@@ -162,9 +162,7 @@
             </div>
           </div>
         </router-link>
-        <!-- 卡片 -->
 
-        <!-- 卡片 -->
         <router-link to="OneReward/" class="text-decoration-none">
           <div class="d-flex justify-content-center pt-50">
             <div class="d-flex align-items-center bg-orange2">

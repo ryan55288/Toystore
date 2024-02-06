@@ -1,8 +1,3 @@
-<script setup>
-import WebProductCard from "@/components/ProductCard.vue";
-</script>
-<script></script>
-
 <template>
   <div class="box1"></div>
   <!--  -->
@@ -75,6 +70,10 @@ import WebProductCard from "@/components/ProductCard.vue";
     </section>
   </section>
 </template>
+
+<script setup>
+import WebProductCard from "@/components/ProductCard.vue";
+</script>
 
 <style scoped lang="scss">
 .box1 {
