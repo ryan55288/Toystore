@@ -128,15 +128,17 @@
         <!-- 卡片 -->
         <router-link to="OneReward/" class="text-decoration-none">
           <div class="d-flex justify-content-center pt-50">
-            <div class="bg-white bg-cover">
+            <div class="d-flex align-items-center bg-orange2">
               <img src="../assets/img/Product/newtoy/一番賞/IMG-3.svg" alt="" />
             </div>
             <div>
-              <h3 class="d-flex justify-content-center align-items-center">
+              <h3
+                class="d-flex justify-content-center align-items-center bg-orange2"
+              >
                 <div class="fs-36 fw-bold">一番賞 獵人XX</div>
               </h3>
               <h4 class="d-flex justify-content-center align-items-center">
-                <div class="fs-24 fw-bold">
+                <div class="fs-24 fw-bold text-white">
                   預定自2020年04月03日(星期五)起逐次發售
                 </div>
               </h4>
@@ -145,16 +147,16 @@
         </router-link>
         <router-link to="OneReward/" class="text-decoration-none">
           <div class="d-flex justify-content-center pt-50">
-            <div class="bg-white">
+            <div class="d-flex align-items-center bg-orange2">
               <img src="../assets/img/Product/newtoy/一番賞/IMG-1.svg" alt="" />
             </div>
-            <div>
+            <div class="">
               <h3 class="d-flex justify-content-center align-items-center">
                 <div class="fs-36 fw-bold">一番賞 七龍珠</div>
               </h3>
               <h4 class="d-flex justify-content-center align-items-center">
-                <div class="fs-24 fw-bold">
-                  预定自2020年04月05日(星期五)起逐次發售
+                <div class="fs-24 fw-bold text-white">
+                  預定自2020年04月05日(星期五)起逐次發售
                 </div>
               </h4>
             </div>
@@ -165,7 +167,7 @@
         <!-- 卡片 -->
         <router-link to="OneReward/" class="text-decoration-none">
           <div class="d-flex justify-content-center pt-50">
-            <div class="bg-white">
+            <div class="d-flex align-items-center bg-orange2">
               <img
                 src="../assets/img/Product/newtoy/一番賞/IMG.svg"
                 alt=""
@@ -177,7 +179,7 @@
                 <div class="fs-36 fw-bold">一番賞 我的英雄學院</div>
               </h3>
               <h4 class="d-flex justify-content-center align-items-center">
-                <div class="fs-24 fw-bold">
+                <div class="fs-24 fw-bold text-white">
                   預定自2020年04月03日(星期五)起逐次發售
                 </div>
               </h4>
@@ -188,6 +190,7 @@
     </div>
   </section>
 </template>
+
 <script>
 import NewProductType from "@/components/NewProductType.vue";
 import NewProductCard from "@/components/NewProductCard.vue";
@@ -382,7 +385,7 @@ export default {
   opacity: 0; /* 初始时设置透明度为 0 */
   transition: opacity 1s; /* 添加渐变效果 */
   h3 {
-    background-color: #fff;
+    background-color: var(--orange-color2);
     width: 610px;
     height: 215px;
     color: var(--green-color1);
@@ -402,7 +405,7 @@ export default {
 }
 
 .section4 {
-  height: 1400px;
+  height: 1300px;
   background-color: var(--green-color1);
   .animate__bounceInDown {
     animation-name: bounceInDown;
