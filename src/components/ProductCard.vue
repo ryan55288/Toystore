@@ -64,7 +64,7 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <router-link to="/Product">
+                <router-link to="/Cart">
                   <button type="button" class="btn rounded-pill btn-buy">
                     直接購買
                   </button>
