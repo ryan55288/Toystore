@@ -53,30 +53,19 @@
   </section>
 
   <section class="section3">
-    <div class="fs-36 fw-bold text-white text-center pt-40">熱銷商品</div>
+    <div
+      class="fs-36 fw-bold text-white text-center pt-40 animate__animated animate__flipInX"
+    >
+      熱銷商品
+    </div>
     <div class="container mt-40">
-      <div class="row animate__animated animate__bounceIn">
+      <div class="row">
         <div v-for="prod in productList" class="col-md-6 col-lg-3">
-          <NewProductCard :productDetail="prod" />
+          <NewProductCard
+            :productDetail="prod"
+            class="animate__animated animate__bounceIn"
+          />
         </div>
-        <!-- <div class="col-md-4">
-          <span class="hot-icon fs-24 fw-bold"
-            >HOT1<i class="fas fa-fire-alt"></i
-          ></span>
-          <NewProductCard />
-        </div>
-        <div class="col-md-4">
-          <span class="hot-icon fs-24 fw-bold"
-            >HOT2<i class="fas fa-fire-alt"></i
-          ></span>
-          <NewProductCard />
-        </div>
-        <div class="col-md-4">
-          <span class="hot-icon fs-24 fw-bold"
-            >HOT3<i class="fas fa-fire-alt"></i
-          ></span>
-          <NewProductCard />
-        </div> -->
       </div>
     </div>
   </section>

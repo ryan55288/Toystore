@@ -26,17 +26,20 @@
         </button>
       </div>
 
-      <div class="Kong-icon">
-        <img
-          src="../assets/img/bg/小金剛.svg"
-          alt=""
-          class="animate__animated animate__backInLeft"
-        />
+      <div class="Zero">
+        <img :src="imgurl" class="animate__animated animate__zoomInLeft" />
+      </div>
+      <div class="Mega">
+        <img :src="imgurl2" class="animate__animated animate__zoomInRight" />
       </div>
     </section>
 
     <section class="section2 pt-40">
-      <p class="fs-36 text-center text-white fw-bold">8年級生最新商品</p>
+      <p
+        class="fs-36 text-center text-white fw-bold animate__animated animate__flipInX"
+      >
+        8年級生最新商品
+      </p>
       <div
         :class="{ animate__backInLeft: shouldAnimate }"
         class="allCard d-flex justify-content-center mt-30 container-fluid animate__animated animate__backInLeft"
@@ -83,7 +86,7 @@
 
     <section class="section3">
       <p
-        class="text-white fw-bold text-center animate__animated animate__rubberBand"
+        class="text-white fw-bold text-center animate__animated animate__flipInX"
       >
         新潮玩具最新商品
       </p>
@@ -106,7 +109,7 @@
 
     <section class="section5">
       <div
-        class="d-flex justify-content-center animate__animated animate__rubberBand"
+        class="d-flex justify-content-center animate__animated animate__flipInX"
       >
         <img src="../assets/img/bg/coin.svg" alt="" class="mt-60" />
       </div>
@@ -180,6 +183,8 @@ export default {
 
   data() {
     return {
+      imgurl: new URL("../assets/img/bg/zero.svg", import.meta.url),
+      imgurl2: new URL("../assets/img/bg/Mega-Man.svg", import.meta.url),
       shouldAnimate: false,
       items: ["a", "b", "c", "d", "e", "f"],
       rotation: 0,
@@ -233,16 +238,22 @@ export default {
 .section1 {
   width: 100%;
   padding-top: 300px;
-  height: 900px;
+  height: 965px;
   background-image: url(../assets/img/bg/centerTop-bg.svg);
   background-repeat: no-repeat;
   background-color: var(--green-color1);
   background-position: center;
-  .Kong-icon {
-    background-position: left;
+  .Zero {
+    // background-position: left;
     position: absolute;
-    bottom: 50px;
-    left: 250px;
+    bottom: 250px;
+    left: 500px;
+  }
+  .Mega {
+    // background-position: right;
+    position: absolute;
+    bottom: 250px;
+    right: 450px;
   }
   body {
     background: #333;
@@ -255,7 +266,6 @@ export default {
     margin: 0 auto;
     width: 250px;
     height: 200px;
-    position: relative;
     perspective: 1200px;
     font-family: "Lemon";
   }
@@ -452,7 +462,7 @@ export default {
 
 @media (max-width: 1440px) {
   .section1 {
-    .Kong-icon {
+    .Zero {
       display: none;
     }
   }
