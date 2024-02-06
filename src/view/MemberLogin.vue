@@ -3,7 +3,7 @@
 <template>
   <div class="box1"></div>
   <div class="d-flex justify-content-center">
-    <div class="bg-1 d-flex justify-content-center pt-120">
+    <div class="bg-1 d-flex justify-content-center pt-160">
       <section class="section1 animate__animated animate__pulse">
         <div class="text-center fs-36 fw-bold text-green pt-50">會員登入</div>
         <div class="d-flex justify-content-center">
@@ -54,7 +54,7 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .box1 {
   position: fixed;
   width: 100%;
@@ -64,7 +64,7 @@
 .section1 {
   border-radius: 10px;
   width: 600px;
-  height: 630px;
+  height: 620px;
   background-color: #fff;
   .formSet {
     width: 450px;
@@ -103,7 +103,7 @@
 .bg-1 {
   background-image: url(../assets/img/bg/Member/member-bg.svg);
   width: 100%;
-  height: 800px;
+  height: 920px;
   background-repeat: no-repeat;
 }
 

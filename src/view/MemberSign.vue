@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <div class="box1"></div>
   <div class="d-flex justify-content-center">
@@ -90,7 +88,11 @@
                 </div>
               </div>
             </div>
-            <button type="submit" class="submitBtn btnSet fs-24 fw-bold">
+            <button
+              type="submit"
+              class="submitBtn btnSet fs-24 fw-bold"
+              @click="showSweetAlert"
+            >
               會員註冊
             </button>
             <router-link to="/MemberLogin">
@@ -104,6 +106,17 @@
     </div>
   </div>
 </template>
+
+<script>
+// import Swal from "sweetalert2";
+export default {
+  methods: {
+    showSweetAlert() {
+      this.$swal("Good job!", "會員註冊成功", "success");
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .section1 {
@@ -149,7 +162,7 @@
 .bg-1 {
   background-image: url(../assets/img/bg/Member/member-bg.svg);
   width: 100%;
-  height: 850px;
+  height: 930px;
   background-repeat: no-repeat;
 }
 
