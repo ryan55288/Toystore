@@ -1,38 +1,9 @@
 <template>
   <div class="box1"></div>
+  <Anchor :backgroundColor="'white'" />
   <!--  -->
   <section class="section1 pt-140">
-    <div class="d-flex justify-content-center">
-      <section class="reel-body1">
-        <div class="d-flex justify-content-center">
-          <img src="../assets/img/bg/newToyPage/reel-bottom.svg" alt="" />
-        </div>
-        <!-- 卷軸 -->
-        <!-- :class="{ animate__bounceInDown: shouldAnimate }" -->
-        <div id="oneReward" class="reel-body animate__animated">
-          <div class="container pt-40">
-            <div class="row">
-              <div class="col-md-4"><WebProductCard /></div>
-              <div class="col-md-4"><WebProductCard /></div>
-              <div class="col-md-4"><WebProductCard /></div>
-            </div>
-          </div>
-          <div class="container pt-40">
-            <div class="row">
-              <div class="col-md-4"><WebProductCard /></div>
-              <div class="col-md-4"><WebProductCard /></div>
-              <div class="col-md-4"><WebProductCard /></div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <div class="d-flex justify-content-center">
-      <hr />
-    </div>
-
-    <section class="section5" ref="section5">
+    <section class="section2" ref="section2">
       <div class="d-flex justify-content-center">
         <img src="../assets/img/bg/newToyPage/reel-bottom3.svg" alt="" />
       </div>
@@ -62,17 +33,146 @@
                   模型店或便利商店都可以買到，而其中最有名又最方便的購買管道又非全家一番賞莫屬。且目前只要在台灣獨家代理的實體一番賞店面購買遊玩的話，
                   還可以享有一番賞雙重中獎的機會，抽一次獎卻有機會獲得兩種商品，實在很難讓人不心動！
                 </p>
+                <h3>四、jungle的一番賞特賣區</h3>
+                <p>
+                  jungle的一番賞是將過季商品以特價隨機售出的形式售出給平台用戶，有抽到全新但是想轉賣的玩家歡迎聯絡我們，當然!!來逛jungle的用戶可以直接購買指定過季商品，有緣人來帶走他們吧!!
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="d-flex justify-content-center">
+      <hr />
+    </div>
+    <div class="d-flex justify-content-center">
+      <section class="reel-body1">
+        <div class="d-flex justify-content-center">
+          <img src="../assets/img/bg/newToyPage/reel-bottom.svg" alt="" />
+        </div>
+        <!-- 卷軸 -->
+        <div id="oneReward" class="reel-body animate__animated">
+          <div class="container pt-10">
+            <div class="row">
+              <div
+                class="col-md-4 d-flex justify-content-center p-20"
+                v-for="prod in productList"
+              >
+                <NewProductCard :productDetail="prod" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   </section>
 </template>
 
-<script setup>
-import WebProductCard from "@/components/ProductCard.vue";
+<script>
+import NewProductCard from "@/components/NewProductCard.vue";
+import Anchor from "@/components/Anchor.vue";
+export default {
+  components: { NewProductCard, Anchor },
+
+  data() {
+    return {
+      productList: [
+        {
+          id: 1,
+          name: "一番賞-我的英雄學院",
+          stock: 10,
+          price: 2400,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/一番賞/IMG.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 2,
+          name: "一番賞-七龍珠",
+          stock: 13,
+          price: 2000,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/一番賞/IMG-1.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 3,
+          name: "一番賞-咒術迴戰",
+          stock: 15,
+          price: 2800,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/一番賞/IMG-2.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 4,
+          name: "一番賞-HUNTER×HUNTER",
+          stock: 1,
+          price: 1500,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/一番賞/IMG-3.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 5,
+          name: "一番賞-東京復仇者",
+          stock: 8,
+          price: 2000,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/一番賞/IMG-4.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+        {
+          id: 6,
+          name: "一番賞-疾風伝",
+          stock: 1,
+          price: 2200,
+          imgurl: new URL(
+            "../assets/img/Product/newtoy/一番賞/IMG-5.svg",
+            import.meta.url
+          ),
+          iconSrc: new URL(
+            "../assets/img/logo&icon/mylove.svg",
+            import.meta.url
+          ),
+          quantity: 0,
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -83,7 +183,7 @@ import WebProductCard from "@/components/ProductCard.vue";
   background-color: var(--green-color2);
 }
 .section1 {
-  height: 2500px;
+  height: 2800px;
   background-color: var(--orange-color2);
   hr {
     margin: 60px;
@@ -93,29 +193,31 @@ import WebProductCard from "@/components/ProductCard.vue";
   }
   .reel-body1 {
     width: 1200px;
-    height: 1200px;
+    height: 1300px;
     background-color: var(--green-color2);
   }
 }
-.section5 {
+.section2 {
   h3 {
     font-size: 36px;
     font-weight: bold;
     padding: 30px 0px;
+    font-family: "Lemon";
   }
   p {
     font-size: 24px;
     padding: 0px 25px;
+    font-family: "Lemon";
   }
   .reel-contant {
     padding: 0px 30px;
     width: 1100px;
-    height: 700px;
+    height: 900px;
     background: #fff;
   }
   .reel-body2 {
     width: 1200px;
-    height: 800px;
+    height: 1000px;
     background-color: var(--green-color2);
   }
 }

@@ -1,34 +1,59 @@
-<script setup>
-$(function () {
-  $(".anchor").click(function () {
-    $("html, template").animate(
-      {
-        scrollTop: 0,
-      },
-      500
-    );
-  });
-
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 200) {
-      $(".anchor").fadeIn("fast");
-    } else {
-      $(".anchor").stop().fadeOut("fast");
-    }
-  });
-});
-</script>
-
 <template>
-  <div class="anchor text-center">
-    <i class="fas fa-chevron-up fa-2x pt-10"></i>
+  <div
+    class="anchor text-center"
+    @click="scrollToTop"
+    v-if="showAnchor"
+    :style="{ backgroundColor }"
+  >
+    <i
+      class="fas fa-chevron-up fa-2x pt-10"
+      :class="{ 'gray-icon': shouldShowGray }"
+    ></i>
     <div class="d-flex justify-content-center">
       <div class="img"></div>
     </div>
   </div>
 </template>
 
+<script>
+export default {
+  props: {
+    backgroundColor: String,
+  },
+  data() {
+    return {
+      showAnchor: false,
+      shouldShowGray: false,
+    };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      if (window.scrollY > 200) {
+        this.showAnchor = true;
+      } else {
+        this.showAnchor = false;
+      }
+    },
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    },
+  },
+};
+</script>
+
 <style scoped lang="scss">
+.gray-icon {
+  color: gray;
+}
 .anchor {
   position: absolute;
   cursor: pointer;
@@ -54,7 +79,7 @@ $(function () {
     background-size: auto;
   }
   i {
-    color: rgb(161, 160, 160);
+    color: gray;
   }
 }
 </style>
