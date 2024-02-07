@@ -30,7 +30,7 @@
     </div>
   </section>
 
-  <section class="section6 pt-40 mb-40">
+  <section class="section6">
     <div class="all-button">
       <router-link to="/Center" class="text-decoration-none text-white">
         <button class="btn">回首頁</button>
@@ -55,6 +55,8 @@
   }
 }
 .section6 {
+  padding-top: 50px;
+  height: 195px;
   .all-button {
     display: flex;
     justify-content: center;

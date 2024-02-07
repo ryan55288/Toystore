@@ -101,11 +101,9 @@
                 />
               </div>
               <div class="col-md-6">
-                <label for="inputPassword4" class="form-label"
-                  >信用卡後三碼</label
-                >
+                <label for="inputPassword4" class="form-label">安全碼</label>
                 <input
-                  placeholder="信用卡驗後三碼"
+                  placeholder="請輸入安全碼"
                   type="password"
                   class="form-control"
                   id="inputPassword4"
@@ -118,17 +116,7 @@
                   type="text"
                   class="form-control"
                   id="inputAddress"
-                  placeholder="到期月份"
-                  autocomplete="current-password"
-                />
-              </div>
-              <div class="col-md-6">
-                <label for="inputAddress2" class="form-label">安全碼</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputAddress2"
-                  placeholder="安全碼"
+                  placeholder="請輸入到期月份"
                   autocomplete="current-password"
                 />
               </div>

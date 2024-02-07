@@ -102,7 +102,8 @@ const removeCartListHandle = () => {
 </script>
 
 <style scoped lang="scss">
-.section6 {
+.section5 {
+  height: 160px;
   .all-button {
     display: flex;
     justify-content: end;

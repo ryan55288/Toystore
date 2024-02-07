@@ -13,7 +13,7 @@
           <div class="container pt-50">
             <div class="row justify-content-center">
               <div class="col-md-12 reel-contant">
-                <h3 class="mt-40">一番賞是什麼？</h3>
+                <h3 class="mt-40">一、一番賞是什麼？</h3>
                 <p>
                   一番賞是來自日文「一番くじ」，是2003年由日本萬代南宮夢（bandai
                   namco）旗下的萬代魂（bandai

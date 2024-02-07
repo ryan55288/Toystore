@@ -383,7 +383,7 @@ export default {
   opacity: 0; /* 初始时设置透明度为 0 */
   transition: opacity 1s; /* 添加渐变效果 */
   h3 {
-    background-color: var(--orange-color2);
+    background-color: #fff;
     width: 610px;
     height: 215px;
     color: var(--green-color1);

@@ -198,6 +198,10 @@ const submitInfo = () => {
   }
   .form-check {
     margin-top: 10px;
+    input {
+      border-radius: 3px;
+      border: rgba(135, 135, 135, 0.612) 1px solid;
+    }
   }
 }
 .section4 {
