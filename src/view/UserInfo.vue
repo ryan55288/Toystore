@@ -15,7 +15,7 @@
           </tr>
           <tr>
             <th scope="row" class="text-white fw-bold">信箱:</th>
-            <td colspan="3" class="text-start bg-light">tom@yahoo.com.tw</td>
+            <td colspan="3" class="text-start bg-light">tom123@yahoo.com.tw</td>
           </tr>
           <tr>
             <th scope="row" class="text-white fw-bold">性別:</th>

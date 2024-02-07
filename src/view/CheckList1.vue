@@ -86,6 +86,33 @@
             v-model="form.email"
           />
         </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios1"
+              value="option1"
+              checked
+            />
+            <label class="form-check-label" for="exampleRadios1">
+              <input type="text" placeholder="請輸入載具" class="text-center" />
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="exampleRadios"
+              id="exampleRadios2"
+              value="option2"
+            />
+            <label class="form-check-label" for="exampleRadios2">
+              <div class="ml-40 fw-bold">紙本發票</div>
+            </label>
+          </div>
+        </div>
       </form>
     </div>
   </section>
@@ -155,11 +182,22 @@ const submitInfo = () => {
 .section5 {
   display: flex;
   justify-content: center;
+  .form-label {
+    font-weight: bold;
+  }
   .container {
     width: 900px;
   }
   .col-md-12 {
     font-weight: bold;
+  }
+  .form-check-label {
+    input {
+      width: 10em;
+    }
+  }
+  .form-check {
+    margin-top: 10px;
   }
 }
 .section4 {

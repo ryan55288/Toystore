@@ -108,17 +108,27 @@
                   placeholder="信用卡驗後三碼"
                   type="password"
                   class="form-control"
-                  id=""
+                  id="inputPassword4"
                   autocomplete="current-password"
                 />
               </div>
-              <div class="col-12">
+              <div class="col-md-6">
                 <label for="inputAddress" class="form-label">到期月份</label>
                 <input
                   type="text"
                   class="form-control"
                   id="inputAddress"
                   placeholder="到期月份"
+                  autocomplete="current-password"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="inputAddress2" class="form-label">安全碼</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputAddress2"
+                  placeholder="安全碼"
                   autocomplete="current-password"
                 />
               </div>
