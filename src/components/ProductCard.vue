@@ -80,7 +80,7 @@
 
 <script setup>
 import { useCartStore } from '../store/cart';
-import { reactive, toRefs } from 'vue';
+import { onMounted, reactive, toRefs } from 'vue';
 
 const cartStore = useCartStore()
 const { addNewProduct, cartState } = cartStore
@@ -103,12 +103,13 @@ const decrement = () => {
 }
 const validate = () => {
   if (!state.productDetail.qty) {
-    alert('請輸入數量')
+    errorAlert('請輸入數量')
     return false
   }
+  return true
 }
 const addToCart = () => {
-  if (!validate) return
+  if (!validate()) return
   addNewProduct(state.productDetail)
   console.log(cartState.cartList);
 }
