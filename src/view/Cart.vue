@@ -61,8 +61,8 @@
   <section class="section4">
     <div class="bottom">
       <div>全部刪除</div>
-      <div>商品數量:2</div>
-      <div>總計$1000</div>
+      <div>{{ `商品件數:${getCartList.length}` }}</div>
+      <div>{{ `總計$${getCartAmountTotal}` }}</div>
     </div>
   </section>
 
