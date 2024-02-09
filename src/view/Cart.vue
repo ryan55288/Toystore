@@ -67,7 +67,7 @@
       </div>
     </section>
   
-    <section class="section6 pt-60 mb-40">
+    <section class="section5 pt-60 mb-40">
       <router-link to="CheckList1/" class="text-decoration-none">
         <div class="all-button">
           <button class="">結帳去</button>
