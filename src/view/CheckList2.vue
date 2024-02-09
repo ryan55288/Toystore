@@ -19,22 +19,14 @@
   </section>
 
   <section class="section3 pt-40">
-    <div class="shopping-card">
+    <div v-for="product in getCartList" class="shopping-card">
       <div>
-        <img src="../assets/img/bg/checkList/1.svg" alt="" />
-        <div>鋼彈模型RG</div>
+        <img :src="product.picture" />
+        <div>{{ product.name }}</div>
       </div>
 
-      <div>1</div>
-      <div>$500</div>
-    </div>
-    <div class="shopping-card pt-40">
-      <div>
-        <img src="../assets/img/bg/checkList/2.svg" alt="" />
-        <div>鋼彈模型RG</div>
-      </div>
-      <div>1</div>
-      <div>$500</div>
+      <div>{{ product.qty }}</div>
+      <div>{{ `$${product.price * product.qty}` }}</div>
     </div>
     <div class="d-flex justify-content-center">
       <hr />
@@ -43,8 +35,8 @@
 
   <section class="section4">
     <div class="bottom">
-      <div>商品數量:2</div>
-      <div class="text-orange">總計$1000</div>
+      <div>{{ `商品件數:${getCartList.length}` }}</div>
+      <div class="text-orange">{{ `總計$${getCartAmountTotal}` }}</div>
     </div>
   </section>
 
@@ -93,12 +85,11 @@
                       class="form-check-input"
                       type="checkbox"
                       id="inlineCheckbox1"
-                      v-model="visibility"
                       value="active"
                     />
                   </div>
                   <div>
-                    <p :class="{ active: visibility === 'active' }">貨到付款</p>
+                    <p>貨到付款</p>
                   </div>
                 </div>
               </div>
@@ -153,14 +144,12 @@
   </section>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      visibility: null,
-    };
-  },
-};
+<script setup>
+import { storeToRefs } from 'pinia';
+import { useCartStore } from '@/store/cart'
+const cartStore = useCartStore()
+const { removeProduct, addProductQty, reduceProductQty, removeCartList } = cartStore
+const { getCartList, getCartAmountTotal } = storeToRefs(cartStore)
 </script>
 
 <style scoped lang="scss">

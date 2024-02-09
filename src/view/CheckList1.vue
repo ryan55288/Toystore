@@ -21,22 +21,14 @@
   </section>
 
   <section class="section3 pt-40">
-    <div class="shopping-card">
+    <div v-for="product in getCartList" class="shopping-card">
       <div>
-        <img src="../assets/img/bg/checkList/1.svg" alt="" />
-        <div>鋼彈模型RG</div>
+        <img :src="product.picture" />
+        <div>{{ product.name }}</div>
       </div>
 
-      <div>1</div>
-      <div>$500</div>
-    </div>
-    <div class="shopping-card pt-40">
-      <div>
-        <img src="../assets/img/bg/checkList/2.svg" alt="" />
-        <div>鋼彈模型RG</div>
-      </div>
-      <div>1</div>
-      <div>$500</div>
+      <div>{{ product.qty }}</div>
+      <div>{{ `$${product.price * product.qty}` }}</div>
     </div>
     <div class="d-flex justify-content-center">
       <hr />
@@ -45,8 +37,8 @@
 
   <section class="section4">
     <div class="bottom">
-      <div>商品數量:2</div>
-      <div class="text-orange">總計$1000</div>
+      <div>{{ `商品件數:${getCartList.length}` }}</div>
+      <div class="text-orange">{{ `總計$${getCartAmountTotal}` }}</div>
     </div>
   </section>
 
@@ -98,6 +90,14 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import { storeToRefs } from 'pinia';
+import { useCartStore } from '@/store/cart'
+const cartStore = useCartStore()
+const { removeProduct, addProductQty, reduceProductQty, removeCartList } = cartStore
+const { getCartList, getCartAmountTotal } = storeToRefs(cartStore)
+</script>
 
 <style scoped lang="scss">
 .section6 {

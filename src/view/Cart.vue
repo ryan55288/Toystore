@@ -58,21 +58,23 @@
     </div>
   </section>
 
-  <section class="section4" v-if="getCartList.length">
-    <div class="bottom">
-      <div @click="removeCartListHandle">全部刪除</div>
-      <div>{{ `商品件數:${getCartList.length}` }}</div>
-      <div>{{ `總計$${getCartAmountTotal}` }}</div>
-    </div>
-  </section>
-
-  <section class="section6 pt-60 mb-40">
-    <router-link to="CheckList1/" class="text-decoration-none">
-      <div class="all-button">
-        <button class="">結帳去</button>
+  <template v-if="getCartList.length">
+    <section class="section4">
+      <div class="bottom">
+        <div @click="removeCartListHandle">全部刪除</div>
+        <div>{{ `商品件數:${getCartList.length}` }}</div>
+        <div>{{ `總計$${getCartAmountTotal}` }}</div>
       </div>
-    </router-link>
-  </section>
+    </section>
+  
+    <section class="section6 pt-60 mb-40">
+      <router-link to="CheckList1/" class="text-decoration-none">
+        <div class="all-button">
+          <button class="">結帳去</button>
+        </div>
+      </router-link>
+    </section>
+  </template>
 </template>
 <script setup>
 import { storeToRefs } from 'pinia';
