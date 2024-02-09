@@ -9,7 +9,16 @@ export const useCartStore = defineStore(
     })
 
     const addNewProduct = (productItem) => {
-      cartState.cartList.push(productItem)
+      // 使用淺拷貝處理物件記憶體參考問題
+      const shallowHandle = { ...productItem }
+      // 處理用戶重複加入相同的商品 就在購物車的原商品的數量增加
+      const findRepeatProduct = cartState.cartList.find(prod => prod.id === shallowHandle.id)
+      if (findRepeatProduct) {
+        findRepeatProduct.qty += shallowHandle.qty
+      }
+      else {
+        cartState.cartList.push(shallowHandle)
+      }
     }
     const getCartList = computed(() => cartState.cartList)
     const getCartAmountTotal = computed(() => {
@@ -29,10 +38,10 @@ export const useCartStore = defineStore(
   },
   {
     persist: [
-      // {
-      //   paths: ['count'],
-      //   storage: sessionStorage,
-      // },
+      {
+        paths: ['cartState'],
+        storage: localStorage,
+      },
     ]
   }
 )
