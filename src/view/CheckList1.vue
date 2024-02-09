@@ -47,32 +47,43 @@
       <form class="row g-3 d-flex">
         <div class="col-md-12">訂購人資訊</div>
         <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">姓名</label>
-          <input
-            type="email"
-            class="form-control"
-            id="inputEmail4"
-            placeholder="請輸入姓名"
-            autocomplete="current-password"
-          />
-        </div>
-        <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">行動電話</label>
-          <input
-            type="password"
-            class="form-control"
-            id="請輸入行動電話"
-            autocomplete="current-password"
-          />
-        </div>
-        <div class="col-12">
-          <label for="inputAddress" class="form-label">連絡住址</label>
+          <label for="name" class="form-label">姓名</label>
           <input
             type="text"
             class="form-control"
-            id="inputAddress"
+            id="name"
+            placeholder="請輸入姓名"
+            v-model="form.name"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="phone" class="form-label">行動電話</label>
+          <input
+            type="tel"
+            id="phone"
+            class="form-control"
+            placeholder="請輸入行動電話"
+            v-model="form.phone"
+          />
+        </div>
+        <div class="col-12">
+          <label for="address" class="form-label">住址</label>
+          <input
+            type="text"
+            class="form-control"
+            id="address"
             placeholder="請輸入住址"
-            autocomplete="current-password"
+            v-model="form.address"
+          />
+        </div>
+        <div class="col-12">
+          <label for="email" class="form-label">信箱</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="請輸入信箱"
+            v-model="form.email"
           />
         </div>
       </form>
@@ -85,7 +96,7 @@
         <div><button class="btn1">取消</button></div></router-link
       >
       <router-link to="/CheckList2" class="text-decoration-none text-white">
-        <div><button class="btn2">下一步</button></div></router-link
+        <div><button class="btn2" @click="submitInfo">下一步</button></div></router-link
       >
     </div>
   </section>
@@ -95,8 +106,19 @@
 import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/store/cart'
 const cartStore = useCartStore()
-const { removeProduct, addProductQty, reduceProductQty, removeCartList } = cartStore
+const { updateCustomerInfo } = cartStore
 const { getCartList, getCartAmountTotal } = storeToRefs(cartStore)
+
+const form = reactive({
+  name: 'sam',
+  phone: '0987717171',
+  address: '北市垃圾區',
+  email: 'a990909@gmail.com'
+})
+
+const submitInfo = () => {
+  updateCustomerInfo(form)
+}
 </script>
 
 <style scoped lang="scss">

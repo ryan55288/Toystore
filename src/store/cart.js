@@ -6,7 +6,13 @@ export const useCartStore = defineStore(
   () => {
     /** State Start */
     const cartState = reactive({
-      cartList: []
+      cartList: [],
+      customerInfo: {
+        name: '',
+        phone: '',
+        address: '',
+        email: ''
+      }
     })
     /** State End */
 
@@ -41,6 +47,11 @@ export const useCartStore = defineStore(
         removeProduct([productId])
       }
     }
+    const updateCustomerInfo = (info) => {
+      Object.keys(info).forEach(key => {
+        cartState.customerInfo[key] = info[key]
+      })
+    }
     // 全部刪除功能
     const removeCartList = () => {
       cartState.cartList = []
@@ -57,6 +68,7 @@ export const useCartStore = defineStore(
       }
       return 0
     })
+    const getCustomerInfo = computed(() => cartState.customerInfo)
     /** Getter End */
     return {
       cartState,
@@ -66,7 +78,9 @@ export const useCartStore = defineStore(
       removeProduct,
       addProductQty,
       reduceProductQty,
-      removeCartList
+      removeCartList,
+      updateCustomerInfo,
+      getCustomerInfo
     }
   },
   {

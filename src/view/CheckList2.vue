@@ -45,10 +45,10 @@
       <div class="row">
         <div class="col-md-12 fs-24 fw-bold">訂購人資訊</div>
         <div class="col-md-12 info">
-          <div class="mt-20">姓名:TOM</div>
-          <div>電話:0903555777</div>
-          <div>住址:新北市三重區三民街18號</div>
-          <div>信箱:tom7788@gmail.com</div>
+          <div class="mt-20">{{ `姓名:${getCustomerInfo.name}` }}</div>
+          <div>{{ `行動電話:${getCustomerInfo.phone}` }}</div>
+          <div>{{ `住址:${getCustomerInfo.address}` }}</div>
+          <div>{{ `信箱:${getCustomerInfo.email}` }}</div>
         </div>
       </div>
     </div>
@@ -149,7 +149,7 @@ import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/store/cart'
 const cartStore = useCartStore()
 const { removeProduct, addProductQty, reduceProductQty, removeCartList } = cartStore
-const { getCartList, getCartAmountTotal } = storeToRefs(cartStore)
+const { getCartList, getCartAmountTotal, getCustomerInfo } = storeToRefs(cartStore)
 </script>
 
 <style scoped lang="scss">
