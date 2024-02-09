@@ -87,30 +87,26 @@
           />
         </div>
         <div class="col-12">
-          <div class="form-check">
+          <div class="form-check mb-4">
             <input
               class="form-check-input"
               type="radio"
-              name="exampleRadios"
-              id="exampleRadios1"
-              value="option1"
-              checked
+              name="invoiceType"
+              :value="1"
+              v-model="form.invoiceType"
             />
-            <label class="form-check-label" for="exampleRadios1">
-              <input type="text" placeholder="請輸入載具" class="text-center" />
-            </label>
+            <input type="text" placeholder="請輸入載具" class="form-control" @click="form.invoiceType = 1" v-model="form.vehicle"/>
           </div>
           <div class="form-check">
+            <label for="paper">紙本發票</label>
             <input
               class="form-check-input"
               type="radio"
-              name="exampleRadios"
-              id="exampleRadios2"
-              value="option2"
+              name="invoiceType"
+              id="paper"
+              :value="2"
+              v-model="form.invoiceType"
             />
-            <label class="form-check-label" for="exampleRadios2">
-              <div class="ml-40 fw-bold">紙本發票</div>
-            </label>
           </div>
         </div>
       </form>
@@ -120,11 +116,19 @@
   <section class="section6 pt-40 mb-40">
     <div class="all-button">
       <router-link to="/Cart" class="text-decoration-none text-white">
-        <div><button class="btn1">取消</button></div></router-link
-      >
-      <router-link to="/CheckList2" class="text-decoration-none text-white">
-        <div><button class="btn2" @click="submitInfo">下一步</button></div></router-link
-      >
+        <div>
+          <button class="btn1">
+            取消
+          </button>
+        </div>
+      </router-link>
+      <a class="text-decoration-none text-white">
+        <div>
+          <button class="btn2" @click="submitInfo">
+            下一步
+          </button>
+        </div>
+      </a>
     </div>
   </section>
 </template>
@@ -136,15 +140,26 @@ const cartStore = useCartStore()
 const { updateCustomerInfo } = cartStore
 const { getCartList, getCartAmountTotal } = storeToRefs(cartStore)
 
+const router = useRouter()
+
 const form = reactive({
   name: 'sam',
   phone: '0987717171',
   address: '北市垃圾區',
-  email: 'a990909@gmail.com'
+  email: 'a990909@gmail.com',
+  invoiceType: 1,
+  vehicle: ''
 })
 
 const submitInfo = () => {
+  if (form.invoiceType === 1) {
+    if (!form.vehicle) {
+      errorAlert('請輸入載具編號')
+      return
+    }
+  }
   updateCustomerInfo(form)
+  router.push('/CheckList2')
 }
 </script>
 

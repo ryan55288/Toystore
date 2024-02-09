@@ -11,7 +11,9 @@ export const useCartStore = defineStore(
         name: '',
         phone: '',
         address: '',
-        email: ''
+        email: '',
+        invoiceType: 1,
+        vehicle: ''
       }
     })
     /** State End */

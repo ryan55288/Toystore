@@ -49,6 +49,8 @@
           <div>{{ `行動電話:${getCustomerInfo.phone}` }}</div>
           <div>{{ `住址:${getCustomerInfo.address}` }}</div>
           <div>{{ `信箱:${getCustomerInfo.email}` }}</div>
+          <div>{{ `發票類型:${getCustomerInfo.invoiceType === 1 ? '載具' : '紙本發票'}` }}</div>
+          <div v-if="getCustomerInfo.invoiceType === 1">{{ `載具編號:${getCustomerInfo.vehicle}` }}</div>
         </div>
       </div>
     </div>
