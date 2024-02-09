@@ -130,7 +130,7 @@
                     </thead>
                     <tbody>
                       <tr v-for="product in getCartList">
-                        <th>
+                        <th @click.stop="removeProductHandle(product.id)">
                           <a href="#" class="del" data-target="#del">
                             <i class="far fa-trash-alt fa-1x"></i>
                           </a>
@@ -163,7 +163,13 @@
 import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/store/cart'
 const cartStore = useCartStore()
+const { removeProduct } = cartStore
 const { getCartList, getCartAmountTotal } = storeToRefs(cartStore)
+
+const removeProductHandle = (productId) => {
+  const payload = [productId]
+  removeProduct(payload)
+}
 </script>
 
 <style lang="scss" scoped>

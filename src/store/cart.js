@@ -4,10 +4,13 @@ import { computed } from "vue"
 export const useCartStore = defineStore(
   'cart', 
   () => {
+    /** State Start */
     const cartState = reactive({
       cartList: []
     })
+    /** State End */
 
+    /** Action Start */
     const addNewProduct = (productItem) => {
       // 使用淺拷貝處理物件記憶體參考問題
       const shallowHandle = { ...productItem }
@@ -20,6 +23,15 @@ export const useCartStore = defineStore(
         cartState.cartList.push(shallowHandle)
       }
     }
+    const removeProduct = (productIds) => {
+      productIds.forEach(id => {
+        const findProductIndex = cartState.cartList.findIndex(prod => prod.id === id)
+        cartState.cartList.splice(findProductIndex, 1)
+      })
+    }
+    /** Action End */
+
+    /** Getter Start */
     const getCartList = computed(() => cartState.cartList)
     const getCartAmountTotal = computed(() => {
       if (cartState.cartList.length) {
@@ -29,11 +41,13 @@ export const useCartStore = defineStore(
       }
       return 0
     })
+    /** Getter End */
     return {
       cartState,
       addNewProduct,
       getCartList,
-      getCartAmountTotal
+      getCartAmountTotal,
+      removeProduct
     }
   },
   {
