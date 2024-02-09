@@ -130,7 +130,7 @@
                     </thead>
                     <tbody>
                       <tr v-for="product in getCartList">
-                        <th @click.stop="removeProductHandle(product.id)">
+                        <th @click.prevent="removeProductHandle(product.id)">
                           <a href="#" class="del" data-target="#del">
                             <i class="far fa-trash-alt fa-1x"></i>
                           </a>

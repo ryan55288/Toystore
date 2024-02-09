@@ -112,6 +112,7 @@ const addToCart = () => {
   if (!validate()) return
   addNewProduct(state.productDetail)
   toastSuccess(`${state.productDetail.name}\n數量${state.productDetail.qty}\n成功加入購物車!`)
+  state.productDetail.qty = 0
   console.log(cartState.cartList);
 }
 </script>
