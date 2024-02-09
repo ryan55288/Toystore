@@ -143,7 +143,11 @@
                   </table>
                 </li>
                 <router-link to="/Cart">
-                  <button class="checkout mt-20">{{ `NT$${getCartAmountTotal}結帳去` }}</button>
+                  <button class="checkout mt-20">
+                    {{ `共${getCartList.length}件總金額 $${getCartAmountTotal}` }}
+                    <br>
+                    結帳去
+                  </button>
                 </router-link>
               </template>
               <p v-else class="text-white">目前還沒有任何商品!</p>
