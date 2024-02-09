@@ -21,3 +21,17 @@ export const warningAlert = (title,text) => {
     icon: 'warning'
   })
 }
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  timer: 2000,
+  timerProgressBar: true,
+  showConfirmButton: false
+})
+
+export const toastSuccess = (title = '成功') => {
+  Toast.fire({
+    icon: 'success',
+    title
+  })
+}
