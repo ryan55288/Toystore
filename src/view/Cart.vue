@@ -51,16 +51,16 @@
         </label>
       </form>
       <div>{{ `$${product.price * product.qty}` }}</div>
-      <div><i class="fas fa-trash fa-2x"></i></div>
+      <div @click="removeProduct([product.id])"><i class="fas fa-trash fa-2x"></i></div>
     </div>
     <div class="d-flex justify-content-center">
       <hr />
     </div>
   </section>
 
-  <section class="section4">
+  <section class="section4" v-if="getCartList.length">
     <div class="bottom">
-      <div>全部刪除</div>
+      <div @click="removeCartListHandle">全部刪除</div>
       <div>{{ `商品件數:${getCartList.length}` }}</div>
       <div>{{ `總計$${getCartAmountTotal}` }}</div>
     </div>
@@ -77,9 +77,26 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/store/cart'
+import Swal from 'sweetalert2'
 const cartStore = useCartStore()
-const { removeProduct, addProductQty, reduceProductQty } = cartStore
+const { removeProduct, addProductQty, reduceProductQty, removeCartList } = cartStore
 const { getCartList, getCartAmountTotal } = storeToRefs(cartStore)
+
+const removeCartListHandle = () => {
+  Swal.fire({
+  title: "確定要全部刪除嗎?",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "是",
+  cancelButtonText: '否'
+}).then((result) => {
+  if (result.isConfirmed) {
+    removeCartList()
+  }
+});
+}
 </script>
 
 <style scoped lang="scss">

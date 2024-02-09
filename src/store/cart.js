@@ -41,6 +41,10 @@ export const useCartStore = defineStore(
         removeProduct([productId])
       }
     }
+    // 全部刪除功能
+    const removeCartList = () => {
+      cartState.cartList = []
+    }
     /** Action End */
 
     /** Getter Start */
@@ -61,7 +65,8 @@ export const useCartStore = defineStore(
       getCartAmountTotal,
       removeProduct,
       addProductQty,
-      reduceProductQty
+      reduceProductQty,
+      removeCartList
     }
   },
   {
