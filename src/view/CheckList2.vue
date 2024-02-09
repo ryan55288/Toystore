@@ -62,35 +62,32 @@
         <div class="col-md-12 info">
           <div class="container">
             <form class="row">
-              <div class="col-md-6">
-                <div class="d-flex">
-                  <div class="form-check form-check-inline">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="inlineCheckbox1"
-                      value="option1"
-                    />
-                  </div>
+              <div class="col-md-6" @click="selectPayment = 1">
+                <div class="d-flex align-items-center cursor-pointer">
                   <img
+                    class="payment-layout me-3 payment-border"
+                    :class="{ 'payment-border-active': selectPayment === 1 }"
                     src="../assets/img/bg/checkList/creditCard2.svg"
                     alt=""
                   />
+                  <label>
+                    <input type="radio" name="payment" :value="1" v-model="selectPayment">
+                    <span class="custom-radio" :class="{ 'custom-radio-active': selectPayment === 1 }"></span>
+                  </label>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="d-flex">
-                  <div class="form-check form-check-inline">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="inlineCheckbox1"
-                      value="active"
-                    />
+              <div class="col-md-6" @click="selectPayment = 2">
+                <div class="d-flex align-items-center cursor-pointer">
+                  <div 
+                    class="payment-layout me-3 payment-border"
+                    :class="{ 'payment-border-active': selectPayment === 2 }"
+                  >
+                    貨到付款
                   </div>
-                  <div>
-                    <p>貨到付款</p>
-                  </div>
+                  <label>
+                    <input type="radio" name="payment" :value="2" v-model="selectPayment">
+                    <span class="custom-radio" :class="{ 'custom-radio-active': selectPayment === 2 }"></span>
+                  </label>
                 </div>
               </div>
               <div class="col-md-6">
@@ -150,6 +147,8 @@ import { useCartStore } from '@/store/cart'
 const cartStore = useCartStore()
 const { removeProduct, addProductQty, reduceProductQty, removeCartList } = cartStore
 const { getCartList, getCartAmountTotal, getCustomerInfo } = storeToRefs(cartStore)
+
+const selectPayment = ref(0)
 </script>
 
 <style scoped lang="scss">
@@ -208,16 +207,6 @@ const { getCartList, getCartAmountTotal, getCustomerInfo } = storeToRefs(cartSto
         font-weight: bold;
         width: 140px;
         height: 55px;
-        border: solid 5px var(--orange-color2);
-        border-radius: 10px;
-        &:active {
-          border: 5px solid var(--orange-color3);
-          border-radius: 10px;
-        }
-      }
-    }
-    .col-md-12 {
-      .col-md-6 img {
         border: solid 5px var(--orange-color2);
         border-radius: 10px;
         &:active {
@@ -328,5 +317,58 @@ const { getCartList, getCartAmountTotal, getCustomerInfo } = storeToRefs(cartSto
   height: 80px;
   position: fixed;
   background-color: var(--green-color2);
+}
+
+
+
+
+input[type="radio"] {
+  display: none;
+}
+
+/* Style the custom radio button */
+.custom-radio {
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--orange-color2); /* 調整邊框顏色 */
+  display: inline-block;
+  position: relative;
+}
+
+/* Style the checked state */
+.custom-radio::after {
+  content: '\2714'; /* 使用 Unicode 字符 ✓ 來代表打勾 */
+  font-size: 24px; /* 調整打勾的大小 */
+  color: #C98A45; /* 調整打勾的顏色 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-25%, -60%);
+  display: none;
+}
+.custom-radio-active {
+  border: 3px solid #C98A45; /* 調整邊框顏色 */
+}
+
+/* Show the checked state */
+input[type="radio"]:checked + .custom-radio::after {
+  display: block;
+}
+.payment-border {
+  border: solid 5px var(--orange-color2);
+  border-radius: 10px;
+}
+.payment-border-active {
+  border: 5px solid #C98A45;
+}
+.payment-layout {
+  width: 148px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cursor-pointer {
+  cursor: pointer;
 }
 </style>
