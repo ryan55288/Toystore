@@ -24,7 +24,7 @@ export const useCartStore = defineStore(
     const getCartAmountTotal = computed(() => {
       if (cartState.cartList.length) {
         return cartState.cartList.reduce((accu,curr) => {
-          return accu + curr.price
+          return accu + (curr.price * curr.qty)
         },0)
       }
       return 0
