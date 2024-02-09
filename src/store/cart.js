@@ -29,6 +29,18 @@ export const useCartStore = defineStore(
         cartState.cartList.splice(findProductIndex, 1)
       })
     }
+
+    const addProductQty = (productId) => {
+      const findProduct = cartState.cartList.find(prod => prod.id === productId)
+      findProduct.qty += 1
+    }
+    const reduceProductQty = (productId) => {
+      const findProduct = cartState.cartList.find(prod => prod.id === productId)
+      findProduct.qty -= 1
+      if (findProduct.qty === 0) {
+        removeProduct([productId])
+      }
+    }
     /** Action End */
 
     /** Getter Start */
@@ -47,7 +59,9 @@ export const useCartStore = defineStore(
       addNewProduct,
       getCartList,
       getCartAmountTotal,
-      removeProduct
+      removeProduct,
+      addProductQty,
+      reduceProductQty
     }
   },
   {

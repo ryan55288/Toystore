@@ -1,89 +1,56 @@
 <template>
   <div class="box1"></div>
   <section class="section2 d-flex justify-content-center pt-40">
-    <div class="header">
+    <div class="header" v-if="getCartList.length">
       <div>商品內容</div>
       <div>數量</div>
       <div>總計</div>
     </div>
+    <template v-else>
+      <div>
+        目前沒有任何商品
+        <router-link class="btn btn-primary" to="/">回首頁</router-link>
+      </div>
+    </template>
   </section>
 
-  <section class="section3 pt-40">
-    <div class="shopping-card">
+  <section class="section3 pt-10">
+    <div
+      v-for="product in getCartList"
+      class="shopping-card"
+    >
       <div>
-        <img src="../assets/img/bg/checkList/1.svg" alt="" />
-        <div>鋼彈模型RG</div>
+        <img :src="product.picture" />
+        <div>{{ product.name }}</div>
         <span class="form-check">
           <input
             class="form-check-input"
             type="checkbox"
-            value=""
             id="flexCheckDefault"
           />
         </span>
         <label class="form-check-label" for="flexCheckDefault"> </label>
       </div>
-      <form id="myform" @submit.prevent="handleSubmit">
-        <label>
+      <form id="myform">
+        <label @click="reduceProductQty(product.id)">
           <input
             type="button"
             value="-"
             class="qtyminus"
-            @click="decrement"
             field="quantity"
           />
         </label>
-        <input type="text" name="quantity" :value="quantity" class="qty" />
-        <label>
+        <input type="text" name="quantity" class="qty" :value="product.qty" readonly/>
+        <label @click="addProductQty(product.id)">
           <input
             type="button"
             value="+"
             class="qtyplus"
-            @click="increment"
             field="quantity"
           />
         </label>
       </form>
-      <div>$500</div>
-      <div><i class="fas fa-trash fa-2x"></i></div>
-    </div>
-
-    <div class="shopping-card pt-40">
-      <div>
-        <img src="../assets/img/bg/checkList/2.svg" alt="" />
-        <div>鋼彈模型RG</div>
-        <span class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="flexCheckDefault"
-          />
-          <label class="form-check-label" for="flexCheckDefault"> </label>
-        </span>
-      </div>
-      <form id="myform" @submit.prevent="handleSubmit">
-        <label>
-          <input
-            type="button"
-            value="-"
-            class="qtyminus"
-            @click="decrement"
-            field="quantity"
-          />
-        </label>
-        <input type="text" name="quantity" :value="quantity" class="qty" />
-        <label>
-          <input
-            type="button"
-            value="+"
-            class="qtyplus"
-            @click="increment"
-            field="quantity"
-          />
-        </label>
-      </form>
-      <div>$500</div>
+      <div>{{ `$${product.price * product.qty}` }}</div>
       <div><i class="fas fa-trash fa-2x"></i></div>
     </div>
     <div class="d-flex justify-content-center">
@@ -107,27 +74,12 @@
     </router-link>
   </section>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      quantity: 0,
-    };
-  },
-  methods: {
-    increment() {
-      this.quantity++;
-    },
-    decrement() {
-      if (this.quantity > 0) {
-        this.quantity--;
-      }
-    },
-    handleSubmit() {
-      console.log("Form submitted with quantity:", this.quantity);
-    },
-  },
-};
+<script setup>
+import { storeToRefs } from 'pinia';
+import { useCartStore } from '@/store/cart'
+const cartStore = useCartStore()
+const { removeProduct, addProductQty, reduceProductQty } = cartStore
+const { getCartList, getCartAmountTotal } = storeToRefs(cartStore)
 </script>
 
 <style scoped lang="scss">
