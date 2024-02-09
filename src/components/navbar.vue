@@ -117,35 +117,36 @@
               購物車
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <table class="table table-striped table-hover table-size">
-                  <thead class="thead-dark">
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">商品</th>
-                      <th scope="col">數量</th>
-                      <th scope="col">價格</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr v-for="product in getCartList">
-                      <th>
-                        <a href="#" class="del" data-target="#del">
-                          <i class="far fa-trash-alt fa-1x"></i>
-                        </a>
-                      </th>
-                      <td>{{ product.name }}</td>
-                      <td scope="row">{{ product.qty }}</td>
-                      <td class="text-right">${{ product.price }}</td>
-                    </tr>
-                    <th colspan="4">
-                      <router-link to="/Cart">
-                        <button class="checkout mt-20">結帳去</button>
-                      </router-link>
-                    </th>
-                  </tbody>
-                </table>
-              </li>
+              <template v-if="getCartList.length">
+                <li>
+                  <table class="table table-striped table-hover table-size">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">商品</th>
+                        <th scope="col">數量</th>
+                        <th scope="col">價格</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="product in getCartList">
+                        <th>
+                          <a href="#" class="del" data-target="#del">
+                            <i class="far fa-trash-alt fa-1x"></i>
+                          </a>
+                        </th>
+                        <td>{{ product.name }}</td>
+                        <td scope="row">{{ product.qty }}</td>
+                        <td class="text-right">${{ product.price }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <router-link to="/Cart">
+                  <button class="checkout mt-20">{{ `NT$${getCartAmountTotal}結帳去` }}</button>
+                </router-link>
+              </template>
+              <p v-else class="text-white">目前還沒有任何商品!</p>
             </ul>
           </li>
           <li class="d-flex align-items-center position-relative">
@@ -162,7 +163,7 @@
 import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/store/cart'
 const cartStore = useCartStore()
-const { getCartList } = cartStore
+const { getCartList, getCartAmountTotal } = storeToRefs(cartStore)
 </script>
 
 <style lang="scss" scoped>
@@ -213,7 +214,6 @@ const { getCartList } = cartStore
     font-family: "Lemon";
     font-size: 20px;
     color: #fff;
-    margin-right: 25px;
     > a:nth-child(4) {
       margin-right: 0px;
     }
@@ -268,13 +268,15 @@ const { getCartList } = cartStore
       width: 300px;
     }
     .checkout {
+      width: 100%;
+      margin: auto;
       background-color: var(--orange-color3);
       font-size: 18px;
       font-weight: bolder;
       color: #fff;
       border: 0px solid;
       border-radius: 10px;
-      padding: 10px 110px;
+      padding: 10px;
       &:hover {
         background-color: var(--orange-color1);
         color: #fff;

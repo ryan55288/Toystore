@@ -12,10 +12,19 @@ export const useCartStore = defineStore(
       cartState.cartList.push(productItem)
     }
     const getCartList = computed(() => cartState.cartList)
+    const getCartAmountTotal = computed(() => {
+      if (cartState.cartList.length) {
+        return cartState.cartList.reduce((accu,curr) => {
+          return accu + curr.price
+        },0)
+      }
+      return 0
+    })
     return {
       cartState,
       addNewProduct,
-      getCartList
+      getCartList,
+      getCartAmountTotal
     }
   },
   {
