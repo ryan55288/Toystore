@@ -12,7 +12,8 @@ export default defineConfig({
         'vue',
         'vue-router',
         'pinia'
-      ]
+      ],
+      dirs: ['src/utils']
     })
   ],
   resolve: {
