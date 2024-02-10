@@ -19,9 +19,7 @@
       v-for="product in getCartList"
       class="shopping-card"
     >
-      <div>
-        <img :src="product.picture" />
-        <div>{{ product.name }}</div>
+      <div class="product-info">
         <span class="form-check">
           <input
             class="form-check-input"
@@ -29,7 +27,8 @@
             id="flexCheckDefault"
           />
         </span>
-        <label class="form-check-label" for="flexCheckDefault"> </label>
+        <img :src="product.picture" class="me-4"/>
+        <div>{{ product.name }}</div>
       </div>
       <form id="myform">
         <label @click="reduceProductQty(product.id)">
@@ -145,20 +144,18 @@ const removeCartListHandle = () => {
   }
 }
 .section3 {
+  width: 1150px;
+  margin: 0 auto;
   .shopping-card {
     display: flex;
     align-items: center;
-    justify-content: center;
-    div:nth-child(1) {
-      margin-right: 440px;
+    .product-info {
+      display: flex;
+      align-items: center;
+      width: 700px;
     }
-
-    div:nth-child(2) {
-      margin-right: 160px;
-    }
-
-    div:nth-child(3) {
-      margin-left: 150px;
+    #myform {
+      width: 350px;
     }
     .form-check {
       width: 10px;
