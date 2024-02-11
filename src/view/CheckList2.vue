@@ -157,7 +157,21 @@ const selectPayment = ref(0)
 const validate = () => {
   if (selectPayment.value === 0) {
     errorAlert('請選擇支付方式')
-    return false
+    return
+  }
+  if (selectPayment.value === 1) {
+    if (!creditCardInfo.cardNumber) {
+      errorAlert('請填寫信用卡號')
+      return
+    }
+    else if (!creditCardInfo.safeCode) {
+      errorAlert('請填寫安全碼')
+      return
+    }
+    else if (!creditCardInfo.inValidDate) {
+      errorAlert('請填寫到期月份')
+      return
+    }
   }
   return true
 }
