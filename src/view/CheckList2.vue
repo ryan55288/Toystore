@@ -92,36 +92,41 @@
                   </label>
                 </div>
               </div>
-              <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">信用卡</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="inputEmail4"
-                  placeholder="請輸入信用卡"
-                  autocomplete="current-password"
-                />
-              </div>
-              <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">安全碼</label>
-                <input
-                  placeholder="請輸入安全碼"
-                  type="password"
-                  class="form-control"
-                  id="inputPassword4"
-                  autocomplete="current-password"
-                />
-              </div>
-              <div class="col-md-6">
-                <label for="inputAddress" class="form-label">到期月份</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputAddress"
-                  placeholder="請輸入到期月份"
-                  autocomplete="current-password"
-                />
-              </div>
+              <template v-if="selectPayment === 1">              
+                <div class="col-md-6">
+                  <label for="cardNumber" class="form-label">信用卡</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cardNumber"
+                    placeholder="請輸入信用卡"
+                    maxlength="19"
+                    v-model="creditCardInfo.cardNumber"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="safeCode" class="form-label">安全碼</label>
+                  <input
+                    placeholder="請輸入安全碼"
+                    type="text"
+                    class="form-control"
+                    id="safeCode"
+                    maxlength="3"
+                    v-model="creditCardInfo.safeCode"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="inValidDate" class="form-label">到期月份</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inValidDate"
+                    placeholder="請輸入到期月份 ex: 05/24"
+                    maxlength="5"
+                    v-model="creditCardInfo.inValidDate"
+                  />
+                </div>
+              </template>
             </form>
           </div>
         </div>
@@ -134,9 +139,7 @@
       <router-link to="/CheckList1" class="text-decoration-none text-white">
         <div><button class="btn1">上一步</button></div></router-link
       >
-      <router-link to="/CheckList3" class="text-decoration-none text-white">
-        <div><button class="btn2">完成訂單</button></div></router-link
-      >
+      <div><button class="btn2" @click="submit">完成訂單</button></div>
     </div>
   </section>
 </template>
@@ -144,13 +147,72 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/store/cart'
+
+const router = useRouter()
 const cartStore = useCartStore()
 const { getSelectedCartList, getSelectedCartListAmountTotal, getCustomerInfo } = storeToRefs(cartStore)
 
 const selectPayment = ref(0)
+
+const validate = () => {
+  if (selectPayment.value === 0) {
+    errorAlert('請選擇支付方式')
+    return false
+  }
+  return true
+}
+
+const submit = () => {
+  if (!validate()) return
+  router.push('/CheckList3')
+}
+const creditCardInfo = reactive({
+  cardNumber: '',
+  safeCode: '',
+  inValidDate: ''
+})
+watch(
+  () => creditCardInfo.cardNumber,
+  (newValue, oldValue) => {
+    // 手輸到第4碼時 補空格
+    if (newValue.length === 4) {
+      creditCardInfo.cardNumber = newValue + ' '
+    }
+    // 手輸到第8碼時 補空格
+    if (newValue.length === 9) {
+      creditCardInfo.cardNumber = newValue + ' '
+    }
+    // 手輸到第12碼時 補空格
+    if (newValue.length === 14) {
+      creditCardInfo.cardNumber = newValue + ' '
+    }
+    // 如果按刪除鍵 清除空格
+    if (oldValue.length > newValue.length) {
+      creditCardInfo.cardNumber = newValue
+    }
+  }
+)
+watch(
+  () => creditCardInfo.inValidDate,
+  (newValue, oldValue) => {
+    // 手輸到第4碼時 補空格
+    if (newValue.length === 2) {
+      creditCardInfo.inValidDate = newValue + '/'
+    }
+    // 如果按刪除鍵 清除空格
+    if (oldValue.length > newValue.length) {
+      creditCardInfo.inValidDate = newValue
+    }
+  }
+)
 </script>
 
 <style scoped lang="scss">
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .section7 {
   hr {
     margin-top: 40px;
