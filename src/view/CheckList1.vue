@@ -21,7 +21,7 @@
   </section>
 
   <section class="section3 pt-40">
-    <div v-for="product in getCartList" class="shopping-card">
+    <div v-for="product in getSelectedCartList" class="shopping-card">
       <div>
         <img :src="product.picture" />
         <div>{{ product.name }}</div>
@@ -37,8 +37,8 @@
 
   <section class="section4">
     <div class="bottom">
-      <div>{{ `商品件數:${getCartList.length}` }}</div>
-      <div class="text-orange">{{ `總計$${getCartAmountTotal}` }}</div>
+      <div>{{ `商品件數:${getSelectedCartList.length}` }}</div>
+      <div class="text-orange">{{ `總計$${getSelectedCartListAmountTotal}` }}</div>
     </div>
   </section>
 
@@ -138,7 +138,7 @@ import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/store/cart'
 const cartStore = useCartStore()
 const { updateCustomerInfo } = cartStore
-const { getCartList, getCartAmountTotal } = storeToRefs(cartStore)
+const { getSelectedCartList, getSelectedCartListAmountTotal } = storeToRefs(cartStore)
 
 const router = useRouter()
 

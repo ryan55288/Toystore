@@ -24,7 +24,8 @@
           <input
             class="form-check-input"
             type="checkbox"
-            id="flexCheckDefault"
+            :value="product"
+            v-model="selectProductList"
           />
         </span>
         <img :src="product.picture" class="me-4"/>
@@ -61,17 +62,15 @@
     <section class="section4">
       <div class="bottom">
         <div @click="removeCartListHandle">全部刪除</div>
-        <div>{{ `商品件數:${getCartList.length}` }}</div>
-        <div>{{ `總計$${getCartAmountTotal}` }}</div>
+        <div>{{ `商品件數:${selectProductList.length}` }}</div>
+        <div>{{ `總計$${selectedTotalAmount}` }}</div>
       </div>
     </section>
   
     <section class="section5 pt-60 mb-40">
-      <router-link to="CheckList1/" class="text-decoration-none">
-        <div class="all-button">
-          <button class="">結帳去</button>
-        </div>
-      </router-link>
+      <div v-if="selectProductList.length" class="all-button">
+        <button @click="submit">結帳去</button>
+      </div>
     </section>
   </template>
 </template>
@@ -80,8 +79,10 @@ import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/store/cart'
 import Swal from 'sweetalert2'
 const cartStore = useCartStore()
-const { removeProduct, addProductQty, reduceProductQty, removeCartList } = cartStore
+const { removeProduct, addProductQty, reduceProductQty, removeCartList, updateSelectedCartList } = cartStore
 const { getCartList, getCartAmountTotal } = storeToRefs(cartStore)
+
+const router = useRouter()
 
 const removeCartListHandle = () => {
   Swal.fire({
@@ -97,6 +98,26 @@ const removeCartListHandle = () => {
     removeCartList()
   }
 });
+}
+
+onMounted(() => {
+  getCartList.value.forEach(prod => {
+    selectProductList.value.push(prod)
+  })
+})
+const selectProductList = ref([])
+const selectedTotalAmount = computed(() => {
+  if (selectProductList.value.length) {
+    return selectProductList.value.reduce((accu,curr) => {
+      return accu + (curr.price * curr.qty)
+    },0)
+  }
+  return 0
+})
+const submit = () => {
+  updateSelectedCartList(selectProductList.value)
+  router.push('/CheckList1')
+
 }
 </script>
 

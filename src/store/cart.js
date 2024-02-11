@@ -14,7 +14,8 @@ export const useCartStore = defineStore(
         email: '',
         invoiceType: 1,
         vehicle: ''
-      }
+      },
+      selectedCartList: []
     })
     /** State End */
 
@@ -58,6 +59,7 @@ export const useCartStore = defineStore(
     const removeCartList = () => {
       cartState.cartList = []
     }
+    const updateSelectedCartList = (payload) => cartState.selectedCartList = [...payload]
     /** Action End */
 
     /** Getter Start */
@@ -71,6 +73,15 @@ export const useCartStore = defineStore(
       return 0
     })
     const getCustomerInfo = computed(() => cartState.customerInfo)
+    const getSelectedCartList = computed(() => cartState.selectedCartList)
+    const getSelectedCartListAmountTotal = computed(() => {
+      if (cartState.selectedCartList.length) {
+        return cartState.selectedCartList.reduce((accu,curr) => {
+          return accu + (curr.price * curr.qty)
+        },0)
+      }
+      return 0
+    })
     /** Getter End */
     return {
       cartState,
@@ -82,7 +93,10 @@ export const useCartStore = defineStore(
       reduceProductQty,
       removeCartList,
       updateCustomerInfo,
-      getCustomerInfo
+      getCustomerInfo,
+      updateSelectedCartList,
+      getSelectedCartList,
+      getSelectedCartListAmountTotal
     }
   },
   {
