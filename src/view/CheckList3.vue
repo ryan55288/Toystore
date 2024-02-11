@@ -22,6 +22,11 @@
           <div class="d-flex justify-content-center">
             <div class="fs-64 fw-bold">恭喜您!完成訂單!</div>
           </div>
+          <div class="text-center mt-3">
+            <router-link to="/UserPage/HistoryOrder">
+              <button class="btn btn-primary">前往查看我的訂單</button>
+            </router-link>
+          </div>
           <div class="d-flex justify-content-center pt-20">
             <div class="fs-36 fw-bold">謝謝光臨，如有問題請聯絡客服專員</div>
           </div>

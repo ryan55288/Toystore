@@ -147,10 +147,14 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/store/cart'
+import { useOrderStore } from '@/store/order'
 
 const router = useRouter()
 const cartStore = useCartStore()
 const { getSelectedCartList, getSelectedCartListAmountTotal, getCustomerInfo } = storeToRefs(cartStore)
+
+const orderStore = useOrderStore()
+const { addOrderHandle } = orderStore
 
 const selectPayment = ref(0)
 
@@ -175,9 +179,47 @@ const validate = () => {
   }
   return true
 }
+const createOrderNumber = () => {
+  const randomNumber = Math.floor(Math.random() * 900000) + 100000;
+  const timeStamp = new Date().getTime()
+  return `${timeStamp}${randomNumber}`
+}
+function getFormattedDate() {
+  var today = new Date();
+  var year = today.getFullYear();
+  var month = (today.getMonth() + 1).toString().padStart(2, '0'); // 月份从 0 开始，所以要加 1，并且补零
+  var day = today.getDate().toString().padStart(2, '0'); // 获取日期，并且补零
+
+  var formattedDate = year + month + day;
+  return formattedDate;
+}
+const calcAllProductQty = () => {
+  return getSelectedCartList.value.reduce((accu, curr) => {
+    return accu + curr.qty
+  }, 0)
+}
+const createOrderDetail = () => {
+  /**
+   * 訂單編號
+   * 訂單日期
+   * 商品數量
+   * 訂單總額
+   * 收據方式
+   * 支付方式
+   */
+  return {
+    orderNumber: createOrderNumber(),
+    orderDate: getFormattedDate(),
+    qty: calcAllProductQty(),
+    amount: getSelectedCartListAmountTotal.value,
+    invoice: getCustomerInfo.value.invoiceType === 1 ? '載具' : '紙本發票',
+    payment: selectPayment.value === 1 ? '信用卡' : '貨到付款'
+  }
+}
 
 const submit = () => {
   if (!validate()) return
+  addOrderHandle(createOrderDetail())
   router.push('/CheckList3')
 }
 const creditCardInfo = reactive({

@@ -1,6 +1,4 @@
-<script setup>
-// import UserComponents from "@/components/UserComponents.vue";
-</script>
+
 
 <template>
   <section class="section1">
@@ -17,19 +15,27 @@
           </tr>
         </thead>
         <tbody class="bg-light">
-          <tr>
-            <th scope="row" class="fw-bold">710112</th>
-            <th scope="row" class="fw-bold">20240116</th>
-            <th scope="row" class="fw-bold">5</th>
-            <th scope="row" class="fw-bold">載具</th>
-            <th scope="row" class="fw-bold">500</th>
-            <th scope="row" class="fw-bold">貨到付款</th>
+          <tr v-for="order in getOrderList">
+            <th scope="row" class="fw-bold">{{ order.orderNumber }}</th>
+            <th scope="row" class="fw-bold">{{ order.orderDate }}</th>
+            <th scope="row" class="fw-bold">{{ order.qty }}</th>
+            <th scope="row" class="fw-bold">{{ order.invoice }}</th>
+            <th scope="row" class="fw-bold">{{ order.amount }}</th>
+            <th scope="row" class="fw-bold">{{ order.payment }}</th>
           </tr>
         </tbody>
       </table>
     </section>
   </section>
 </template>
+
+<script setup>
+import { storeToRefs } from 'pinia';
+import { useOrderStore } from '@/store/order'
+
+const orderStore = useOrderStore()
+const { getOrderList } = storeToRefs(orderStore)
+</script>
 
 <style scoped lang="scss">
 .section1 {
