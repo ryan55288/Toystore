@@ -183,7 +183,7 @@ const product80sToys = reactive([
   },
   {
     id: 2,
-    name: "百獸獵人-牙吠獵人",
+    name: "百獸戰隊-牙吠獵人",
     stock: 5,
     price: 3200,
     picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
@@ -191,7 +191,7 @@ const product80sToys = reactive([
   },
   {
     id: 3,
-    name: "舊世代-極地銀狼 2",
+    name: "戰鬥陀螺-極地銀狼 2",
     stock: 5,
     price: 900,
     picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
@@ -207,7 +207,7 @@ const product80sToys = reactive([
   },
   {
     id: 5,
-    name: "舊世代- 堅甲戰龜",
+    name: "戰鬥陀螺- 堅甲戰龜",
     stock: 12,
     price: 1400,
     picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
@@ -215,7 +215,7 @@ const product80sToys = reactive([
   },
   {
     id: 6,
-    name: "舊世代-龍騎士",
+    name: "戰鬥陀螺-龍騎士",
     stock: 5,
     price: 1480,
     picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
