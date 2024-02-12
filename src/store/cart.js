@@ -59,6 +59,13 @@ export const useCartStore = defineStore(
     const removeCartList = () => {
       cartState.cartList = []
     }
+    // 完成結帳時 刪除已結帳的購物車商品
+    const removeFinishedProducts = () => {
+      cartState.selectedCartList.forEach(selectProd => {
+        const findProductIndex = cartState.cartList.findIndex(prod => prod.id === selectProd.id)
+        cartState.cartList.splice(findProductIndex, 1)
+      })
+    }
     const updateSelectedCartList = (payload) => cartState.selectedCartList = [...payload]
     /** Action End */
 
@@ -96,7 +103,8 @@ export const useCartStore = defineStore(
       getCustomerInfo,
       updateSelectedCartList,
       getSelectedCartList,
-      getSelectedCartListAmountTotal
+      getSelectedCartListAmountTotal,
+      removeFinishedProducts
     }
   },
   {

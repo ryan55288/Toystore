@@ -151,6 +151,7 @@ import { useOrderStore } from '@/store/order'
 
 const router = useRouter()
 const cartStore = useCartStore()
+const { removeFinishedProducts } = cartStore
 const { getSelectedCartList, getSelectedCartListAmountTotal, getCustomerInfo } = storeToRefs(cartStore)
 
 const orderStore = useOrderStore()
@@ -220,6 +221,7 @@ const createOrderDetail = () => {
 const submit = () => {
   if (!validate()) return
   addOrderHandle(createOrderDetail())
+  removeFinishedProducts()
   router.push('/CheckList3')
 }
 const creditCardInfo = reactive({
