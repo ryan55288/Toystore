@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 // import { createVuePlugin } from "vite-plugin-vue";
 import path from "path";
 import AutoImport from "unplugin-auto-import/vite";
+import Components from 'unplugin-vue-components/vite'
 
 export default defineConfig({
   plugins: [
@@ -14,6 +15,10 @@ export default defineConfig({
         'pinia'
       ],
       dirs: ['src/utils']
+    }),
+    Components({
+      dirs: ['src/components'],
+      extensions: ['vue'],
     })
   ],
   resolve: {
