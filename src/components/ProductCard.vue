@@ -80,29 +80,22 @@
 
 <script setup>
 import { useCartStore } from '../store/cart';
-import { onMounted, reactive, toRefs } from 'vue';
+
+const props = defineProps(['productDetail'])
+const productDetail = ref({
+  ...props.productDetail
+})
 
 const cartStore = useCartStore();
 const { addNewProduct, cartState } = cartStore;
-const state = reactive({
-  productDetail: {
-    id: 1,
-    name: "百獸戰隊-天空精靈王",
-    stock: 1,
-    price: 2480,
-    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
-    qty: 0,
-  },
-});
-const { productDetail } = toRefs(state);
-const increment = () => state.productDetail.qty++;
+const increment = () => productDetail.value.qty++;
 const decrement = () => {
-  if (state.productDetail.qty > 0) {
-    state.productDetail.qty--;
+  if (productDetail.value.qty > 0) {
+    productDetail.value.qty--;
   }
 };
 const validate = () => {
-  if (!state.productDetail.qty) {
+  if (!productDetail.value.qty) {
     errorAlert('請輸入數量')
     return false
   }
@@ -110,9 +103,9 @@ const validate = () => {
 }
 const addToCart = () => {
   if (!validate()) return
-  addNewProduct(state.productDetail)
-  toastSuccess(`${state.productDetail.name}\n數量${state.productDetail.qty}\n成功加入購物車!`)
-  state.productDetail.qty = 0
+  addNewProduct(productDetail.value)
+  toastSuccess(`${productDetail.value.name}\n數量${productDetail.value.qty}\n成功加入購物車!`)
+  productDetail.value.qty = 0
   console.log(cartState.cartList);
 };
 </script>

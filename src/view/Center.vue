@@ -27,10 +27,10 @@
       </div>
 
       <div class="Zero">
-        <img :src="imgurl" class="animate__animated animate__zoomInLeft" />
+        <img src="../assets/img/bg/zero.svg" class="animate__animated animate__zoomInLeft" />
       </div>
       <div class="Mega">
-        <img :src="imgurl2" class="animate__animated animate__zoomInRight" />
+        <img src="../assets/img/bg/Mega-Man.svg" class="animate__animated animate__zoomInRight" />
       </div>
     </section>
 
@@ -41,25 +41,15 @@
         8年級生最新商品
       </p>
       <div
-        :class="{ animate__backInLeft: shouldAnimate }"
         class="allCard d-flex justify-content-center mt-30 container-fluid animate__animated animate__backInLeft"
       >
         <div class="row">
-          <div class="col-md-6 col-lg-3">
-            <ProductCard />
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <ProductCard />
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <ProductCard />
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <ProductCard />
+          <div v-for="product in product80sToys" class="col-md-6 col-lg-3">
+            <ProductCard :productDetail="product"/>
           </div>
         </div>
       </div>
-      <div
+      <!-- <div
         class="allCard d-flex justify-content-center container-fluid animate__animated animate__backInRight"
       >
         <div class="row">
@@ -76,7 +66,7 @@
             <ProductCard />
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="d-flex justify-content-center">
         <router-link to="/Grade8">
           <button class="btn btn-more">更多商品</button>
@@ -92,10 +82,9 @@
       </p>
       <div class="container animate__animated animate__rubberBand">
         <div class="allCard row mt-30">
-          <!-- <div class="col-md-6 col-lg-4"><NewProductCard /></div>
-          <div class="col-md-6 col-lg-4"><NewProductCard /></div>
-          <div class="col-md-6 col-lg-4"><NewProductCard /></div> -->
-          <!-- <counter></counter> -->
+          <div v-for="product in newProducts" class="col-md-6 col-lg-3">
+            <ProductCard :productDetail="product"/>
+          </div>
         </div>
       </div>
       <div class="d-flex justify-content-center">
@@ -173,95 +162,116 @@
   </div>
 </template>
 
-<script>
-import NewProductCard from "@/components/NewProductCard.vue";
-import ProductCard from "@/components/ProductCard.vue";
-import Anchor from "@/components/Anchor.vue";
+<script setup>
+import { reactive } from 'vue';
 
-export default {
-  components: { NewProductCard, ProductCard, Anchor },
 
-  data() {
-    return {
-      imgurl: new URL("../assets/img/bg/zero.svg", import.meta.url),
-      imgurl2: new URL("../assets/img/bg/Mega-Man.svg", import.meta.url),
-      shouldAnimate: false,
-      items: ["a", "b", "c", "d", "e", "f"],
-      rotation: 0,
-      deg: 60,
-      productList: [
-        {
-          id: 1,
-          name: "洛克人-獵鷹裝甲",
-          stock: 5,
-          price: 1599,
-          imgurl: new URL(
-            "../assets/img/Product/newtoy/洛克人/IMG-5.svg",
-            import.meta.url
-          ),
-          iconSrc: new URL(
-            "../assets/img/logo&icon/mylove.svg",
-            import.meta.url
-          ),
-          quantity: 0,
-        },
-        {
-          id: 2,
-          name: "LEGO -阿光的鈦機械人",
-          stock: 1,
-          price: 2400,
-          imgurl: new URL(
-            "../assets/img/Product/newtoy/LEGO/IMG-3.svg",
-            import.meta.url
-          ),
-          iconSrc: new URL(
-            "../assets/img/logo&icon/mylove.svg",
-            import.meta.url
-          ),
-          quantity: 0,
-        },
-        {
-          id: 3,
-          name: "鋼彈模型- 爆喪女妖",
-          stock: 1,
-          price: 1400,
-          imgurl: new URL(
-            "../assets/img/Product/newtoy/鋼彈模型/IMG-3.svg",
-            import.meta.url
-          ),
-          iconSrc: new URL(
-            "../assets/img/logo&icon/mylove.svg",
-            import.meta.url
-          ),
-          quantity: 0,
-        },
-        {
-          id: 3,
-          name: "鋼彈模型- 異端鋼彈",
-          stock: 1,
-          price: 680,
-          imgurl: new URL(
-            "../assets/img/Product/newtoy/鋼彈模型/IMG-1.svg",
-            import.meta.url
-          ),
-          iconSrc: new URL(
-            "../assets/img/logo&icon/mylove.svg",
-            import.meta.url
-          ),
-          quantity: 0,
-        },
-      ],
-    };
+const rotation = ref(0)
+const deg = ref(60)
+
+const next = () => rotation.value -= deg.value
+const prev = () => rotation.value += deg.value
+
+const product80sToys = reactive([
+  {
+    id: 1,
+    name: "百獸戰隊-天空精靈王",
+    stock: 12,
+    price: 2499,
+    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    qty: 0,
   },
-  methods: {
-    next() {
-      this.rotation -= this.deg;
-    },
-    prev() {
-      this.rotation += this.deg;
-    },
+  {
+    id: 2,
+    name: "百獸獵人-牙吠獵人",
+    stock: 5,
+    price: 3200,
+    picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
+    qty: 0,
   },
-};
+  {
+    id: 3,
+    name: "舊世代-極地銀狼 2",
+    stock: 5,
+    price: 900,
+    picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
+    qty: 0,
+  },
+  {
+    id: 4,
+    name: "徽章戰士-組裝模型",
+    stock: 5,
+    price: 900,
+    picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
+    qty: 0,
+  },
+  {
+    id: 5,
+    name: "舊世代- 堅甲戰龜",
+    stock: 12,
+    price: 1400,
+    picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
+    qty: 0,
+  },
+  {
+    id: 6,
+    name: "舊世代-龍騎士",
+    stock: 5,
+    price: 1480,
+    picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
+    qty: 0,
+  },
+  {
+    id: 7,
+    name: "彈珠人- 疾風炸彈人",
+    stock: 5,
+    price: 1550,
+    picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
+    qty: 0,
+  },
+  {
+    id: 8,
+    name: "忍風戰隊-忍風合體",
+    stock: 8,
+    price: 1690,
+    picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
+    qty: 0,
+  },
+])
+const newProducts = reactive([
+  {
+    id: 9,
+    name: "鋼彈模型-翔翼攻擊",
+    stock: 12,
+    price: 600,
+    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    qty: 0,
+  },
+  {
+    id: 10,
+    name: "LEGO-冰忍的強化機械人",
+    stock: 1,
+    price: 299,
+    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    qty: 0,
+  },
+  {
+    id: 11,
+    name: "洛克人-黑暗EXE",
+    stock: 1,
+    price: 1550,
+    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    qty: 0,
+  },
+  {
+    id: 12,
+    name: "一番賞- 疾風伝",
+    stock: 5,
+    price: 1650,
+    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    qty: 0,
+  },
+])
 </script>
 
 <style lang="scss" scoped>
