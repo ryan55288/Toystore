@@ -153,6 +153,11 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes,
   scrollBehavior(to) {
+    if (to.query.keyword) {
+      return { 
+        el: to.query.section,
+      }
+    }
     return { top: 0 }
   }
 });

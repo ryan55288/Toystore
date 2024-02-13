@@ -89,9 +89,9 @@
     </div>
   </section>
 
-  <section class="productType">
+  <section class="productType" id="newToy">
     <ul class="d-flex justify-content-center align-items-center h-100">
-      <li v-for="cate in category" :key="cate.id" @click="currentSelectCategory = cate">{{ cate.title }}</li>
+      <li v-for="cate in newToyCategory" :key="cate.id" @click="currentSelectCategory = cate">{{ cate.title }}</li>
     </ul>
   </section>
 
@@ -194,31 +194,8 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
-
-const category = reactive([
-  {
-    id: 6,
-    title: '鋼彈模型',
-  },
-  {
-    id: 7,
-    title: '模型車',
-  },
-  {
-    id: 8,
-    title: 'LEGO',
-  },
-  {
-    id: 9,
-    title: '漫威',
-  },
-  {
-    id: 10,
-    title: '洛克人',
-  },
-])
-const currentSelectCategory = ref(category[0])
+import { useCategory } from '@/composables/category'
+const { newToyCategory, currentSelectCategory } = useCategory('newToy')
 
 const productList = reactive([
   {

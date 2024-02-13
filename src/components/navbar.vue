@@ -26,8 +26,9 @@
           type="search"
           placeholder="Search"
           aria-label="Search"
+          v-model="keyword"
         />
-        <button type="submit"></button>
+        <button @click.prevent="searchKeyword"></button>
       </form>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -168,6 +169,11 @@
 <script setup>
 import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/store/cart'
+import { useCategory } from '@/composables/category'
+const { grade8Category, newToyCategory } = useCategory()
+
+const router = useRouter()
+
 const cartStore = useCartStore()
 const { removeProduct } = cartStore
 const { getCartList, getCartAmountTotal } = storeToRefs(cartStore)
@@ -175,6 +181,24 @@ const { getCartList, getCartAmountTotal } = storeToRefs(cartStore)
 const removeProductHandle = (productId) => {
   const payload = [productId]
   removeProduct(payload)
+}
+
+const keyword = ref('')
+const keywordList = [...grade8Category, ...newToyCategory]
+const searchKeyword = () => {
+  if (keyword.value === '') return
+  const regex = new RegExp(keyword.value, 'i')
+  const result = keywordList.find(item => regex.test(item.title));
+  if (result) {
+    router.push({
+      path: result.path,
+      query: {
+        keyword: result.title,
+        id: result.id,
+        section: result.section
+      }
+    })
+  }
 }
 </script>
 
