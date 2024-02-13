@@ -152,6 +152,9 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+  scrollBehavior(to) {
+    return { top: 0 }
+  }
 });
 
 router.beforeEach((to, from, next) => {
