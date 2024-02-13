@@ -1,5 +1,4 @@
 <script setup>
-import Navbar from "@/components/Navbar.vue";
 import Footbottom from "@/components/Footbottom.vue";
 import { useCartStore } from '@/store/cart'
 const cartStore = useCartStore()
