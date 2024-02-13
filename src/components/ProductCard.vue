@@ -40,10 +40,24 @@
             </div>
             <div class="col-md-4">
               <img
+                v-if="!isFavour"
                 src="../assets/img/logo&icon/mylove.svg"
                 alt=""
                 class="myloveIcon"
+                @click="addFavourHandle"
               />
+              <img
+                v-else
+                src="../assets/img/logo&icon/fullLove.svg"
+                width="47"
+                height="42"
+                alt=""
+                class="myloveIcon"
+                @click="cancelFavourHandle"
+              />
+              <div class="message" v-if="messageShow">
+                成功加入我的最愛!
+              </div>
             </div>
           </div>
         </div>
@@ -77,7 +91,11 @@
 </template>
 
 <script setup>
+import { storeToRefs } from 'pinia';
 import { useCartStore } from '../store/cart';
+import { useMyFavourStore } from '@/store/my-favour'
+import { computed } from 'vue';
+
 
 const router = useRouter()
 const props = defineProps(['productDetail'])
@@ -87,6 +105,25 @@ const productDetail = ref({
 
 const cartStore = useCartStore();
 const { addNewProduct, cartState, addDirectProduct } = cartStore;
+
+const myFavourStore = useMyFavourStore()
+const { addMyFavourList, cancelMyFavour } = myFavourStore
+const { getMyFavourList } = storeToRefs(myFavourStore)
+const isFavour = computed(() => {
+  const getProductIds = getMyFavourList.value.map(prod => prod.id)
+  return getProductIds.includes(productDetail.value.id)
+})
+const messageShow = ref(false)
+const addFavourHandle = () => {
+  messageShow.value = true
+  addMyFavourList(productDetail.value)
+  setTimeout(() => {
+    messageShow.value = false
+  }, 1000)
+}
+const cancelFavourHandle = () => {
+  cancelMyFavour(productDetail.value.id)
+}
 const increment = () => productDetail.value.qty++;
 const decrement = () => {
   if (productDetail.value.qty > 0) {
@@ -215,5 +252,13 @@ const directBuy = () => {
       }
     }
   }
+}
+.message {
+  position: absolute;
+  width: max-content;
+  background: #444444;
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 4px;
 }
 </style>

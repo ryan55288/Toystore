@@ -98,7 +98,8 @@
   }
   .page-content {
     width: 800px;
-    height: 700px;
+    max-height: 700px;
+    overflow-y: auto;
     background-color: var(--orange-color2);
     border-radius: 0px 20px 20px 0px;
   }
