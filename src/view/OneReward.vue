@@ -60,7 +60,7 @@
                 class="col-md-4 d-flex justify-content-center p-20"
                 v-for="prod in productList"
               >
-                <NewProductCard :productDetail="prod" />
+                <ProductCard :productDetail="prod" />
               </div>
             </div>
           </div>
@@ -70,109 +70,60 @@
   </section>
 </template>
 
-<script>
-import NewProductCard from "@/components/NewProductCard.vue";
-import Anchor from "@/components/Anchor.vue";
-export default {
-  components: { NewProductCard, Anchor },
+<script setup>
+import { reactive } from 'vue';
 
-  data() {
-    return {
-      productList: [
-        {
-          id: 1,
-          name: "一番賞-我的英雄學院",
-          stock: 10,
-          price: 2400,
-          imgurl: new URL(
-            "../assets/img/Product/newtoy/一番賞/IMG.svg",
-            import.meta.url
-          ),
-          iconSrc: new URL(
-            "../assets/img/logo&icon/mylove.svg",
-            import.meta.url
-          ),
-          quantity: 0,
-        },
-        {
-          id: 2,
-          name: "一番賞-七龍珠",
-          stock: 13,
-          price: 2000,
-          imgurl: new URL(
-            "../assets/img/Product/newtoy/一番賞/IMG-1.svg",
-            import.meta.url
-          ),
-          iconSrc: new URL(
-            "../assets/img/logo&icon/mylove.svg",
-            import.meta.url
-          ),
-          quantity: 0,
-        },
-        {
-          id: 3,
-          name: "一番賞-咒術迴戰",
-          stock: 15,
-          price: 2800,
-          imgurl: new URL(
-            "../assets/img/Product/newtoy/一番賞/IMG-2.svg",
-            import.meta.url
-          ),
-          iconSrc: new URL(
-            "../assets/img/logo&icon/mylove.svg",
-            import.meta.url
-          ),
-          quantity: 0,
-        },
-        {
-          id: 4,
-          name: "一番賞-HUNTER×HUNTER",
-          stock: 1,
-          price: 1500,
-          imgurl: new URL(
-            "../assets/img/Product/newtoy/一番賞/IMG-3.svg",
-            import.meta.url
-          ),
-          iconSrc: new URL(
-            "../assets/img/logo&icon/mylove.svg",
-            import.meta.url
-          ),
-          quantity: 0,
-        },
-        {
-          id: 5,
-          name: "一番賞-東京復仇者",
-          stock: 8,
-          price: 2000,
-          imgurl: new URL(
-            "../assets/img/Product/newtoy/一番賞/IMG-4.svg",
-            import.meta.url
-          ),
-          iconSrc: new URL(
-            "../assets/img/logo&icon/mylove.svg",
-            import.meta.url
-          ),
-          quantity: 0,
-        },
-        {
-          id: 6,
-          name: "一番賞-疾風伝",
-          stock: 1,
-          price: 2200,
-          imgurl: new URL(
-            "../assets/img/Product/newtoy/一番賞/IMG-5.svg",
-            import.meta.url
-          ),
-          iconSrc: new URL(
-            "../assets/img/logo&icon/mylove.svg",
-            import.meta.url
-          ),
-          quantity: 0,
-        },
-      ],
-    };
+
+const productList = reactive([
+  {
+    id: 96,
+    name: "一番賞-我的英雄學院",
+    stock: 1,
+    price: 1200,
+    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    qty: 0,
   },
-};
+  {
+    id: 97,
+    name: "一番賞-七龍珠",
+    stock: 1,
+    price: 1300,
+    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    qty: 0,
+  },
+  {
+    id: 98,
+    name: "一番賞-咒術回戰",
+    stock: 1,
+    price: 1500,
+    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    qty: 0,
+  },
+  {
+    id: 99,
+    name: "一番賞-HUNTER×HUNTER",
+    stock: 12,
+    price: 780,
+    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    qty: 0,
+  },
+  {
+    id: 100,
+    name: "一番賞- 東京復仇者",
+    stock: 5,
+    price: 1599,
+    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    qty: 0,
+  },
+  {
+    id: 12,
+    name: "一番賞- 疾風伝",
+    stock: 5,
+    price: 1650,
+    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    qty: 0,
+  },
+])
 </script>
 
 <style scoped lang="scss">
