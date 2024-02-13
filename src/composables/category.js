@@ -64,6 +64,15 @@ export function useCategory(type) {
       section: '#newToy'
     },
   ])
+  const oneRewardCategory = reactive([
+    {
+      id: 11,
+      title: '一番賞',
+      path: '/OneReward',
+      section: '#oneReward'
+    }
+  ])
+  const allCategory = [...grade8Category, ...newToyCategory, ...oneRewardCategory]
   const categoryType = () => {
     switch (type) {
       case 'grade8':
@@ -90,6 +99,7 @@ export function useCategory(type) {
   return {
     grade8Category,
     newToyCategory,
-    currentSelectCategory
+    currentSelectCategory,
+    allCategory
   }
 }

@@ -170,7 +170,7 @@
 import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/store/cart'
 import { useCategory } from '@/composables/category'
-const { grade8Category, newToyCategory } = useCategory()
+const { allCategory } = useCategory()
 
 const router = useRouter()
 
@@ -184,7 +184,7 @@ const removeProductHandle = (productId) => {
 }
 
 const keyword = ref('')
-const keywordList = [...grade8Category, ...newToyCategory]
+const keywordList = [...allCategory]
 const searchKeyword = () => {
   if (keyword.value === '') return
   const regex = new RegExp(keyword.value, 'i')

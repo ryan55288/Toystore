@@ -9,7 +9,7 @@
       </div>
       <!-- 卷軸 -->
       <div class="d-flex justify-content-center">
-        <div id="oneReward" class="reel-body2">
+        <div class="reel-body2">
           <div class="container pt-50">
             <div class="row justify-content-center">
               <div class="col-md-12 reel-contant">
@@ -48,12 +48,12 @@
       <hr />
     </div>
     <div class="d-flex justify-content-center">
-      <section class="reel-body1">
+      <section class="reel-body1" id="oneReward">
         <div class="d-flex justify-content-center">
           <img src="../assets/img/bg/newToyPage/reel-bottom.svg" alt="" />
         </div>
         <!-- 卷軸 -->
-        <div id="oneReward" class="reel-body animate__animated">
+        <div class="reel-body animate__animated">
           <div class="container pt-10">
             <div class="row">
               <div
