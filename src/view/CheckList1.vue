@@ -21,7 +21,7 @@
   </section>
 
   <section class="section3 pt-40">
-    <div v-for="product in getSelectedCartList" class="shopping-card">
+    <div v-for="product in (isDirect ? getDirectPurchase : getSelectedCartList)" class="shopping-card">
       <div>
         <img :src="product.picture" />
         <div>{{ product.name }}</div>
@@ -38,7 +38,7 @@
   <section class="section4">
     <div class="bottom">
       <div>{{ `商品件數:${getSelectedCartList.length}` }}</div>
-      <div class="text-orange">{{ `總計$${getSelectedCartListAmountTotal}` }}</div>
+      <div class="text-orange">{{ `總計$${isDirect ? getDirectPurchaseAmountTotal : getSelectedCartListAmountTotal}` }}</div>
     </div>
   </section>
 
@@ -138,9 +138,11 @@ import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/store/cart'
 const cartStore = useCartStore()
 const { updateCustomerInfo } = cartStore
-const { getSelectedCartList, getSelectedCartListAmountTotal } = storeToRefs(cartStore)
+const { getSelectedCartList, getSelectedCartListAmountTotal, getDirectPurchase, getDirectPurchaseAmountTotal } = storeToRefs(cartStore)
 
 const router = useRouter()
+const route = useRoute()
+const isDirect = route.query.isDirect
 
 const form = reactive({
   name: 'sam',
@@ -159,7 +161,17 @@ const submitInfo = () => {
     }
   }
   updateCustomerInfo(form)
-  router.push('/CheckList2')
+  if (isDirect) {
+    router.push({
+      path: '/CheckList2',
+      query: {
+        isDirect: 'direct'
+      }
+    })
+  }
+  else {
+    router.push('/CheckList2')
+  }
 }
 </script>
 

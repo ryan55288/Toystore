@@ -64,11 +64,9 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <router-link to="/Cart">
-                  <button type="button" class="btn rounded-pill btn-buy">
-                    直接購買
-                  </button>
-                </router-link>
+                <button type="button" class="btn rounded-pill btn-buy" @click="directBuy">
+                  直接購買
+                </button>
               </div>
             </div>
           </div>
@@ -81,13 +79,14 @@
 <script setup>
 import { useCartStore } from '../store/cart';
 
+const router = useRouter()
 const props = defineProps(['productDetail'])
 const productDetail = ref({
   ...props.productDetail
 })
 
 const cartStore = useCartStore();
-const { addNewProduct, cartState } = cartStore;
+const { addNewProduct, cartState, addDirectProduct } = cartStore;
 const increment = () => productDetail.value.qty++;
 const decrement = () => {
   if (productDetail.value.qty > 0) {
@@ -108,6 +107,18 @@ const addToCart = () => {
   productDetail.value.qty = 0
   console.log(cartState.cartList);
 };
+
+const directBuy = () => {
+  if (!validate()) return
+  addDirectProduct(productDetail.value)
+  productDetail.value.qty = 0
+  router.push({
+    path: '/CheckList1',
+    query: {
+      isDirect: 'direct'
+    }
+  })
+}
 </script>
 
 <style scoped>

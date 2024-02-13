@@ -1,12 +1,18 @@
 <script setup>
 import Navbar from "@/components/Navbar.vue";
 import Footbottom from "@/components/Footbottom.vue";
-import { useRouter, useRoute } from "vue-router";
-const router = useRouter();
+import { useCartStore } from '@/store/cart'
+const cartStore = useCartStore()
+const { cleanDirectPurchase } = cartStore
 const route = useRoute();
-
-route.path;
-console.log(route.path);
+watch(
+  () => route.path,
+  (newValue) => {
+    if (newValue !== '/CheckList1' && newValue !== '/CheckList2') {
+      cleanDirectPurchase()
+    }
+  }
+)
 </script>
 
 <template>

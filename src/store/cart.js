@@ -15,7 +15,8 @@ export const useCartStore = defineStore(
         invoiceType: 1,
         vehicle: ''
       },
-      selectedCartList: []
+      selectedCartList: [],
+      directPurchase: []
     })
     /** State End */
 
@@ -31,6 +32,10 @@ export const useCartStore = defineStore(
       else {
         cartState.cartList.push(shallowHandle)
       }
+    }
+    const addDirectProduct = (productItem) => {
+      const shallowHandle = { ...productItem }
+      cartState.directPurchase.push(shallowHandle)
     }
     const removeProduct = (productIds) => {
       productIds.forEach(id => {
@@ -67,6 +72,9 @@ export const useCartStore = defineStore(
       })
     }
     const updateSelectedCartList = (payload) => cartState.selectedCartList = [...payload]
+    const cleanDirectPurchase = () => {
+      cartState.directPurchase = []
+    }
     /** Action End */
 
     /** Getter Start */
@@ -89,6 +97,12 @@ export const useCartStore = defineStore(
       }
       return 0
     })
+    const getDirectPurchaseAmountTotal = computed(() => {
+      return cartState.directPurchase.reduce((accu,curr) => {
+        return accu + (curr.price * curr.qty)
+      },0)
+    })
+    const getDirectPurchase = computed(() => cartState.directPurchase)
     /** Getter End */
     return {
       cartState,
@@ -104,7 +118,11 @@ export const useCartStore = defineStore(
       updateSelectedCartList,
       getSelectedCartList,
       getSelectedCartListAmountTotal,
-      removeFinishedProducts
+      removeFinishedProducts,
+      addDirectProduct,
+      getDirectPurchase,
+      getDirectPurchaseAmountTotal,
+      cleanDirectPurchase
     }
   },
   {

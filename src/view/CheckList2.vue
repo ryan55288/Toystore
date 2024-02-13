@@ -19,7 +19,7 @@
   </section>
 
   <section class="section3 pt-40">
-    <div v-for="product in getSelectedCartList" class="shopping-card">
+    <div v-for="product in (isDirect ? getDirectPurchase : getSelectedCartList)" class="shopping-card">
       <div>
         <img :src="product.picture" />
         <div>{{ product.name }}</div>
@@ -36,7 +36,7 @@
   <section class="section4">
     <div class="bottom">
       <div>{{ `商品件數:${getSelectedCartList.length}` }}</div>
-      <div class="text-orange">{{ `總計$${getSelectedCartListAmountTotal}` }}</div>
+      <div class="text-orange">{{ `總計$${isDirect ? getDirectPurchaseAmountTotal : getSelectedCartListAmountTotal}` }}</div>
     </div>
   </section>
 
@@ -150,9 +150,11 @@ import { useCartStore } from '@/store/cart'
 import { useOrderStore } from '@/store/order'
 
 const router = useRouter()
+const route = useRoute()
+const isDirect = route.query.isDirect
 const cartStore = useCartStore()
 const { removeFinishedProducts } = cartStore
-const { getSelectedCartList, getSelectedCartListAmountTotal, getCustomerInfo } = storeToRefs(cartStore)
+const { getSelectedCartList, getSelectedCartListAmountTotal, getCustomerInfo, getDirectPurchase, getDirectPurchaseAmountTotal } = storeToRefs(cartStore)
 
 const orderStore = useOrderStore()
 const { addOrderHandle } = orderStore
@@ -211,8 +213,8 @@ const createOrderDetail = () => {
   return {
     orderNumber: createOrderNumber(),
     orderDate: getFormattedDate(),
-    qty: calcAllProductQty(),
-    amount: getSelectedCartListAmountTotal.value,
+    qty: isDirect ? getDirectPurchase.value[0].qty : calcAllProductQty(),
+    amount: isDirect ? getDirectPurchaseAmountTotal.value : getSelectedCartListAmountTotal.value,
     invoice: getCustomerInfo.value.invoiceType === 1 ? '載具' : '紙本發票',
     payment: selectPayment.value === 1 ? '信用卡' : '貨到付款'
   }
