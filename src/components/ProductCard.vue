@@ -1,5 +1,9 @@
 <template>
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center position-relative">
+    <div v-if="hotSaleIndex" class="hot">
+      {{ `HOT${hotSaleIndex}` }}
+      <i class="fas fa-fire-alt"></i>
+    </div>
     <div class="card">
       <div class="d-flex justify-content-center">
         <img :src="productDetail.picture" alt="" class="w-75" />
@@ -98,7 +102,7 @@ import { computed } from 'vue';
 
 
 const router = useRouter()
-const props = defineProps(['productDetail'])
+const props = defineProps(['productDetail', 'hotSaleIndex'])
 const productDetail = ref({
   ...props.productDetail
 })
@@ -159,6 +163,17 @@ const directBuy = () => {
 </script>
 
 <style scoped>
+.hot {
+  position: absolute;
+  padding: 6px 12px;
+  color: #fff;
+  background: #ee410d;
+  z-index: 100;
+  font-size: 18px;
+  border-radius: 4px;
+  font-weight: bold;
+  left: -20px;
+}
 .card-top {
   .card-content {
     .qtyplus {

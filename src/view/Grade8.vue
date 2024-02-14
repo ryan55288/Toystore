@@ -57,8 +57,8 @@
     </div>
     <div class="container mt-40">
       <div class="row">
-        <div v-for="prod in hotSaleProducts" :key="prod.id" class="col-md-6 col-lg-3">
-          <ProductCard :productDetail="prod"/>
+        <div v-for="(prod, index) in hotSaleProducts" :key="prod.id" class="col-md-6 col-lg-3">
+          <ProductCard :productDetail="prod" :hotSaleIndex="index + 1"/>
         </div>
       </div>
     </div>
