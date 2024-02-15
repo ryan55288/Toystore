@@ -31,6 +31,9 @@
 
 <style scoped>
 .section1 {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
   height: 150px;
   background-color: var(--green-color2);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
