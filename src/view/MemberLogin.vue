@@ -101,7 +101,7 @@
   }
 }
 .bg-1 {
-  background-image: url(../assets/img/bg/Member/member-bg.svg);
+  background-image: url(../assets/img/bg/member/member-bg.svg);
   width: 100%;
   height: 920px;
   background-repeat: no-repeat;
