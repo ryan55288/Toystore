@@ -46,13 +46,13 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
-                <router-link to="News"
-                  ><a class="dropdown-item" href="#">最新消息</a>
+                <router-link to="News">
+                  <span class="dropdown-item">最新消息</span>
                 </router-link>
               </li>
               <li>
                 <router-link to="/AboutJungle">
-                  <a class="dropdown-item" href="#">關於JUNGLE</a>
+                  <span class="dropdown-item">關於JUNGLE</span>
                 </router-link>
               </li>
             </ul>
@@ -71,12 +71,17 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
                 <router-link to="/Grade8">
-                  <a class="dropdown-item" href="#">8年級生玩具</a>
+                  <span class="dropdown-item">8年級生玩具</span>
                 </router-link>
               </li>
               <li>
                 <router-link to="/Newtoy">
-                  <a class="dropdown-item" href="#">新潮玩具</a>
+                  <span class="dropdown-item">新潮玩具</span>
+                </router-link>
+              </li>
+              <li>
+                <router-link to="/OneReward">
+                  <span class="dropdown-item">一番賞</span>
                 </router-link>
               </li>
             </ul>
@@ -96,12 +101,12 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
                 <router-link to="/MemberSign">
-                  <a class="dropdown-item">會員註冊</a>
+                  <span class="dropdown-item">會員註冊</span>
                 </router-link>
               </li>
               <li>
                 <router-link to="/MemberLogin">
-                  <a class="dropdown-item" href="#">會員登入</a>
+                  <span class="dropdown-item">會員登入</span>
                 </router-link>
               </li>
             </ul>
@@ -267,6 +272,10 @@ const searchKeyword = () => {
     &:hover::after {
       width: 100%;
       transition: 0.3s;
+    }
+    span {
+      font-weight: bold;
+      color: #fff;
     }
   }
   .dropdown-menu {
