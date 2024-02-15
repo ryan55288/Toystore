@@ -411,7 +411,6 @@ const newProducts = reactive([
     background-color: var(--orange-color3);
     color: #fff;
     position: absolute;
-    top: 400px;
     padding: 1em 2em;
     cursor: pointer;
     border-radius: 5px;
@@ -419,20 +418,21 @@ const newProducts = reactive([
     box-shadow: 0 5px 0 var(--orange-color1);
     transition: box-shadow 0.1s, top 0.1s;
   }
+  .next:active,
+  .prev:active {
+    box-shadow: 0 1px 0 #999;
+  }
   .next:hover,
   .prev:hover {
     color: var(--orange-color1);
   }
-  // .next:active,
-  // .prev:active {
-  //   top: 104px;
-  //   box-shadow: 0 1px 0 #999;
-  // }
   .next {
-    right: 550px;
+    right: 50%;
+    transform: translate(400%, -100%);
   }
   .prev {
-    left: 550px;
+    left: 50%;
+    transform: translate(-400%, -100%);
   }
   .prev button,
   .next button {
