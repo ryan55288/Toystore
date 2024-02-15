@@ -172,7 +172,7 @@ const directBuy = () => {
   font-size: 18px;
   border-radius: 4px;
   font-weight: bold;
-  left: -20px;
+  left: 0;
 }
 .card-top {
   .card-content {
