@@ -35,7 +35,7 @@
 
   <section class="section4">
     <div class="bottom">
-      <div>{{ `商品件數:${getSelectedCartList.length}` }}</div>
+      <div>{{ `商品總數:${getSelectedProductAllQty}` }}</div>
       <div class="text-orange">{{ `總計$${isDirect ? getDirectPurchaseAmountTotal : getSelectedCartListAmountTotal}` }}</div>
     </div>
   </section>
@@ -154,7 +154,7 @@ const route = useRoute()
 const isDirect = route.query.isDirect
 const cartStore = useCartStore()
 const { removeFinishedProducts } = cartStore
-const { getSelectedCartList, getSelectedCartListAmountTotal, getCustomerInfo, getDirectPurchase, getDirectPurchaseAmountTotal } = storeToRefs(cartStore)
+const { getSelectedCartList, getSelectedCartListAmountTotal, getCustomerInfo, getDirectPurchase, getDirectPurchaseAmountTotal, getSelectedProductAllQty } = storeToRefs(cartStore)
 
 const orderStore = useOrderStore()
 const { addOrderHandle } = orderStore

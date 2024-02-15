@@ -97,6 +97,11 @@ export const useCartStore = defineStore(
       }
       return 0
     })
+    const getSelectedProductAllQty = computed(() => {
+      return cartState.selectedCartList.reduce((accu,curr) => {
+        return accu + curr.qty
+      },0)
+    })
     const getDirectPurchaseAmountTotal = computed(() => {
       return cartState.directPurchase.reduce((accu,curr) => {
         return accu + (curr.price * curr.qty)
@@ -122,7 +127,8 @@ export const useCartStore = defineStore(
       addDirectProduct,
       getDirectPurchase,
       getDirectPurchaseAmountTotal,
-      cleanDirectPurchase
+      cleanDirectPurchase,
+      getSelectedProductAllQty
     }
   },
   {

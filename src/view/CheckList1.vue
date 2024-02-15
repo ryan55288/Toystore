@@ -37,7 +37,7 @@
 
   <section class="section4">
     <div class="bottom">
-      <div>{{ `商品件數:${getSelectedCartList.length}` }}</div>
+      <div>{{ `商品總數:${getSelectedProductAllQty}` }}</div>
       <div class="text-orange">{{ `總計$${isDirect ? getDirectPurchaseAmountTotal : getSelectedCartListAmountTotal}` }}</div>
     </div>
   </section>
@@ -138,7 +138,7 @@ import { storeToRefs } from 'pinia';
 import { useCartStore } from '@/store/cart'
 const cartStore = useCartStore()
 const { updateCustomerInfo } = cartStore
-const { getSelectedCartList, getSelectedCartListAmountTotal, getDirectPurchase, getDirectPurchaseAmountTotal } = storeToRefs(cartStore)
+const { getSelectedCartList, getSelectedCartListAmountTotal, getDirectPurchase, getDirectPurchaseAmountTotal, getSelectedProductAllQty } = storeToRefs(cartStore)
 
 const router = useRouter()
 const route = useRoute()

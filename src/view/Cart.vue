@@ -62,7 +62,7 @@
     <section class="section4">
       <div class="bottom">
         <div @click="removeCartListHandle">全部刪除</div>
-        <div>{{ `商品件數:${selectProductList.length}` }}</div>
+        <div>{{ `商品總數:${selectedProductAllQty}` }}</div>
         <div>{{ `總計$${selectedTotalAmount}` }}</div>
       </div>
     </section>
@@ -113,6 +113,11 @@ const selectedTotalAmount = computed(() => {
     },0)
   }
   return 0
+})
+const selectedProductAllQty = computed(() => {
+  return selectProductList.value.reduce((accu, curr) => {
+    return accu + curr.qty
+  },0)
 })
 const submit = () => {
   updateSelectedCartList(selectProductList.value)
