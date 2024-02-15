@@ -6,57 +6,57 @@
         <div class="text-center fs-36 fw-bold text-green pt-40">會員註冊</div>
         <div class="d-flex justify-content-center">
           <form class="formSet">
-            <div class="pt-20">
-              <label for="exampleInputEmail1" class="form-label">姓名</label>
+            <div class="mb-3 pt-20">
+              <label for="account" class="form-label">帳號</label>
+              <input
+                type="text"
+                class="form-control"
+                :class="{'valid-danger': formRule.account === false }"
+                id="account"
+                placeholder="請輸入帳號"
+                v-model="form.account"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">密碼</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="請輸入密碼"
+                v-model="form.password"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="passwordCheck" class="form-label">確認密碼</label>
+              <input
+                type="password"
+                class="form-control"
+                id="passwordCheck"
+                placeholder="請再次輸入密碼"
+                v-model="form.passwordCheck"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="name" class="form-label">姓名</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="請輸入姓名"
+                v-model="form.name"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">
+                Email
+              </label>
               <input
                 type="email"
                 class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="請輸入姓名"
-                autocomplete="on"
-              />
-            </div>
-            <div class="mb-3 pt-20">
-              <label for="exampleInputPassword2" class="form-label"
-                >Email</label
-              >
-              <input
-                type="password"
-                class="form-control"
-                id="exampleInputPassword2"
+                id="email"
                 placeholder="請輸入Email"
-                autocomplete="on"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword3" class="form-label">帳號</label>
-              <input
-                type="password"
-                class="form-control"
-                id="exampleInputPassword3"
-                placeholder="請輸入帳號"
-                autocomplete="on"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword4" class="form-label">密碼</label>
-              <input
-                type="password"
-                class="form-control"
-                id="exampleInputPassword4"
-                placeholder="請輸入密碼"
-                autocomplete="on"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword5" class="form-label">載具</label>
-              <input
-                type="password"
-                class="form-control"
-                id="exampleInputPassword5"
-                placeholder="請輸入載具"
-                autocomplete="on"
+                v-model="form.email"
               />
             </div>
             <div class="mb-3">
@@ -65,26 +65,28 @@
                 <div class="form-check form-check-inline">
                   <input
                     class="form-check-input"
-                    type="checkbox"
-                    id="inlineCheckbox1"
-                    value="option1"
-                    autocomplete="on"
+                    name="sex"
+                    type="radio"
+                    id="ryanGay"
+                    :value="1"
+                    v-model="form.sex"
                   />
-                  <label class="form-check-label" for="inlineCheckbox1"
-                    >男</label
-                  >
+                  <label class="form-check-label" for="ryanGay">
+                    男
+                  </label>
                 </div>
                 <div class="form-check form-check-inline">
                   <input
                     class="form-check-input"
-                    type="checkbox"
-                    id="inlineCheckbox2"
-                    value="option2"
-                    autocomplete="on"
+                    name="sex"
+                    type="radio"
+                    id="dannyGay"
+                    :value="2"
+                    v-model="form.sex"
                   />
-                  <label class="form-check-label" for="inlineCheckbox2"
-                    >女</label
-                  >
+                  <label class="form-check-label" for="dannyGay">
+                    女
+                  </label>
                 </div>
               </div>
             </div>
@@ -95,11 +97,6 @@
             >
               會員註冊
             </button>
-            <router-link to="/MemberLogin">
-              <button type="submit" class="loginBtn btnSet fs-24 fw-bold mt-20">
-                會員登入
-              </button>
-            </router-link>
           </form>
         </div>
       </section>
@@ -107,25 +104,30 @@
   </div>
 </template>
 
-<script>
-// import Swal from "sweetalert2";
-export default {
-  methods: {
-    showSweetAlert() {
-      this.$swal("Good job!", "會員註冊成功", "success");
-    },
-  },
-};
+<script setup>
+
+const form = reactive({
+  account: '',
+  password: '',
+  passwordCheck: '',
+  name: '',
+  email: '',
+  sex: ''
+})
+const formRule = reactive({
+  ...form
+})
 </script>
 
 <style lang="scss" scoped>
 .section1 {
   border-radius: 10px;
   width: 600px;
-  height: 720px;
+  height: 680px;
   background-color: #fff;
   .formSet {
     width: 450px;
+    padding-top: 10px;
     .form-label {
       font-style: 24px;
       font-weight: bold;
@@ -137,6 +139,8 @@ export default {
       border-radius: 60px;
       color: #fff;
       border: 0px;
+      position: absolute;
+      bottom: 50px;
     }
     .loginBtn {
       background-color: var(--green-color2);
@@ -160,7 +164,7 @@ export default {
 }
 
 .bg-1 {
-  background-image: url(../assets/img/bg/Member/member-bg.svg);
+  background-image: url(../assets/img/bg/member/member-bg.svg);
   width: 100%;
   height: 930px;
   background-repeat: no-repeat;
@@ -209,5 +213,8 @@ export default {
   .phone ul li {
     display: block;
   }
+}
+.valid-danger {
+  border: 2px solid red;
 }
 </style>
