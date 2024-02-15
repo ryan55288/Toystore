@@ -315,17 +315,19 @@ const newProducts = reactive([
   background-repeat: no-repeat;
   background-color: var(--green-color1);
   background-position: center;
+  position: relative;
   .Zero {
     // background-position: left;
     position: absolute;
-    bottom: 250px;
-    left: 500px;
+    left: 50%;
+    transform: translateX(-250%);
   }
   .Mega {
     // background-position: right;
     position: absolute;
-    bottom: 250px;
-    right: 450px;
+    right: 50%;
+    transform: translateX(225%);
+    bottom: 15%;
   }
   body {
     background: #333;
