@@ -480,8 +480,10 @@ const newProducts = reactive([
   }
 }
 .section2 {
-  background-color: var(--green-color1);
-  height: 1200px;
+  background-image: url(../assets/img/bg/product-area-bg.jpg);
+  background-size: contain;
+  background-size: cover;
+  height: 1330px;
   margin: 0 auto;
   p {
     font-family: "Lemon";
@@ -494,7 +496,6 @@ const newProducts = reactive([
   background-image: url(../assets/img/bg/center-content-bg.svg);
   display: block;
   height: 350px;
-  background-color: var(--green-color1);
   p {
     padding-top: 50px;
     font-size: 36px;
@@ -505,8 +506,9 @@ const newProducts = reactive([
   }
 }
 .section4 {
-  background-color: var(--green-color1);
-  height: 380px;
+  background-image: url(../assets/img/bg/product-area-bg.jpg);
+  background-size: cover;
+  height: 400px;
 }
 .section5 {
   background-image: url(../assets/img/bg/center-BG-bottom.svg);
