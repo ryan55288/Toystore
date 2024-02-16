@@ -59,9 +59,7 @@
                 class="myloveIcon"
                 @click="cancelFavourHandle"
               />
-              <div class="message" v-if="messageShow">
-                成功加入我的最愛!
-              </div>
+              <div class="message" v-if="messageShow">成功加入我的最愛!</div>
             </div>
           </div>
         </div>
@@ -82,7 +80,11 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <button type="button" class="btn rounded-pill btn-buy" @click="directBuy">
+                <button
+                  type="button"
+                  class="btn rounded-pill btn-buy"
+                  @click="directBuy"
+                >
                   直接購買
                 </button>
               </div>
@@ -95,39 +97,38 @@
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia';
-import { useCartStore } from '../store/cart';
-import { useMyFavourStore } from '@/store/my-favour'
-import { computed } from 'vue';
+import { storeToRefs } from "pinia";
+import { useCartStore } from "../store/cart";
+import { useMyFavourStore } from "@/store/my-favour";
+import { computed } from "vue";
 
-
-const router = useRouter()
-const props = defineProps(['productDetail', 'hotSaleIndex'])
+const router = useRouter();
+const props = defineProps(["productDetail", "hotSaleIndex"]);
 const productDetail = ref({
-  ...props.productDetail
-})
+  ...props.productDetail,
+});
 
 const cartStore = useCartStore();
 const { addNewProduct, cartState, addDirectProduct } = cartStore;
 
-const myFavourStore = useMyFavourStore()
-const { addMyFavourList, cancelMyFavour } = myFavourStore
-const { getMyFavourList } = storeToRefs(myFavourStore)
+const myFavourStore = useMyFavourStore();
+const { addMyFavourList, cancelMyFavour } = myFavourStore;
+const { getMyFavourList } = storeToRefs(myFavourStore);
 const isFavour = computed(() => {
-  const getProductIds = getMyFavourList.value.map(prod => prod.id)
-  return getProductIds.includes(productDetail.value.id)
-})
-const messageShow = ref(false)
+  const getProductIds = getMyFavourList.value.map((prod) => prod.id);
+  return getProductIds.includes(productDetail.value.id);
+});
+const messageShow = ref(false);
 const addFavourHandle = () => {
-  messageShow.value = true
-  addMyFavourList(productDetail.value)
+  messageShow.value = true;
+  addMyFavourList(productDetail.value);
   setTimeout(() => {
-    messageShow.value = false
-  }, 1000)
-}
+    messageShow.value = false;
+  }, 1000);
+};
 const cancelFavourHandle = () => {
-  cancelMyFavour(productDetail.value.id)
-}
+  cancelMyFavour(productDetail.value.id);
+};
 const increment = () => productDetail.value.qty++;
 const decrement = () => {
   if (productDetail.value.qty > 0) {
@@ -136,30 +137,32 @@ const decrement = () => {
 };
 const validate = () => {
   if (!productDetail.value.qty) {
-    errorAlert('請輸入數量')
-    return false
+    errorAlert("請輸入數量");
+    return false;
   }
-  return true
-}
+  return true;
+};
 const addToCart = () => {
-  if (!validate()) return
-  addNewProduct(productDetail.value)
-  toastSuccess(`${productDetail.value.name}\n數量${productDetail.value.qty}\n成功加入購物車!`)
-  productDetail.value.qty = 0
+  if (!validate()) return;
+  addNewProduct(productDetail.value);
+  toastSuccess(
+    `${productDetail.value.name}\n數量${productDetail.value.qty}\n成功加入購物車!`
+  );
+  productDetail.value.qty = 0;
   console.log(cartState.cartList);
 };
 
 const directBuy = () => {
-  if (!validate()) return
-  addDirectProduct(productDetail.value)
-  productDetail.value.qty = 0
+  if (!validate()) return;
+  addDirectProduct(productDetail.value);
+  productDetail.value.qty = 0;
   router.push({
-    path: '/CheckList1',
+    path: "/CheckList1",
     query: {
-      isDirect: 'direct'
-    }
-  })
-}
+      isDirect: "direct",
+    },
+  });
+};
 </script>
 
 <style scoped>
@@ -176,6 +179,7 @@ const directBuy = () => {
 }
 .card-top {
   .card-content {
+    margin-top: 20px;
     .qtyplus {
       width: 25px;
       height: 30px;
@@ -221,12 +225,18 @@ const directBuy = () => {
 }
 
 .card {
-  width: 320px;
-  height: 430px;
+  width: 350px;
+  height: 475px;
   background-color: #fff;
   p {
     font-weight: bold;
     margin-bottom: 10px;
+    &:nth-child(1) {
+      font-size: 18px;
+    }
+    &:nth-child(2) {
+      font-size: 15px;
+    }
     &:nth-child(3) {
       color: var(--orange-color1);
     }
