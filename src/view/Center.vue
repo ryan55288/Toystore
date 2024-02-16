@@ -512,8 +512,9 @@ const newProducts = reactive([
 }
 .section5 {
   background-image: url(../assets/img/bg/center-BG-bottom.svg);
+  background-size: cover;
   width: 100%;
-  height: 1200px;
+  height: 1300px;
   .container p {
     background-color: var(--orange-color1);
     color: #fff;
