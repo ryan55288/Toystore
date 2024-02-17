@@ -27,7 +27,8 @@
 
 .section1 {
   height: 200px;
-  background-color: var(--green-color1);
+  background-image: url(../assets/img/bg/product-area-bg.jpg);
+  background-size: cover;
   ul {
     display: flex;
     align-items: center;
