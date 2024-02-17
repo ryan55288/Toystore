@@ -6,7 +6,7 @@
     </div>
     <div class="card">
       <div class="d-flex justify-content-center">
-        <img :src="productDetail.picture" alt="" class="w-75" />
+        <img :src="productDetail.picture" alt="" class="w-75 mt-2" />
       </div>
       <div class="card-top d-flex">
         <div class="card-content container">
@@ -225,27 +225,28 @@ const directBuy = () => {
 }
 
 .card {
-  width: 350px;
-  height: 475px;
+  width: 360px;
+  height: 490px;
   background-color: #fff;
   p {
     font-weight: bold;
     margin-bottom: 10px;
     &:nth-child(1) {
-      font-size: 18px;
+      font-size: 20px;
     }
     &:nth-child(2) {
       font-size: 15px;
     }
     &:nth-child(3) {
       color: var(--orange-color1);
+      font-size: 18px;
     }
   }
   &:hover {
     border: 5px solid var(--orange-color3);
   }
   .card-bottom {
-    margin-top: 20px;
+    margin-top: 25px;
     .btn-buy {
       background-color: var(--orange-color3);
       color: #fff;
