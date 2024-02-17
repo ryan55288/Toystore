@@ -758,7 +758,8 @@ const formatProductByCategory = computed(() =>
 .section2 {
   min-height: 1200px;
   width: 100%;
-  background-color: var(--green-color1);
+  background-image: url(../assets/img/bg/product-area-bg.jpg);
+  background-size: contain;
 }
 .section3 {
   width: 100%;
