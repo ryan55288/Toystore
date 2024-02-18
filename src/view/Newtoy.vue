@@ -847,22 +847,23 @@ const formatProductByCategory = computed(() =>
   }
   .bg-1 {
     background-image: url(../assets/img/bg/newToyPage/bg-top1.svg);
-    width: 500px;
+    width: 100%;
     height: 600px;
     background-repeat: no-repeat;
+    background-size: contain;
   }
-  .bg-2 {
-    background-image: url(../assets/img/bg/newToyPage/bg-top2.svg);
-    background-repeat: no-repeat;
-    width: 1000px;
-    height: 600px;
-  }
-  .bg-3 {
-    background-image: url(../assets/img/bg/newToyPage/bg-top3.svg);
-    background-repeat: no-repeat;
-    width: 1000px;
-    height: 600px;
-  }
+  // .bg-2 {
+  //   background-image: url(../assets/img/bg/newToyPage/bg-top2.svg);
+  //   background-repeat: no-repeat;
+  //   width: 1000px;
+  //   height: 600px;
+  // }
+  // .bg-3 {
+  //   background-image: url(../assets/img/bg/newToyPage/bg-top3.svg);
+  //   background-repeat: no-repeat;
+  //   width: 1000px;
+  //   height: 600px;
+  // }
 }
 
 .section0 {
