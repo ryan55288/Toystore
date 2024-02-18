@@ -1,7 +1,7 @@
 <template>
   <div class="box1"></div>
   <div class="d-flex justify-content-center">
-    <div class="bg-1 d-flex justify-content-center pt-120">
+    <div class="bg-1 d-flex justify-content-center">
       <section class="section1 animate__animated animate__pulse">
         <div class="text-center fs-36 fw-bold text-green pt-40">會員註冊</div>
         <div class="d-flex justify-content-center">
@@ -11,7 +11,7 @@
               <input
                 type="text"
                 class="form-control"
-                :class="{'valid-danger': formRule.account === false }"
+                :class="{ 'valid-danger': formRule.account === false }"
                 id="account"
                 placeholder="請輸入帳號"
                 v-model="form.account"
@@ -48,9 +48,7 @@
               />
             </div>
             <div class="mb-3">
-              <label for="email" class="form-label">
-                Email
-              </label>
+              <label for="email" class="form-label"> Email </label>
               <input
                 type="email"
                 class="form-control"
@@ -71,7 +69,7 @@
                     :value="1"
                     v-model="form.sex"
                   />
-                  <label class="form-check-label" for="ryanGay">
+                  <label class="form-check-label fw-bold" for="ryanGay">
                     男
                   </label>
                 </div>
@@ -84,7 +82,7 @@
                     :value="2"
                     v-model="form.sex"
                   />
-                  <label class="form-check-label" for="dannyGay">
+                  <label class="form-check-label fw-bold" for="dannyGay">
                     女
                   </label>
                 </div>
@@ -105,18 +103,17 @@
 </template>
 
 <script setup>
-
 const form = reactive({
-  account: '',
-  password: '',
-  passwordCheck: '',
-  name: '',
-  email: '',
-  sex: ''
-})
+  account: "",
+  password: "",
+  passwordCheck: "",
+  name: "",
+  email: "",
+  sex: "",
+});
 const formRule = reactive({
-  ...form
-})
+  ...form,
+});
 </script>
 
 <style lang="scss" scoped>
@@ -164,6 +161,7 @@ const formRule = reactive({
 }
 
 .bg-1 {
+  padding-top: 150px;
   background-image: url(../assets/img/bg/member/member-bg.svg);
   width: 100%;
   height: 930px;
