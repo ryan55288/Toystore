@@ -71,8 +71,7 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
-
+import { reactive } from "vue";
 
 const productList = reactive([
   {
@@ -80,7 +79,10 @@ const productList = reactive([
     name: "一番賞-我的英雄學院",
     stock: 1,
     price: 1200,
-    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/newtoy/一番賞/IMG.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
   {
@@ -88,7 +90,10 @@ const productList = reactive([
     name: "一番賞-七龍珠",
     stock: 1,
     price: 1300,
-    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/newtoy/一番賞/IMG-1.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
   {
@@ -96,15 +101,21 @@ const productList = reactive([
     name: "一番賞-咒術回戰",
     stock: 1,
     price: 1500,
-    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/newtoy/一番賞/IMG-2.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
   {
     id: 99,
-    name: "一番賞-HUNTER×HUNTER",
+    name: "一番賞-獵人XX",
     stock: 12,
     price: 780,
-    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/newtoy/一番賞/IMG-3.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
   {
@@ -112,7 +123,10 @@ const productList = reactive([
     name: "一番賞- 東京復仇者",
     stock: 5,
     price: 1599,
-    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/newtoy/一番賞/IMG-4.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
   {
@@ -120,10 +134,13 @@ const productList = reactive([
     name: "一番賞- 疾風伝",
     stock: 5,
     price: 1650,
-    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/newtoy/一番賞/IMG-5.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
-])
+]);
 </script>
 
 <style scoped lang="scss">
@@ -134,7 +151,7 @@ const productList = reactive([
   background-color: var(--green-color2);
 }
 .section1 {
-  height: 2800px;
+  height: 2900px;
   background-color: var(--orange-color2);
   hr {
     margin: 60px;
@@ -144,7 +161,7 @@ const productList = reactive([
   }
   .reel-body1 {
     width: 1200px;
-    height: 1300px;
+    height: 1230px;
     background-color: var(--green-color2);
   }
 }
@@ -153,12 +170,10 @@ const productList = reactive([
     font-size: 36px;
     font-weight: bold;
     padding: 30px 0px;
-    font-family: "Lemon";
   }
   p {
     font-size: 24px;
     padding: 0px 25px;
-    font-family: "Lemon";
   }
   .reel-contant {
     padding: 0px 30px;
