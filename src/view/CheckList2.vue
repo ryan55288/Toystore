@@ -216,7 +216,8 @@ const createOrderDetail = () => {
     qty: isDirect ? getDirectPurchase.value[0].qty : calcAllProductQty(),
     amount: isDirect ? getDirectPurchaseAmountTotal.value : getSelectedCartListAmountTotal.value,
     invoice: getCustomerInfo.value.invoiceType === 1 ? '載具' : '紙本發票',
-    payment: selectPayment.value === 1 ? '信用卡' : '貨到付款'
+    payment: selectPayment.value === 1 ? '信用卡' : '貨到付款',
+    delivery: getCustomerInfo.value.deliveryType === 1 ? '到店取貨' : '宅配到府',
   }
 }
 

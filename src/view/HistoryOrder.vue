@@ -12,6 +12,7 @@
             <th scope="col">收據方式</th>
             <th scope="col">金額</th>
             <th scope="col">支付方式</th>
+            <th scope="col">配送方式</th>
           </tr>
         </thead>
         <tbody class="bg-light">
@@ -22,6 +23,7 @@
             <th scope="row" class="fw-bold">{{ order.invoice }}</th>
             <th scope="row" class="fw-bold">{{ order.amount }}</th>
             <th scope="row" class="fw-bold">{{ order.payment }}</th>
+            <th scope="row" class="fw-bold">{{ order.delivery }}</th>
           </tr>
         </tbody>
       </table>

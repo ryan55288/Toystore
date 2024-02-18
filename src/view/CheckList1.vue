@@ -126,6 +126,36 @@
             />
           </div>
         </div>
+        <hr>
+        <h4 class="fw-bold">配送方式</h4>
+        <div class="form-check mb-4">
+          <label for="store">到店取貨</label>
+          <input
+            class="form-check-input"
+            type="radio"
+            name="delivery"
+            id="store"
+            :value="1"
+            v-model="form.deliveryType"
+          />
+        </div>
+          <div class="form-check">
+            <label for="deliveryToHome" class="mb-3">宅配到府</label>
+            <input
+              class="form-check-input"
+              type="radio"
+              name="delivery"
+              id="deliveryToHome"
+              :value="2"
+              v-model="form.deliveryType"
+            />
+            <input
+              v-if="form.deliveryType === 2"
+              type="text"
+              placeholder="請輸入地址"
+              class="form-control"
+            />
+          </div>
       </form>
     </div>
   </section>
@@ -170,6 +200,7 @@ const form = reactive({
   email: "Tom123@gmail.com",
   invoiceType: 1,
   vehicle: "",
+  deliveryType: 1,
 });
 
 const submitInfo = () => {
@@ -288,12 +319,12 @@ const submitInfo = () => {
       margin-left: 150px;
     }
   }
-  hr {
-    margin-top: 40px;
-    width: 1100px;
-    border: 3px gray solid;
-    border-radius: 5px;
-  }
+}
+hr {
+  margin-top: 40px;
+  width: 1100px;
+  border: 3px gray solid;
+  border-radius: 5px;
 }
 .section2 {
   .header {
