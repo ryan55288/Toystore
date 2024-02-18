@@ -121,10 +121,7 @@
 
     <div class="d-flex justify-content-center">
       <div class="page pt-40" v-show="totalPage > 1">
-        <Page
-          v-model:active-index="pageIndex"
-          :totalPage="totalPage"
-        />
+        <Page v-model:active-index="pageIndex" :totalPage="totalPage" />
       </div>
     </div>
   </section>
@@ -767,17 +764,17 @@ const formatPageProductList = computed(() => {
     newArray.push(formatProductByCategory.value.slice(i, i + 8));
   }
 
-  return newArray
-})
+  return newArray;
+});
 
-const pageIndex = ref(1)
-const totalPage = ref(1)
+const pageIndex = ref(1);
+const totalPage = ref(1);
 
 // 當總頁數發生改變時，也把pageIndex指向1
 watchEffect(() => {
-  totalPage.value = formatPageProductList.value.length
-  pageIndex.value = 1
-})
+  totalPage.value = formatPageProductList.value.length;
+  pageIndex.value = 1;
+});
 </script>
 
 <style lang="scss" scoped>
@@ -873,20 +870,8 @@ watchEffect(() => {
     width: 100%;
     height: 600px;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
-  // .bg-2 {
-  //   background-image: url(../assets/img/bg/newToyPage/bg-top2.svg);
-  //   background-repeat: no-repeat;
-  //   width: 1000px;
-  //   height: 600px;
-  // }
-  // .bg-3 {
-  //   background-image: url(../assets/img/bg/newToyPage/bg-top3.svg);
-  //   background-repeat: no-repeat;
-  //   width: 1000px;
-  //   height: 600px;
-  // }
 }
 
 .section0 {
