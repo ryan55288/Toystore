@@ -57,7 +57,7 @@
   </section>
 
   <section class="section5 pt-100">
-    <div class="container">
+    <div class="container pb-100">
       <div class="row">
         <div class="col-md-12 fs-24 fw-bold">選擇付款方式</div>
         <hr class="mt-20" />
@@ -134,7 +134,7 @@
     </div>
   </section>
 
-  <section class="section6 pt-40 mb-40">
+  <section class="section6 pb-200">
     <div class="all-button">
       <router-link to="/CheckList1" class="text-decoration-none text-white">
         <div><button class="btn1">上一步</button></div></router-link
@@ -491,5 +491,11 @@ input[type="radio"]:checked + .custom-radio::after {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.pb-100 {
+  padding-bottom: 100px;
+}
+.pb-200 {
+  padding-bottom: 200px;
 }
 </style>
