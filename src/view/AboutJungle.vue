@@ -96,7 +96,7 @@
   font-size: 36px;
 }
 .section2 {
-  height: 1100px;
+  height: 1300px;
 }
 .box1 {
   width: 100%;
