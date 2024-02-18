@@ -42,13 +42,13 @@
         </p>
       </div>
     </div>
-    <div class="d-flex justify-content-center">
-      <hr />
-    </div>
+    <div class="d-flex justify-content-center"></div>
   </section>
 </template>
 <style scoped>
 .section1 {
+  background-color: var(--orange-color2);
+  height: 1500px;
   .newCard {
     background: #fff;
     width: 1000px;
@@ -56,8 +56,7 @@
     margin-left: 180px;
     flex-wrap: nowrap;
   }
-  background-color: var(--orange-color2);
-  height: 1400px;
+
   hr {
     margin-top: 40px;
     width: 1700px;
