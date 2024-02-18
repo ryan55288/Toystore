@@ -150,13 +150,15 @@
                 </li>
                 <router-link to="/Cart">
                   <button class="checkout mt-20">
-                    {{ `共${getCartList.length}件總金額 $${getCartAmountTotal}` }}
-                    <br>
+                    {{
+                      `共${getCartList.length}件總金額 $${getCartAmountTotal}`
+                    }}
+                    <br />
                     結帳去
                   </button>
                 </router-link>
               </template>
-              <p v-else class="text-white">目前還沒有任何商品!</p>
+              <p v-else class="">目前還沒有任何商品!</p>
             </ul>
           </li>
           <li class="d-flex align-items-center position-relative">
@@ -172,39 +174,39 @@
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia';
-import { useCartStore } from '@/store/cart'
-import { useCategory } from '@/composables/category'
-const { allCategory } = useCategory()
+import { storeToRefs } from "pinia";
+import { useCartStore } from "@/store/cart";
+import { useCategory } from "@/composables/category";
+const { allCategory } = useCategory();
 
-const router = useRouter()
+const router = useRouter();
 
-const cartStore = useCartStore()
-const { removeProduct } = cartStore
-const { getCartList, getCartAmountTotal } = storeToRefs(cartStore)
+const cartStore = useCartStore();
+const { removeProduct } = cartStore;
+const { getCartList, getCartAmountTotal } = storeToRefs(cartStore);
 
 const removeProductHandle = (productId) => {
-  const payload = [productId]
-  removeProduct(payload)
-}
+  const payload = [productId];
+  removeProduct(payload);
+};
 
-const keyword = ref('')
-const keywordList = [...allCategory]
+const keyword = ref("");
+const keywordList = [...allCategory];
 const searchKeyword = () => {
-  if (keyword.value === '') return
-  const regex = new RegExp(keyword.value, 'i')
-  const result = keywordList.find(item => regex.test(item.title));
+  if (keyword.value === "") return;
+  const regex = new RegExp(keyword.value, "i");
+  const result = keywordList.find((item) => regex.test(item.title));
   if (result) {
     router.push({
       path: result.path,
       query: {
         keyword: result.title,
         id: result.id,
-        section: result.section
-      }
-    })
+        section: result.section,
+      },
+    });
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -251,7 +253,6 @@ const searchKeyword = () => {
   }
   ul li a {
     font-weight: bolder;
-    font-family: "Lemon";
     font-size: 24px;
     color: #ffffff;
     margin-right: 25px;
@@ -280,6 +281,13 @@ const searchKeyword = () => {
   }
   .dropdown-menu {
     background-color: rgba(75, 73, 73, 0.5);
+    p {
+      color: #fff;
+      font-weight: bold;
+      padding: 15px;
+      height: 70px;
+      font-size: 24px;
+    }
   }
   .dropdown-item {
     &:hover {
@@ -310,7 +318,7 @@ const searchKeyword = () => {
       }
     }
     .table-size {
-      width: 300px;
+      width: 350px;
     }
     .checkout {
       width: 100%;
