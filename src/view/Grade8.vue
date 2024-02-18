@@ -41,12 +41,17 @@
     <div class="pt-40 text-center fs-36 fw-bold text-white">{{ currentSelectCategory.title }}</div>
     <div class="container mt-40">
       <div class="row animate__animated animate__backInLeft">
-        <div class="col-md-3 mb-4" v-for="product in formatProductByCategory" :key="product.id">
+        <div class="col-md-3 mb-4" v-for="product in formatPageProductList[pageIndex - 1]" :key="product.id">
           <ProductCard :productDetail="product"/>
         </div>
       </div>
     </div>
-    <div class="page"><Page /></div>
+    <div class="page" v-show="totalPage > 1">
+      <Page
+        v-model:active-index="pageIndex"
+        :totalPage="totalPage"
+      />
+    </div>
   </section>
 
   <section class="section3">
@@ -542,6 +547,24 @@ const hotSaleProducts = reactive([
   },
 ])
 const formatProductByCategory = computed(() => productList.filter(prod => prod.categoryId === currentSelectCategory.value.id))
+
+const formatPageProductList = computed(() => {
+  const newArray = [];
+  for (let i = 0; i < formatProductByCategory.value.length; i += 8) {
+    newArray.push(formatProductByCategory.value.slice(i, i + 8));
+  }
+
+  return newArray
+})
+
+const pageIndex = ref(1)
+const totalPage = ref(1)
+
+// 當總頁數發生改變時，也把pageIndex指向1
+watchEffect(() => {
+  totalPage.value = formatPageProductList.value.length
+  pageIndex.value = 1
+})
 </script>
 
 <style scoped>
