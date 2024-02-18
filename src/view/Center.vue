@@ -3,10 +3,7 @@
     <div class="Anchor"><Anchor /></div>
     <section class="section1">
       <div class="container animate__animated animate__zoomInDown">
-        <div 
-          class="carousel" 
-          :style="{ transform: `rotateY(${rotation}deg)` }"
-        >
+        <div class="carousel" :style="{ transform: `rotateY(${rotation}deg)` }">
           <div class="item a"></div>
           <div class="item b"></div>
           <div class="item c"></div>
@@ -27,10 +24,16 @@
       </div>
 
       <div class="Zero">
-        <img src="../assets/img/bg/zero.svg" class="animate__animated animate__zoomInLeft" />
+        <img
+          src="../assets/img/bg/zero.svg"
+          class="animate__animated animate__zoomInLeft"
+        />
       </div>
       <div class="Mega">
-        <img src="../assets/img/bg/Mega-Man.svg" class="animate__animated animate__zoomInRight" />
+        <img
+          src="../assets/img/bg/Mega-Man.svg"
+          class="animate__animated animate__zoomInRight"
+        />
       </div>
     </section>
 
@@ -44,8 +47,8 @@
         class="allCard d-flex justify-content-center mt-30 container-fluid animate__animated animate__backInLeft"
       >
         <div class="row">
-          <div v-for="product in product80sToys" class="col-md-6 col-lg-3">
-            <ProductCard :productDetail="product"/>
+          <div v-for="product in product80sToys" class="col-md-6 col-lg-3 p-2">
+            <ProductCard :productDetail="product" />
           </div>
         </div>
       </div>
@@ -67,11 +70,11 @@
           </div>
         </div>
       </div> -->
-      <div class="d-flex justify-content-center">
+      <span class="d-flex justify-content-center">
         <router-link to="/Grade8">
           <button class="btn btn-more">更多商品</button>
         </router-link>
-      </div>
+      </span>
     </section>
 
     <section class="section3">
@@ -83,7 +86,7 @@
       <div class="container animate__animated animate__rubberBand">
         <div class="allCard row mt-30">
           <div v-for="product in newProducts" class="col-md-6 col-lg-3">
-            <ProductCard :productDetail="product"/>
+            <ProductCard :productDetail="product" />
           </div>
         </div>
       </div>
@@ -163,14 +166,13 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { reactive } from "vue";
 
+const rotation = ref(0);
+const deg = ref(60);
 
-const rotation = ref(0)
-const deg = ref(60)
-
-const next = () => rotation.value -= deg.value
-const prev = () => rotation.value += deg.value
+const next = () => (rotation.value -= deg.value);
+const prev = () => (rotation.value += deg.value);
 
 const product80sToys = reactive([
   {
@@ -178,7 +180,10 @@ const product80sToys = reactive([
     name: "百獸戰隊-天空精靈王",
     stock: 12,
     price: 2499,
-    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/80toy/戰隊系列/Rectangle 6.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
   {
@@ -186,23 +191,32 @@ const product80sToys = reactive([
     name: "百獸戰隊-牙吠獵人",
     stock: 5,
     price: 3200,
-    picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/80toy/戰隊系列/IMG-4.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
   {
     id: 3,
-    name: "戰鬥陀螺-極地銀狼 2",
+    name: "戰鬥陀螺-極地銀狼2",
     stock: 5,
     price: 900,
-    picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/80toy/戰鬥陀螺/IMG-3.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
   {
     id: 4,
-    name: "徽章戰士-組裝模型",
+    name: "徽章戰士-麥特比",
     stock: 5,
     price: 900,
-    picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/80toy/徽章戰士/IMG-2.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
   {
@@ -210,7 +224,10 @@ const product80sToys = reactive([
     name: "戰鬥陀螺- 堅甲戰龜",
     stock: 12,
     price: 1400,
-    picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/80toy/戰鬥陀螺/IMG-5.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
   {
@@ -218,15 +235,21 @@ const product80sToys = reactive([
     name: "戰鬥陀螺-龍騎士",
     stock: 5,
     price: 1480,
-    picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/80toy/戰鬥陀螺/IMG.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
   {
     id: 7,
-    name: "彈珠人- 疾風炸彈人",
+    name: "彈珠人-疾風炸彈人",
     stock: 5,
     price: 1550,
-    picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/80toy/彈珠超人/Rectangle 6.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
   {
@@ -234,17 +257,23 @@ const product80sToys = reactive([
     name: "忍風戰隊-忍風合體",
     stock: 8,
     price: 1690,
-    picture: new URL("../assets/img/Product/center/IMG-4.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/80toy/戰隊系列/IMG-5.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
-])
+]);
 const newProducts = reactive([
   {
     id: 9,
     name: "鋼彈模型-翔翼攻擊",
     stock: 12,
     price: 600,
-    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/newtoy/鋼彈模型/IMG-7.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
   {
@@ -252,7 +281,10 @@ const newProducts = reactive([
     name: "LEGO-冰忍的強化機械人",
     stock: 1,
     price: 299,
-    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product//newtoy/LEGO/IMG-2.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
   {
@@ -260,7 +292,10 @@ const newProducts = reactive([
     name: "洛克人-黑暗EXE",
     stock: 1,
     price: 1550,
-    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/newtoy/洛克人/IMG.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
   {
@@ -268,10 +303,13 @@ const newProducts = reactive([
     name: "一番賞- 疾風伝",
     stock: 5,
     price: 1650,
-    picture: new URL("../assets/img/Product/center/IMG-5.svg", import.meta.url),
+    picture: new URL(
+      "../assets/img/Product/newtoy/一番賞/IMG-5.svg",
+      import.meta.url
+    ),
     qty: 0,
   },
-])
+]);
 </script>
 
 <style lang="scss" scoped>
@@ -442,35 +480,41 @@ const newProducts = reactive([
   }
 }
 .section2 {
-  background-color: var(--green-color1);
-  height: 1200px;
+  background-image: url(../assets/img/bg/product-area-bg.jpg);
+  background-size: contain;
+  background-size: cover;
+  height: 1330px;
   margin: 0 auto;
   p {
     font-family: "Lemon";
   }
   .allCard div {
-    padding: 5px 10px;
+    padding: 10px 5px;
   }
 }
 .section3 {
   background-image: url(../assets/img/bg/center-content-bg.svg);
   display: block;
   height: 350px;
-  background-color: var(--green-color1);
   p {
     padding-top: 50px;
     font-size: 36px;
     font-family: "Lemon";
   }
+  .allCard div {
+    padding-left: 10px;
+  }
 }
 .section4 {
-  background-color: var(--green-color1);
-  height: 460px;
+  background-image: url(../assets/img/bg/product-area-bg.jpg);
+  background-size: cover;
+  height: 400px;
 }
 .section5 {
   background-image: url(../assets/img/bg/center-BG-bottom.svg);
+  background-size: cover;
   width: 100%;
-  height: 1200px;
+  height: 1300px;
   .container p {
     background-color: var(--orange-color1);
     color: #fff;

@@ -7,7 +7,7 @@
       <div>總計</div>
     </div>
     <template v-else>
-      <div>
+      <div class="fw-bold">
         目前沒有任何商品
         <router-link class="btn btn-primary" to="/">回首頁</router-link>
       </div>
@@ -15,10 +15,7 @@
   </section>
 
   <section class="section3 pt-10">
-    <div
-      v-for="product in getCartList"
-      class="shopping-card"
-    >
+    <div v-for="product in getCartList" class="shopping-card">
       <div class="product-info">
         <span class="form-check">
           <input
@@ -28,30 +25,28 @@
             v-model="selectProductList"
           />
         </span>
-        <img :src="product.picture" class="me-4"/>
+        <img :src="product.picture" class="me-4" />
         <div>{{ product.name }}</div>
       </div>
       <form id="myform">
         <label @click="reduceProductQty(product.id)">
-          <input
-            type="button"
-            value="-"
-            class="qtyminus"
-            field="quantity"
-          />
+          <input type="button" value="-" class="qtyminus" field="quantity" />
         </label>
-        <input type="text" name="quantity" class="qty" :value="product.qty" readonly/>
+        <input
+          type="text"
+          name="quantity"
+          class="qty"
+          :value="product.qty"
+          readonly
+        />
         <label @click="addProductQty(product.id)">
-          <input
-            type="button"
-            value="+"
-            class="qtyplus"
-            field="quantity"
-          />
+          <input type="button" value="+" class="qtyplus" field="quantity" />
         </label>
       </form>
       <div>{{ `$${product.price * product.qty}` }}</div>
-      <div @click="removeProduct([product.id])"><i class="fas fa-trash fa-2x"></i></div>
+      <div @click="removeProduct([product.id])">
+        <i class="fas fa-trash fa-2x"></i>
+      </div>
     </div>
     <div class="d-flex justify-content-center">
       <hr />
@@ -66,7 +61,7 @@
         <div>{{ `總計$${selectedTotalAmount}` }}</div>
       </div>
     </section>
-  
+
     <section class="section5 pt-60 mb-40">
       <div v-if="selectProductList.length" class="all-button">
         <button @click="submit">結帳去</button>
@@ -75,55 +70,60 @@
   </template>
 </template>
 <script setup>
-import { storeToRefs } from 'pinia';
-import { useCartStore } from '@/store/cart'
-import Swal from 'sweetalert2'
-const cartStore = useCartStore()
-const { removeProduct, addProductQty, reduceProductQty, removeCartList, updateSelectedCartList } = cartStore
-const { getCartList, getCartAmountTotal } = storeToRefs(cartStore)
+import { storeToRefs } from "pinia";
+import { useCartStore } from "@/store/cart";
+import Swal from "sweetalert2";
+const cartStore = useCartStore();
+const {
+  removeProduct,
+  addProductQty,
+  reduceProductQty,
+  removeCartList,
+  updateSelectedCartList,
+} = cartStore;
+const { getCartList, getCartAmountTotal } = storeToRefs(cartStore);
 
-const router = useRouter()
+const router = useRouter();
 
 const removeCartListHandle = () => {
   Swal.fire({
-  title: "確定要全部刪除嗎?",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#3085d6",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "是",
-  cancelButtonText: '否'
-}).then((result) => {
-  if (result.isConfirmed) {
-    removeCartList()
-  }
-});
-}
+    title: "確定要全部刪除嗎?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "是",
+    cancelButtonText: "否",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      removeCartList();
+    }
+  });
+};
 
 onMounted(() => {
-  getCartList.value.forEach(prod => {
-    selectProductList.value.push(prod)
-  })
-})
-const selectProductList = ref([])
+  getCartList.value.forEach((prod) => {
+    selectProductList.value.push(prod);
+  });
+});
+const selectProductList = ref([]);
 const selectedTotalAmount = computed(() => {
   if (selectProductList.value.length) {
-    return selectProductList.value.reduce((accu,curr) => {
-      return accu + (curr.price * curr.qty)
-    },0)
+    return selectProductList.value.reduce((accu, curr) => {
+      return accu + curr.price * curr.qty;
+    }, 0);
   }
-  return 0
-})
+  return 0;
+});
 const selectedProductAllQty = computed(() => {
   return selectProductList.value.reduce((accu, curr) => {
-    return accu + curr.qty
-  },0)
-})
+    return accu + curr.qty;
+  }, 0);
+});
 const submit = () => {
-  updateSelectedCartList(selectProductList.value)
-  router.push('/CheckList1')
-
-}
+  updateSelectedCartList(selectProductList.value);
+  router.push("/CheckList1");
+};
 </script>
 
 <style scoped lang="scss">

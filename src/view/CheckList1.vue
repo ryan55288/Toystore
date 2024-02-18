@@ -21,7 +21,10 @@
   </section>
 
   <section class="section3 pt-40">
-    <div v-for="product in (isDirect ? getDirectPurchase : getSelectedCartList)" class="shopping-card">
+    <div
+      v-for="product in isDirect ? getDirectPurchase : getSelectedCartList"
+      class="shopping-card"
+    >
       <div>
         <img :src="product.picture" />
         <div>{{ product.name }}</div>
@@ -38,11 +41,19 @@
   <section class="section4">
     <div class="bottom">
       <div>{{ `商品總數:${getSelectedProductAllQty}` }}</div>
-      <div class="text-orange">{{ `總計$${isDirect ? getDirectPurchaseAmountTotal : getSelectedCartListAmountTotal}` }}</div>
+      <div class="text-orange">
+        {{
+          `總計$${
+            isDirect
+              ? getDirectPurchaseAmountTotal
+              : getSelectedCartListAmountTotal
+          }`
+        }}
+      </div>
     </div>
   </section>
 
-  <section class="section5 pt-60">
+  <section class="section5">
     <div class="container">
       <form class="row g-3 d-flex">
         <div class="col-md-12">訂購人資訊</div>
@@ -95,7 +106,13 @@
               :value="1"
               v-model="form.invoiceType"
             />
-            <input type="text" placeholder="請輸入載具" class="form-control" @click="form.invoiceType = 1" v-model="form.vehicle"/>
+            <input
+              type="text"
+              placeholder="請輸入載具"
+              class="form-control"
+              @click="form.invoiceType = 1"
+              v-model="form.vehicle"
+            />
           </div>
           <div class="form-check">
             <label for="paper">紙本發票</label>
@@ -113,20 +130,16 @@
     </div>
   </section>
 
-  <section class="section6 pt-40 mb-40">
+  <section class="section6">
     <div class="all-button">
       <router-link to="/Cart" class="text-decoration-none text-white">
         <div>
-          <button class="btn1">
-            取消
-          </button>
+          <button class="btn1">取消</button>
         </div>
       </router-link>
       <a class="text-decoration-none text-white">
         <div>
-          <button class="btn2" @click="submitInfo">
-            下一步
-          </button>
+          <button class="btn2" @click="submitInfo">下一步</button>
         </div>
       </a>
     </div>
@@ -134,49 +147,56 @@
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia';
-import { useCartStore } from '@/store/cart'
-const cartStore = useCartStore()
-const { updateCustomerInfo } = cartStore
-const { getSelectedCartList, getSelectedCartListAmountTotal, getDirectPurchase, getDirectPurchaseAmountTotal, getSelectedProductAllQty } = storeToRefs(cartStore)
+import { storeToRefs } from "pinia";
+import { useCartStore } from "@/store/cart";
+const cartStore = useCartStore();
+const { updateCustomerInfo } = cartStore;
+const {
+  getSelectedCartList,
+  getSelectedCartListAmountTotal,
+  getDirectPurchase,
+  getDirectPurchaseAmountTotal,
+  getSelectedProductAllQty,
+} = storeToRefs(cartStore);
 
-const router = useRouter()
-const route = useRoute()
-const isDirect = route.query.isDirect
+const router = useRouter();
+const route = useRoute();
+const isDirect = route.query.isDirect;
 
 const form = reactive({
-  name: 'sam',
-  phone: '0987717171',
-  address: '北市垃圾區',
-  email: 'a990909@gmail.com',
+  name: "Tom",
+  phone: "0987717171",
+  address: "新北市",
+  email: "Tom123@gmail.com",
   invoiceType: 1,
-  vehicle: ''
-})
+  vehicle: "",
+});
 
 const submitInfo = () => {
   if (form.invoiceType === 1) {
     if (!form.vehicle) {
-      errorAlert('請輸入載具編號')
-      return
+      errorAlert("請輸入載具編號");
+      return;
     }
   }
-  updateCustomerInfo(form)
+  updateCustomerInfo(form);
   if (isDirect) {
     router.push({
-      path: '/CheckList2',
+      path: "/CheckList2",
       query: {
-        isDirect: 'direct'
-      }
-    })
+        isDirect: "direct",
+      },
+    });
+  } else {
+    router.push("/CheckList2");
   }
-  else {
-    router.push('/CheckList2')
-  }
-}
+};
 </script>
 
 <style scoped lang="scss">
 .section6 {
+  padding-top: 40px;
+  padding-bottom: 200px;
   .all-button {
     display: flex;
     justify-content: center;
@@ -207,6 +227,7 @@ const submitInfo = () => {
   }
 }
 .section5 {
+  padding-top: 60px;
   display: flex;
   justify-content: center;
   .form-label {

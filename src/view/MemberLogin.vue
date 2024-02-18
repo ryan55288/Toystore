@@ -28,9 +28,6 @@
                 autocomplete="on"
               />
             </div>
-            <div class="text-center fs-24 fw-bold pt-20 text-green">
-              忘記密碼?
-            </div>
             <router-link to="/UserPage">
               <button type="submit" class="loginBtn btnSet fs-24 fw-bold mt-20">
                 登入
@@ -64,7 +61,7 @@
 .section1 {
   border-radius: 10px;
   width: 600px;
-  height: 620px;
+  height: 600px;
   background-color: #fff;
   .formSet {
     width: 450px;

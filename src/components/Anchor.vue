@@ -72,8 +72,9 @@ export default {
     }
   }
   .img {
-    background-image: url(../assets/img/bg/馬力歐.svg);
+    background-image: url(../assets/img/bg/shovel.svg);
     background-repeat: no-repeat;
+    background-size: contain;
     width: 60px;
     height: 60px;
     background-size: auto;
