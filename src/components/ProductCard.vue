@@ -6,7 +6,7 @@
     </div>
     <div class="card">
       <div class="d-flex justify-content-center">
-        <img :src="productDetail.picture" alt="" class="w-75 mt-2" />
+        <img :src="productDetail.picture" alt="" class="w-75 mt-2" @click="toProductDetailPage(productDetail)"/>
       </div>
       <div class="card-top d-flex">
         <div class="card-content container">
@@ -97,72 +97,30 @@
 </template>
 
 <script setup>
-import { storeToRefs } from "pinia";
-import { useCartStore } from "../store/cart";
-import { useMyFavourStore } from "@/store/my-favour";
-import { computed } from "vue";
+import { useProduct } from "../composables/product";
+import { useProductStore } from '../store/product';
 
 const router = useRouter();
+const productStore = useProductStore()
+const { updateProductDetail } = productStore
+const toProductDetailPage = (product) => {
+  updateProductDetail(product)
+  router.push('/Product')
+}
 const props = defineProps(["productDetail", "hotSaleIndex"]);
 const productDetail = ref({
   ...props.productDetail,
 });
-
-const cartStore = useCartStore();
-const { addNewProduct, cartState, addDirectProduct } = cartStore;
-
-const myFavourStore = useMyFavourStore();
-const { addMyFavourList, cancelMyFavour } = myFavourStore;
-const { getMyFavourList } = storeToRefs(myFavourStore);
-const isFavour = computed(() => {
-  const getProductIds = getMyFavourList.value.map((prod) => prod.id);
-  return getProductIds.includes(productDetail.value.id);
-});
-const messageShow = ref(false);
-const addFavourHandle = () => {
-  messageShow.value = true;
-  addMyFavourList(productDetail.value);
-  setTimeout(() => {
-    messageShow.value = false;
-  }, 1000);
-};
-const cancelFavourHandle = () => {
-  cancelMyFavour(productDetail.value.id);
-};
-const increment = () => productDetail.value.qty++;
-const decrement = () => {
-  if (productDetail.value.qty > 0) {
-    productDetail.value.qty--;
-  }
-};
-const validate = () => {
-  if (!productDetail.value.qty) {
-    errorAlert("請輸入數量");
-    return false;
-  }
-  return true;
-};
-const addToCart = () => {
-  if (!validate()) return;
-  addNewProduct(productDetail.value);
-  toastSuccess(
-    `${productDetail.value.name}\n數量${productDetail.value.qty}\n成功加入購物車!`
-  );
-  productDetail.value.qty = 0;
-  console.log(cartState.cartList);
-};
-
-const directBuy = () => {
-  if (!validate()) return;
-  addDirectProduct(productDetail.value);
-  productDetail.value.qty = 0;
-  router.push({
-    path: "/CheckList1",
-    query: {
-      isDirect: "direct",
-    },
-  });
-};
+const { 
+  increment,
+  decrement,
+  isFavour,
+  addFavourHandle,
+  cancelFavourHandle,
+  messageShow,
+  addToCart,
+  directBuy
+} = useProduct(productDetail)
 </script>
 
 <style scoped>
