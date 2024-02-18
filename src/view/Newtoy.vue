@@ -873,7 +873,7 @@ watchEffect(() => {
     width: 100%;
     height: 600px;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   // .bg-2 {
   //   background-image: url(../assets/img/bg/newToyPage/bg-top2.svg);
