@@ -5,74 +5,12 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-5">
-          <div
-            id="carouselExampleIndicators"
-            class="carousel"
-            data-bs-ride="carousel"
-          >
-            <div class="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="0"
-                class="active"
-                aria-current="true"
-                aria-label="Slide 1"
-              ></button>
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="1"
-                aria-label="Slide 2"
-              ></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img
-                  src="../assets/img/Product/80toy/戰隊系列/IMG-1.svg"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div class="carousel-item">
-                <img
-                  src="../assets/img/Product/80toy/戰隊系列/IMG-1.svg"
-                  class="d-block w-100"
-                  alt="..."
-                />
-              </div>
-            </div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+          <img :src="productDetail.picture" alt="">
         </div>
         <div class="col-md-7 contant">
-          <h2>商品名稱:百獸合體-牙吠獵人</h2>
-          <p>內容類型:百獸戰隊</p>
-          <p>建議售價:$4,000</p>
-          <p>商品數量:1</p>
+          <h2>{{ `商品名稱:${productDetail.name}` }}</h2>
+          <p>{{ `建議售價:$${productDetail.price}` }}</p>
+          <p>{{ `商品庫存:${productDetail.stock}` }}</p>
           <div class="d-flex form">
             <form id="myform" method="POST" action="#" class="mr-20">
               <label for=""> </label
@@ -81,15 +19,35 @@
                 value="-"
                 class="qtyminus"
                 field="quantity"
+                @click="decrement"
               />
-              <input type="text" name="quantity" value="0" class="qty" />
-              <input type="button" value="+" class="qtyplus" field="quantity" />
+              <input type="text" name="quantity" :value="productDetail.qty" readonly class="qty" />
+              <input type="button" value="+" class="qtyplus" field="quantity" @click="increment"/>
             </form>
-            <img src="../assets/img/logo&icon/love.svg" alt="" class="myLove" />
+            <!-- <img src="../assets/img/logo&icon/love.svg" alt="" class="myLove" /> -->
+            <div class="position-relative">
+              <img
+                v-if="!isFavour"
+                src="../assets/img/logo&icon/mylove.svg"
+                alt=""
+                class="myloveIcon"
+                @click="addFavourHandle"
+              />
+              <img
+                v-else
+                src="../assets/img/logo&icon/fullLove.svg"
+                width="47"
+                height="42"
+                alt=""
+                class="myloveIcon"
+                @click="cancelFavourHandle"
+              />
+              <div class="message" v-if="messageShow">成功加入我的最愛!</div>
+            </div>
           </div>
           <div class="d-flex ml-40">
-            <button class="">直接購買</button>
-            <button class="">加入購物車</button>
+            <button class="" @click="directBuy">直接購買</button>
+            <button class="" @click="addToCart">加入購物車</button>
           </div>
         </div>
       </div>
@@ -110,27 +68,24 @@
     </div>
   </section>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      quantity: 0,
-    };
-  },
-  methods: {
-    increment() {
-      this.quantity++;
-    },
-    decrement() {
-      if (this.quantity > 0) {
-        this.quantity--;
-      }
-    },
-    handleSubmit() {
-      console.log("Form submitted with quantity:", this.quantity);
-    },
-  },
-};
+<script setup>
+import { storeToRefs } from 'pinia';
+import { useProductStore } from '../store/product';
+import { useProduct } from '../composables/product';
+
+const productStore = useProductStore()
+const { productDetail } = storeToRefs(productStore)
+
+const { 
+  increment,
+  decrement,
+  isFavour,
+  addFavourHandle,
+  cancelFavourHandle,
+  messageShow,
+  addToCart,
+  directBuy
+} = useProduct(productDetail)
 </script>
 <style lang="scss" scoped>
 .section1 {
@@ -273,5 +228,15 @@ export default {
   height: 80px;
   position: fixed;
   background-color: var(--green-color2);
+}
+.message {
+  position: absolute;
+  width: max-content;
+  background: #444444;
+  color: #fff;
+  padding: 4px 6px;
+  border-radius: 4px;
+  top: 0;
+  left: 50px;
 }
 </style>
