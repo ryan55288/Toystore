@@ -6,7 +6,12 @@
     </div>
     <div class="card">
       <div class="d-flex justify-content-center">
-        <img :src="productDetail.picture" alt="" class="w-75 mt-2" @click="toProductDetailPage(productDetail)"/>
+        <img
+          :src="productDetail.picture"
+          alt=""
+          class="w-75 mt-2"
+          @click="toProductDetailPage(productDetail)"
+        />
       </div>
       <div class="card-top d-flex">
         <div class="card-content container">
@@ -98,20 +103,20 @@
 
 <script setup>
 import { useProduct } from "../composables/product";
-import { useProductStore } from '../store/product';
+import { useProductStore } from "../store/product";
 
 const router = useRouter();
-const productStore = useProductStore()
-const { updateProductDetail } = productStore
+const productStore = useProductStore();
+const { updateProductDetail } = productStore;
 const toProductDetailPage = (product) => {
-  updateProductDetail(product)
-  router.push('/Product')
-}
+  updateProductDetail(product);
+  router.push("/Product");
+};
 const props = defineProps(["productDetail", "hotSaleIndex"]);
 const productDetail = ref({
   ...props.productDetail,
 });
-const { 
+const {
   increment,
   decrement,
   isFavour,
@@ -119,8 +124,8 @@ const {
   cancelFavourHandle,
   messageShow,
   addToCart,
-  directBuy
-} = useProduct(productDetail)
+  directBuy,
+} = useProduct(productDetail);
 </script>
 
 <style scoped>
@@ -240,9 +245,13 @@ const {
 .message {
   position: absolute;
   width: max-content;
-  background: #444444;
+  background: var(--orange-color1);
   color: #fff;
-  padding: 8px 10px;
+  padding: 10px 20px;
   border-radius: 4px;
+  bottom: 250px;
+  left: 60px;
+  font-size: 24px;
+  font-weight: bold;
 }
 </style>
