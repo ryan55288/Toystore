@@ -236,7 +236,7 @@ const productList = reactive([
   },
   {
     id: 56,
-    name: "RG 019 紅色異端",
+    name: "鋼彈模型-紅色異端",
     stock: 1,
     price: 680,
     picture: new URL(
