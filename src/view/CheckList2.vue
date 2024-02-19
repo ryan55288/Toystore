@@ -19,7 +19,10 @@
   </section>
 
   <section class="section3 pt-40">
-    <div v-for="product in (isDirect ? getDirectPurchase : getSelectedCartList)" class="shopping-card">
+    <div
+      v-for="product in isDirect ? getDirectPurchase : getSelectedCartList"
+      class="shopping-card"
+    >
       <div>
         <img :src="product.picture" />
         <div>{{ product.name }}</div>
@@ -36,7 +39,15 @@
   <section class="section4">
     <div class="bottom">
       <div>{{ `商品總數:${getSelectedProductAllQty}` }}</div>
-      <div class="text-orange">{{ `總計$${isDirect ? getDirectPurchaseAmountTotal : getSelectedCartListAmountTotal}` }}</div>
+      <div class="text-orange">
+        {{
+          `總計$${
+            isDirect
+              ? getDirectPurchaseAmountTotal
+              : getSelectedCartListAmountTotal
+          }`
+        }}
+      </div>
     </div>
   </section>
 
@@ -49,14 +60,22 @@
           <div>{{ `行動電話:${getCustomerInfo.phone}` }}</div>
           <div>{{ `住址:${getCustomerInfo.address}` }}</div>
           <div>{{ `信箱:${getCustomerInfo.email}` }}</div>
-          <div>{{ `發票類型:${getCustomerInfo.invoiceType === 1 ? '載具' : '紙本發票'}` }}</div>
-          <div v-if="getCustomerInfo.invoiceType === 1">{{ `載具編號:${getCustomerInfo.vehicle}` }}</div>
+          <div>
+            {{
+              `發票類型:${
+                getCustomerInfo.invoiceType === 1 ? "載具" : "紙本發票"
+              }`
+            }}
+          </div>
+          <div v-if="getCustomerInfo.invoiceType === 1">
+            {{ `載具編號:${getCustomerInfo.vehicle}` }}
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section5 pt-100">
+  <section class="section5 pt-90">
     <div class="container pb-100">
       <div class="row">
         <div class="col-md-12 fs-24 fw-bold">選擇付款方式</div>
@@ -73,26 +92,42 @@
                     alt=""
                   />
                   <label>
-                    <input type="radio" name="payment" :value="1" v-model="selectPayment">
-                    <span class="custom-radio" :class="{ 'custom-radio-active': selectPayment === 1 }"></span>
+                    <input
+                      type="radio"
+                      name="payment"
+                      :value="1"
+                      v-model="selectPayment"
+                    />
+                    <span
+                      class="custom-radio"
+                      :class="{ 'custom-radio-active': selectPayment === 1 }"
+                    ></span>
                   </label>
                 </div>
               </div>
               <div class="col-md-6" @click="selectPayment = 2">
                 <div class="d-flex align-items-center cursor-pointer">
-                  <div 
+                  <div
                     class="payment-layout me-3 payment-border"
                     :class="{ 'payment-border-active': selectPayment === 2 }"
                   >
                     貨到付款
                   </div>
                   <label>
-                    <input type="radio" name="payment" :value="2" v-model="selectPayment">
-                    <span class="custom-radio" :class="{ 'custom-radio-active': selectPayment === 2 }"></span>
+                    <input
+                      type="radio"
+                      name="payment"
+                      :value="2"
+                      v-model="selectPayment"
+                    />
+                    <span
+                      class="custom-radio"
+                      :class="{ 'custom-radio-active': selectPayment === 2 }"
+                    ></span>
                   </label>
                 </div>
               </div>
-              <template v-if="selectPayment === 1">              
+              <template v-if="selectPayment === 1">
                 <div class="col-md-6">
                   <label for="cardNumber" class="form-label">信用卡</label>
                   <input
@@ -145,62 +180,67 @@
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia';
-import { useCartStore } from '@/store/cart'
-import { useOrderStore } from '@/store/order'
+import { storeToRefs } from "pinia";
+import { useCartStore } from "@/store/cart";
+import { useOrderStore } from "@/store/order";
 
-const router = useRouter()
-const route = useRoute()
-const isDirect = route.query.isDirect
-const cartStore = useCartStore()
-const { removeFinishedProducts } = cartStore
-const { getSelectedCartList, getSelectedCartListAmountTotal, getCustomerInfo, getDirectPurchase, getDirectPurchaseAmountTotal, getSelectedProductAllQty } = storeToRefs(cartStore)
+const router = useRouter();
+const route = useRoute();
+const isDirect = route.query.isDirect;
+const cartStore = useCartStore();
+const { removeFinishedProducts } = cartStore;
+const {
+  getSelectedCartList,
+  getSelectedCartListAmountTotal,
+  getCustomerInfo,
+  getDirectPurchase,
+  getDirectPurchaseAmountTotal,
+  getSelectedProductAllQty,
+} = storeToRefs(cartStore);
 
-const orderStore = useOrderStore()
-const { addOrderHandle } = orderStore
+const orderStore = useOrderStore();
+const { addOrderHandle } = orderStore;
 
-const selectPayment = ref(0)
+const selectPayment = ref(0);
 
 const validate = () => {
   if (selectPayment.value === 0) {
-    errorAlert('請選擇支付方式')
-    return
+    errorAlert("請選擇支付方式");
+    return;
   }
   if (selectPayment.value === 1) {
     if (!creditCardInfo.cardNumber) {
-      errorAlert('請填寫信用卡號')
-      return
-    }
-    else if (!creditCardInfo.safeCode) {
-      errorAlert('請填寫安全碼')
-      return
-    }
-    else if (!creditCardInfo.inValidDate) {
-      errorAlert('請填寫到期月份')
-      return
+      errorAlert("請填寫信用卡號");
+      return;
+    } else if (!creditCardInfo.safeCode) {
+      errorAlert("請填寫安全碼");
+      return;
+    } else if (!creditCardInfo.inValidDate) {
+      errorAlert("請填寫到期月份");
+      return;
     }
   }
-  return true
-}
+  return true;
+};
 const createOrderNumber = () => {
   const randomNumber = Math.floor(Math.random() * 900000) + 100000;
-  const timeStamp = new Date().getTime()
-  return `${timeStamp}${randomNumber}`
-}
+  const timeStamp = new Date().getTime();
+  return `${timeStamp}${randomNumber}`;
+};
 function getFormattedDate() {
   var today = new Date();
   var year = today.getFullYear();
-  var month = (today.getMonth() + 1).toString().padStart(2, '0'); // 月份从 0 开始，所以要加 1，并且补零
-  var day = today.getDate().toString().padStart(2, '0'); // 获取日期，并且补零
+  var month = (today.getMonth() + 1).toString().padStart(2, "0"); // 月份从 0 开始，所以要加 1，并且补零
+  var day = today.getDate().toString().padStart(2, "0"); // 获取日期，并且补零
 
   var formattedDate = year + month + day;
   return formattedDate;
 }
 const calcAllProductQty = () => {
   return getSelectedCartList.value.reduce((accu, curr) => {
-    return accu + curr.qty
-  }, 0)
-}
+    return accu + curr.qty;
+  }, 0);
+};
 const createOrderDetail = () => {
   /**
    * 訂單編號
@@ -214,58 +254,61 @@ const createOrderDetail = () => {
     orderNumber: createOrderNumber(),
     orderDate: getFormattedDate(),
     qty: isDirect ? getDirectPurchase.value[0].qty : calcAllProductQty(),
-    amount: isDirect ? getDirectPurchaseAmountTotal.value : getSelectedCartListAmountTotal.value,
-    invoice: getCustomerInfo.value.invoiceType === 1 ? '載具' : '紙本發票',
-    payment: selectPayment.value === 1 ? '信用卡' : '貨到付款',
-    delivery: getCustomerInfo.value.deliveryType === 1 ? '到店取貨' : '宅配到府',
-  }
-}
+    amount: isDirect
+      ? getDirectPurchaseAmountTotal.value
+      : getSelectedCartListAmountTotal.value,
+    invoice: getCustomerInfo.value.invoiceType === 1 ? "載具" : "紙本發票",
+    payment: selectPayment.value === 1 ? "信用卡" : "貨到付款",
+    delivery:
+      getCustomerInfo.value.deliveryType === 1 ? "到店取貨" : "宅配到府",
+  };
+};
 
 const submit = () => {
-  if (!validate()) return
-  addOrderHandle(createOrderDetail())
-  removeFinishedProducts()
-  router.push('/CheckList3')
-}
+  if (!validate()) return;
+  addOrderHandle(createOrderDetail());
+  removeFinishedProducts();
+  router.push("/CheckList3");
+};
 const creditCardInfo = reactive({
-  cardNumber: '',
-  safeCode: '',
-  inValidDate: ''
-})
+  cardNumber: "",
+  safeCode: "",
+  inValidDate: "",
+});
 watch(
   () => creditCardInfo.cardNumber,
   (newValue, oldValue) => {
     // 手輸到第4碼時 補空格
     if (newValue.length === 4) {
-      creditCardInfo.cardNumber = newValue + ' '
+      creditCardInfo.cardNumber = newValue + " ";
     }
     // 手輸到第8碼時 補空格
     if (newValue.length === 9) {
-      creditCardInfo.cardNumber = newValue + ' '
+      creditCardInfo.cardNumber = newValue + " ";
     }
     // 手輸到第12碼時 補空格
     if (newValue.length === 14) {
-      creditCardInfo.cardNumber = newValue + ' '
+      creditCardInfo.cardNumber = newValue + " ";
     }
     // 如果按刪除鍵 清除空格
     if (oldValue.length > newValue.length) {
-      creditCardInfo.cardNumber = newValue
+      creditCardInfo.cardNumber = newValue;
     }
   }
-)
+);
 watch(
   () => creditCardInfo.inValidDate,
   (newValue, oldValue) => {
     // 手輸到第4碼時 補空格
     if (newValue.length === 2) {
-      creditCardInfo.inValidDate = newValue + '/'
+      creditCardInfo.inValidDate = newValue + "/";
     }
     // 如果按刪除鍵 清除空格
     if (oldValue.length > newValue.length) {
-      creditCardInfo.inValidDate = newValue
+      creditCardInfo.inValidDate = newValue;
     }
   }
-)
+);
 </script>
 
 <style scoped lang="scss">
@@ -441,9 +484,6 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: var(--green-color2);
 }
 
-
-
-
 input[type="radio"] {
   display: none;
 }
@@ -459,9 +499,9 @@ input[type="radio"] {
 
 /* Style the checked state */
 .custom-radio::after {
-  content: '\2714'; /* 使用 Unicode 字符 ✓ 來代表打勾 */
+  content: "\2714"; /* 使用 Unicode 字符 ✓ 來代表打勾 */
   font-size: 24px; /* 調整打勾的大小 */
-  color: #C98A45; /* 調整打勾的顏色 */
+  color: #c98a45; /* 調整打勾的顏色 */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -469,7 +509,7 @@ input[type="radio"] {
   display: none;
 }
 .custom-radio-active {
-  border: 3px solid #C98A45; /* 調整邊框顏色 */
+  border: 3px solid #c98a45; /* 調整邊框顏色 */
 }
 
 /* Show the checked state */
@@ -481,7 +521,7 @@ input[type="radio"]:checked + .custom-radio::after {
   border-radius: 10px;
 }
 .payment-border-active {
-  border: 5px solid #C98A45;
+  border: 5px solid #c98a45;
 }
 .payment-layout {
   width: 148px;
@@ -489,6 +529,7 @@ input[type="radio"]:checked + .custom-radio::after {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: bold;
 }
 .cursor-pointer {
   cursor: pointer;
