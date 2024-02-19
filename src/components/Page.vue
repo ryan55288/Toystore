@@ -1,19 +1,18 @@
 <script setup>
-
-const props = defineProps(['activeIndex', 'totalPage'])
-const emit = defineEmits(['update:activeIndex'])
+const props = defineProps(["activeIndex", "totalPage"]);
+const emit = defineEmits(["update:activeIndex"]);
 
 const prevPage = () => {
-  if (props.activeIndex === 1) return
-  emit('update:activeIndex', props.activeIndex - 1)
-}
+  if (props.activeIndex === 1) return;
+  emit("update:activeIndex", props.activeIndex - 1);
+};
 const nextPage = () => {
-  if (props.activeIndex === props.totalPage) return
-  emit('update:activeIndex', props.activeIndex + 1)
-}
+  if (props.activeIndex === props.totalPage) return;
+  emit("update:activeIndex", props.activeIndex + 1);
+};
 const updateActiveIndex = (page) => {
-  emit('update:activeIndex', page)
-}
+  emit("update:activeIndex", page);
+};
 </script>
 
 <template>
@@ -23,7 +22,13 @@ const updateActiveIndex = (page) => {
         <i class="fas fa-chevron-left"></i>
       </li>
       <li @click="prevPage">上一頁</li>
-      <li v-for="page in totalPage" @click="updateActiveIndex(page)" :class="{ 'activePage': activeIndex === page }">{{ page }}</li>
+      <li
+        v-for="page in totalPage"
+        @click="updateActiveIndex(page)"
+        :class="{ activePage: activeIndex === page }"
+      >
+        {{ page }}
+      </li>
       <li @click="nextPage">下一頁</li>
       <li @click="nextPage">
         <i class="fas fa-chevron-right"></i>
