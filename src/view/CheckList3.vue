@@ -24,11 +24,13 @@
           </div>
           <div class="text-center mt-3">
             <router-link to="/UserPage/HistoryOrder">
-              <button class="btn btn-primary">前往查看我的訂單</button>
+              <button class="btn btn-lookOrder">前往查看我的訂單</button>
             </router-link>
           </div>
           <div class="d-flex justify-content-center pt-20">
-            <div class="fs-36 fw-bold">謝謝光臨，如有問題請聯絡客服專員</div>
+            <div class="fs-36 fw-bold">
+              謝謝光臨，如有問題請聯絡客服0903-xxx-666
+            </div>
           </div>
         </div>
       </div>
@@ -49,13 +51,22 @@
   padding-top: 75px;
   .col-md-12 {
     width: 1160px;
-    height: 450px;
+    height: 490px;
     background-color: var(--orange-color2);
     border-radius: 10px;
     color: var(--green-color1);
     img {
       height: 250px;
       width: 200px;
+    }
+  }
+  .btn-lookOrder {
+    color: #fff;
+    background-color: var(--orange-color3);
+    font-weight: bold;
+    &:hover {
+      color: #fff;
+      background-color: var(--orange-color1);
     }
   }
 }
