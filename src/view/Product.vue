@@ -4,16 +4,16 @@
   <section class="section1">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-5">
-          <img :src="productDetail.picture" alt="">
+        <div class="col-md-5 p-5">
+          <img :src="productDetail.picture" alt="" />
         </div>
         <div class="col-md-7 contant">
-          <h2>{{ `商品名稱:${productDetail.name}` }}</h2>
-          <p>{{ `建議售價:$${productDetail.price}` }}</p>
-          <p>{{ `商品庫存:${productDetail.stock}` }}</p>
+          <h2>{{ `商品名稱 ${productDetail.name}` }}</h2>
+          <p>{{ `建議售價 $${productDetail.price}` }}</p>
+          <p>{{ `商品庫存 ${productDetail.stock}` }}</p>
           <div class="d-flex form">
             <form id="myform" method="POST" action="#" class="mr-20">
-              <label for=""> </label
+              <label for=""></label
               ><input
                 type="button"
                 value="-"
@@ -21,11 +21,23 @@
                 field="quantity"
                 @click="decrement"
               />
-              <input type="text" name="quantity" :value="productDetail.qty" readonly class="qty" />
-              <input type="button" value="+" class="qtyplus" field="quantity" @click="increment"/>
+              <input
+                type="text"
+                name="quantity"
+                :value="productDetail.qty"
+                readonly
+                class="qty"
+              />
+              <input
+                type="button"
+                value="+"
+                class="qtyplus"
+                field="quantity"
+                @click="increment"
+              />
             </form>
             <!-- <img src="../assets/img/logo&icon/love.svg" alt="" class="myLove" /> -->
-            <div class="position-relative">
+            <div class="position-relative ml-60">
               <img
                 v-if="!isFavour"
                 src="../assets/img/logo&icon/mylove.svg"
@@ -45,7 +57,7 @@
               <div class="message" v-if="messageShow">成功加入我的最愛!</div>
             </div>
           </div>
-          <div class="d-flex ml-40">
+          <div class="d-flex ml-40 mt-10">
             <button class="" @click="directBuy">直接購買</button>
             <button class="" @click="addToCart">加入購物車</button>
           </div>
@@ -68,15 +80,16 @@
     </div>
   </section>
 </template>
+
 <script setup>
-import { storeToRefs } from 'pinia';
-import { useProductStore } from '../store/product';
-import { useProduct } from '../composables/product';
+import { storeToRefs } from "pinia";
+import { useProductStore } from "../store/product";
+import { useProduct } from "../composables/product";
 
-const productStore = useProductStore()
-const { productDetail } = storeToRefs(productStore)
+const productStore = useProductStore();
+const { productDetail } = storeToRefs(productStore);
 
-const { 
+const {
   increment,
   decrement,
   isFavour,
@@ -84,37 +97,50 @@ const {
   cancelFavourHandle,
   messageShow,
   addToCart,
-  directBuy
-} = useProduct(productDetail)
+  directBuy,
+} = useProduct(productDetail);
 </script>
+
 <style lang="scss" scoped>
 .section1 {
   display: flex;
-  width: 900px;
+  width: 1000px;
   margin: 0 auto;
   background-color: var(--orange-color2);
   .contant {
     .qtyplus {
-      width: 25px;
-      height: 30px;
+      width: 30px;
+      height: 40px;
       border: 1px solid #aaa;
       background-color: #f8f8f8;
       border-radius: 0px 3px 3px 0px;
+      font-weight: bold;
+      font-size: 24px;
+      &:active {
+        background-color: #8a8787;
+        color: #f8f8f8;
+      }
     }
     .qty {
-      width: 40px;
-      height: 30px;
+      width: 80px;
+      height: 40px;
       text-align: center;
       border: 0;
       border-top: 1px solid #aaa;
       border-bottom: 1px solid #aaa;
+      font-size: 24px;
     }
     .qtyminus {
-      width: 25px;
-      height: 30px;
+      width: 30px;
+      height: 40px;
       border: 1px solid #aaa;
       background-color: #f8f8f8;
       border-radius: 3px 0px 0px 3px;
+      font-size: 24px;
+      &:active {
+        background-color: #8a8787;
+        color: #f8f8f8;
+      }
     }
     button {
       &:nth-child(1) {
@@ -144,52 +170,24 @@ const {
       }
     }
     h2 {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: bold;
       padding: 40px;
     }
     p {
+      &:nth-child(2) {
+        color: var(--orange-color1);
+      }
       padding: 0px 40px 20px;
       font-weight: bold;
       font-size: 24px;
     }
     .form {
       padding: 0px 40px 20px;
-      .myLove {
+      .myloveIcon {
         cursor: pointer;
-        &:active {
-          background-image: url(../assets/img/logo&icon/fullLove.svg);
-          background-size: contain;
-          background-repeat: no-repeat;
-        }
       }
     }
-  }
-  .carousel-item {
-    background-color: rgba(139, 141, 139, 0.7);
-  }
-  input.qtyplus {
-    width: 25px;
-    height: 30px;
-    border: 1px solid #aaa;
-    background: #f8f8f8;
-    border-radius: 0px 3px 3px 0px;
-  }
-
-  input.qtyminus {
-    width: 25px;
-    height: 30px;
-    border: 1px solid #aaa;
-    background: #f8f8f8;
-    border-radius: 3px 0px 0px 3px;
-  }
-  input.qty {
-    width: 60px;
-    height: 30px;
-    text-align: center;
-    border: 0;
-    border-top: 1px solid #aaa;
-    border-bottom: 1px solid #aaa;
   }
 }
 .box2 {
@@ -197,7 +195,7 @@ const {
   padding-top: 120px;
 }
 .section2 {
-  width: 900px;
+  width: 1000px;
   padding-top: 40px;
   height: 300px;
   margin: 0 auto;
@@ -232,11 +230,13 @@ const {
 .message {
   position: absolute;
   width: max-content;
-  background: #444444;
+  background: var(--orange-color1);
   color: #fff;
-  padding: 4px 6px;
+  padding: 10px 20px;
   border-radius: 4px;
-  top: 0;
-  left: 50px;
+  left: 60px;
+  bottom: 30px;
+  font-size: 24px;
+  font-weight: bold;
 }
 </style>
