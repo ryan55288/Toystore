@@ -390,43 +390,43 @@ const newProducts = reactive([
     .a {
       transform: rotateY(0deg) translateZ(250px);
       background: rgba(57, 56, 56, 0.5);
-      background-image: url(../assets/img/Product/80toy/戰隊系列/IMG-2.svg);
-      background-size: cover;
+      background-image: url(../assets/img/Product/80toy/彈珠超人/IMG-7.svg);
+      background-size: contain;
       background-repeat: no-repeat;
     }
     .b {
       transform: rotateY(60deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
-      background-image: url(../assets/img/Product/80toy/戰隊系列/IMG-10.svg);
+      background-image: url(../assets/img/Product/newtoy/洛克人/IMG-3.svg);
       background-size: cover;
       background-repeat: no-repeat;
     }
     .c {
       transform: rotateY(120deg) translateZ(250px);
-      background: rgba(172, 168, 168, 1);
+      background: rgba(172, 168, 168, 0.5);
       background-image: url(../assets/img/Product/80toy/彈珠超人/IMG-1.svg);
-      background-size: cover;
+      background-size: contain;
       background-repeat: no-repeat;
     }
     .d {
       transform: rotateY(180deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
-      background-image: url(../assets/img/Product/80toy/徽章戰士/IMG-3.svg);
-      background-size: cover;
+      background-image: url(../assets/img/Product/80toy/徽章戰士/IMG-4.svg);
+      background-size: contain;
       background-repeat: no-repeat;
     }
     .e {
       transform: rotateY(240deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
-      background-image: url(../assets/img/Product/80toy/戰隊系列/IMG-8.svg);
-      background-size: cover;
+      background-image: url(../assets/img/Product/80toy/戰隊系列/IMG-10.svg);
+      background-size: contain;
       background-repeat: no-repeat;
     }
     .f {
       transform: rotateY(300deg) translateZ(250px);
-      background: rgba(172, 168, 168, 0.2);
-      background-image: url(../assets/img/bg/carousel/4.svg);
-      background-size: cover;
+      background: rgba(172, 168, 168, 0.5);
+      background-image: url(../assets/img/Product/80toy/數碼寶貝/IMG-7.svg);
+      background-size: contain;
       background-repeat: no-repeat;
     }
   }
