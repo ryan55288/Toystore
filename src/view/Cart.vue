@@ -9,7 +9,7 @@
     <template v-else>
       <div class="fw-bold">
         目前沒有任何商品
-        <router-link class="btn btn-primary" to="/">回首頁</router-link>
+        <router-link class="btn btn-backHome" to="/">回首頁</router-link>
       </div>
     </template>
   </section>
@@ -247,6 +247,16 @@ const submit = () => {
 
     > div:nth-child(3) {
       margin-left: 320px;
+    }
+  }
+  .btn-backHome {
+    color: #fff;
+    background-color: var(--orange-color3);
+    font-weight: bold;
+    margin-left: 20px;
+    &:hover {
+      color: #fff;
+      background-color: var(--orange-color1);
     }
   }
 }
