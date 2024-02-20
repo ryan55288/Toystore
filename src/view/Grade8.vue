@@ -49,16 +49,17 @@
     </div>
     <div class="container mt-40">
       <div class="row animate__animated animate__backInLeft">
-        <div class="col-md-3 mb-4" v-for="product in formatPageProductList[pageIndex - 1]" :key="product.id">
-          <ProductCard :productDetail="product"/>
+        <div
+          class="col-md-3 mb-4"
+          v-for="product in formatPageProductList[pageIndex - 1]"
+          :key="product.id"
+        >
+          <ProductCard :productDetail="product" />
         </div>
       </div>
     </div>
     <div class="page" v-show="totalPage > 1">
-      <Page
-        v-model:active-index="pageIndex"
-        :totalPage="totalPage"
-      />
+      <Page v-model:active-index="pageIndex" :totalPage="totalPage" />
     </div>
   </section>
 
@@ -545,7 +546,7 @@ const productList = reactive([
   },
   {
     id: 44,
-    name: "數碼寶貝-機甲獸龍",
+    name: "數碼寶貝-機甲龍獸",
     stock: 1,
     price: 850,
     picture: new URL(
@@ -593,7 +594,7 @@ const productList = reactive([
   },
   {
     id: 48,
-    name: "數碼寶貝-閃電獵豹",
+    name: "數碼寶貝-紅蓮騎士獸",
     stock: 12,
     price: 299,
     picture: new URL(
@@ -713,8 +714,12 @@ const hotSaleProducts = reactive([
     qty: 0,
     categoryId: 4,
   },
-])
-const formatProductByCategory = computed(() => productList.filter(prod => prod.categoryId === currentSelectCategory.value.id))
+]);
+const formatProductByCategory = computed(() =>
+  productList.filter(
+    (prod) => prod.categoryId === currentSelectCategory.value.id
+  )
+);
 
 const formatPageProductList = computed(() => {
   const newArray = [];
@@ -722,17 +727,17 @@ const formatPageProductList = computed(() => {
     newArray.push(formatProductByCategory.value.slice(i, i + 8));
   }
 
-  return newArray
-})
+  return newArray;
+});
 
-const pageIndex = ref(1)
-const totalPage = ref(1)
+const pageIndex = ref(1);
+const totalPage = ref(1);
 
 // 當總頁數發生改變時，也把pageIndex指向1
 watchEffect(() => {
-  totalPage.value = formatPageProductList.value.length
-  pageIndex.value = 1
-})
+  totalPage.value = formatPageProductList.value.length;
+  pageIndex.value = 1;
+});
 </script>
 
 <style scoped>
