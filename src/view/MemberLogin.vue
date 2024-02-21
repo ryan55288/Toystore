@@ -34,14 +34,13 @@
             <div class="text-center fs-24 fw-bold pt-20 text-green">
               還不是會員?
             </div>
-            <router-link to="/MemberSign">
-              <button
-                type="submit"
-                class="submitBtn btnSet fs-24 fw-bold mt-20"
-              >
-                會員註冊
-              </button>
-            </router-link>
+            <button
+              type="submit"
+              class="submitBtn btnSet fs-24 fw-bold mt-20"
+              @click.prevent="register"
+            >
+              會員註冊
+            </button>
           </form>
         </div>
       </section>
@@ -70,6 +69,16 @@ const login = () => {
     else {
       router.push('/UserPage/UserInfo')
     }
+  }
+}
+const register = () => {
+  if (route.query.checkout) {
+    router.push({
+      path: '/MemberSign',
+      query: {
+        checkout: 'checkout'
+      }
+    })
   }
 }
 </script>

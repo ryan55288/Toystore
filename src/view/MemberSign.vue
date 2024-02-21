@@ -105,7 +105,8 @@
 import { useRegisterStore } from '@/store/register'
 
 const router = useRouter()
-const { addRegisterList } = useRegisterStore()
+const route = useRoute()
+const { addRegisterList, checkLogin } = useRegisterStore()
 const form = reactive({
   account: "",
   password: "",
@@ -124,7 +125,16 @@ const register = () => {
     sex: form.sex
   })
   successAlert('註冊成功')
-  router.push('/MemberLogin')
+  checkLogin({
+    account: form.account,
+    password: form.password
+  })
+  if (route.query.checkout) {
+    router.push('/Cart')
+  }
+  else {
+    router.push('/UserPage/UserInfo')
+  }
 }
 </script>
 
