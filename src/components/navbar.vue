@@ -137,7 +137,7 @@
             >
               購物車
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu dropdown-table" aria-labelledby="navbarDropdown">
               <template v-if="getCartList.length">
                 <li>
                   <table class="table table-striped table-hover table-size">
@@ -308,6 +308,9 @@ const searchKeyword = () => {
   }
   .dropdown-menu {
     background-color: rgba(75, 73, 73, 0.5);
+    &.dropdown-table {
+      left: -200%;
+    }
     p {
       color: #fff;
       font-weight: bold;
