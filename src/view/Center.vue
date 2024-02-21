@@ -397,35 +397,35 @@ const newProducts = reactive([
     .b {
       transform: rotateY(60deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
-      background-image: url(../assets/img/Product/newtoy/洛克人/IMG-3.svg);
+      background-image: url(../assets/img/Product/newtoy/洛克人/IMG-3.jpg);
       background-size: cover;
       background-repeat: no-repeat;
     }
     .c {
       transform: rotateY(120deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
-      background-image: url(../assets/img/Product/80toy/彈珠超人/IMG-1.svg);
+      background-image: url(../assets/img/Product/80toy/彈珠超人/IMG-1.jpg);
       background-size: contain;
       background-repeat: no-repeat;
     }
     .d {
       transform: rotateY(180deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
-      background-image: url(../assets/img/Product/80toy/徽章戰士/IMG-4.svg);
+      background-image: url(../assets/img/Product/80toy/徽章戰士/IMG-4.jpg);
       background-size: contain;
       background-repeat: no-repeat;
     }
     .e {
       transform: rotateY(240deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
-      background-image: url(../assets/img/Product/80toy/戰隊系列/IMG-10.svg);
+      background-image: url(../assets/img/Product/80toy/戰隊系列/IMG-10.jpg);
       background-size: contain;
       background-repeat: no-repeat;
     }
     .f {
       transform: rotateY(300deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
-      background-image: url(../assets/img/Product/80toy/數碼寶貝/IMG-7.svg);
+      background-image: url(../assets/img/Product/80toy/數碼寶貝/IMG-7.jpg);
       background-size: contain;
       background-repeat: no-repeat;
     }
