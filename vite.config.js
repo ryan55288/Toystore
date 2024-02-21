@@ -4,7 +4,6 @@ import { defineConfig } from "vite";
 import path from "path";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from 'unplugin-vue-components/vite'
-import imagemin from 'unplugin-imagemin/vite';
 
 export default defineConfig({
   plugins: [
@@ -20,27 +19,6 @@ export default defineConfig({
     Components({
       dirs: ['src/components'],
       extensions: ['vue'],
-    }),
-    imagemin({
-      mode: "sharp",
-      compress: {
-        jpeg: {
-          // 0 ~ 100
-          quality: 25,
-        },
-        png: {
-          // 0 ~ 100
-          quality: 25,
-        },
-        webp: {
-          // 0 ~ 100
-          quality: 25,
-        },
-        svg: {
-          quality: 25,
-        }
-      },
-      cache: true,
     }),
   ],
   resolve: {
