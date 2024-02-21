@@ -390,7 +390,7 @@ const newProducts = reactive([
     .a {
       transform: rotateY(0deg) translateZ(250px);
       background: rgba(57, 56, 56, 0.5);
-      background-image: url(../assets/img/Product/80toy/彈珠超人/IMG-7.svg);
+      background-image: url(../assets/img/Product/80toy/彈珠超人/IMG-7.jpg);
       background-size: contain;
       background-repeat: no-repeat;
     }
@@ -425,7 +425,7 @@ const newProducts = reactive([
     .f {
       transform: rotateY(300deg) translateZ(250px);
       background: rgba(172, 168, 168, 0.5);
-      background-image: url(../assets/img/Product/80toy/數碼寶貝/IMG-7.jpg);
+      background-image: url(../assets/img/Product/80toy/數碼寶貝/IMG-10.jpg);
       background-size: contain;
       background-repeat: no-repeat;
     }
