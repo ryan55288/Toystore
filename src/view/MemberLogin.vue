@@ -9,30 +9,28 @@
         <div class="d-flex justify-content-center">
           <form class="formSet">
             <div class="mb-3 mt-40">
-              <label for="exampleInputPassword1" class="form-label">帳號</label>
+              <label for="account" class="form-label">帳號</label>
               <input
-                type="password"
+                type="text"
                 class="form-control"
-                id="exampleInputPassword1"
+                id="account"
                 placeholder="請輸入帳號"
-                autocomplete="on"
+                v-model="form.account"
               />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword2" class="form-label">密碼</label>
+              <label for="password" class="form-label">密碼</label>
               <input
                 type="password"
                 class="form-control"
-                id="exampleInputPassword2"
+                id="password"
                 placeholder="請輸入密碼"
-                autocomplete="on"
+                v-model="form.password"
               />
             </div>
-            <router-link to="/UserPage">
-              <button type="submit" class="loginBtn btnSet fs-24 fw-bold mt-20">
-                登入
-              </button>
-            </router-link>
+            <button type="submit" class="loginBtn btnSet fs-24 fw-bold mt-20" @click.prevent="login">
+              登入
+            </button>
             <div class="text-center fs-24 fw-bold pt-20 text-green">
               還不是會員?
             </div>
@@ -50,6 +48,31 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import { useRegisterStore } from '@/store/register'
+
+const router = useRouter()
+const route = useRoute()
+const { checkLogin } = useRegisterStore()
+
+const form = reactive({
+  account: '',
+  password: ''
+})
+
+const login = () => {
+  const res = checkLogin(form)
+  if (res) {
+    if (route.query.checkout) {
+      router.push('/Cart')
+    }
+    else {
+      router.push('/UserPage/UserInfo')
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .box1 {

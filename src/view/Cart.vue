@@ -72,7 +72,11 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { useCartStore } from "@/store/cart";
+import { useRegisterStore } from '@/store/register'
 import Swal from "sweetalert2";
+
+const registerStore = useRegisterStore()
+const { isLogin } = storeToRefs(registerStore)
 const cartStore = useCartStore();
 const {
   removeProduct,
@@ -121,6 +125,16 @@ const selectedProductAllQty = computed(() => {
   }, 0);
 });
 const submit = () => {
+  if (!isLogin.value) {
+    warningAlert('請先登入')
+    router.push({
+      path: '/MemberLogin',
+      query: {
+        checkout: 'checkout'
+      }
+    })
+    return
+  }
   updateSelectedCartList(selectProductList.value);
   router.push("/CheckList1");
 };

@@ -99,16 +99,31 @@
               會員中心
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <router-link to="/MemberSign">
-                  <span class="dropdown-item">會員註冊</span>
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/MemberLogin">
-                  <span class="dropdown-item">會員登入</span>
-                </router-link>
-              </li>
+              <template v-if="isLogin">
+                <li>
+                  <div class="d-flex align-items-center px-1">
+                    <div class="user me-2">
+                      <img width="40" height="40" src="../assets/img/logo&icon/userPage/userHead.svg" alt="">
+                    </div>
+                    <span class="text-white fw-bold fs-18">Hello  {{ getLoginInfo.name }}</span>
+                  </div>
+                </li>
+                <li class="text-center">
+                  <span @click="logout" class="dropdown-item fs-18">登出</span>
+                </li>
+              </template>
+              <template v-else>
+                <li>
+                  <router-link to="/MemberSign">
+                    <span class="dropdown-item">會員註冊</span>
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/MemberLogin">
+                    <span class="dropdown-item">會員登入</span>
+                  </router-link>
+                </li>
+              </template>
             </ul>
           </li>
           <li class="nav-item dropdown Cart">
@@ -177,9 +192,14 @@
 import { storeToRefs } from "pinia";
 import { useCartStore } from "@/store/cart";
 import { useCategory } from "@/composables/category";
+import { useRegisterStore } from '@/store/register'
+
 const { allCategory } = useCategory();
 
 const router = useRouter();
+const registerStore = useRegisterStore()
+const { logout } = registerStore
+const { getLoginInfo, isLogin } = storeToRefs(registerStore)
 
 const cartStore = useCartStore();
 const { removeProduct } = cartStore;
@@ -210,6 +230,12 @@ const searchKeyword = () => {
 </script>
 
 <style lang="scss" scoped>
+.user {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
 .navbar {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.33);
@@ -274,10 +300,11 @@ const searchKeyword = () => {
       width: 100%;
       transition: 0.3s;
     }
-    span {
-      font-weight: bold;
-      color: #fff;
-    }
+  }
+  span {
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
   }
   .dropdown-menu {
     background-color: rgba(75, 73, 73, 0.5);

@@ -11,7 +11,6 @@
               <input
                 type="text"
                 class="form-control"
-                :class="{ 'valid-danger': formRule.account === false }"
                 id="account"
                 placeholder="請輸入帳號"
                 v-model="form.account"
@@ -66,7 +65,7 @@
                     name="sex"
                     type="radio"
                     id="ryanGay"
-                    :value="1"
+                    :value="'男'"
                     v-model="form.sex"
                   />
                   <label class="form-check-label fw-bold" for="ryanGay">
@@ -79,7 +78,7 @@
                     name="sex"
                     type="radio"
                     id="dannyGay"
-                    :value="2"
+                    :value="'女'"
                     v-model="form.sex"
                   />
                   <label class="form-check-label fw-bold" for="dannyGay">
@@ -91,7 +90,7 @@
             <button
               type="submit"
               class="submitBtn btnSet fs-24 fw-bold"
-              @click="showSweetAlert"
+              @click.prevent="register"
             >
               會員註冊
             </button>
@@ -103,6 +102,10 @@
 </template>
 
 <script setup>
+import { useRegisterStore } from '@/store/register'
+
+const router = useRouter()
+const { addRegisterList } = useRegisterStore()
 const form = reactive({
   account: "",
   password: "",
@@ -111,9 +114,18 @@ const form = reactive({
   email: "",
   sex: "",
 });
-const formRule = reactive({
-  ...form,
-});
+
+const register = () => {
+  addRegisterList({
+    account: form.account,
+    password: form.password,
+    name: form.name,
+    email: form.email,
+    sex: form.sex
+  })
+  successAlert('註冊成功')
+  router.push('/MemberLogin')
+}
 </script>
 
 <style lang="scss" scoped>
