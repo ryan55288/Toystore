@@ -100,7 +100,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <template v-if="isLogin">
-                <li>
+                <li @click="toUserPage">
                   <div class="d-flex align-items-center px-1">
                     <div class="user me-2">
                       <img width="40" height="40" src="../assets/img/logo&icon/userPage/userHead.svg" alt="">
@@ -227,6 +227,9 @@ const searchKeyword = () => {
     });
   }
 };
+const toUserPage = () => {
+  router.push('/UserPage/UserInfo')
+}
 </script>
 
 <style lang="scss" scoped>
