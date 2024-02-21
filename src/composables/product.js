@@ -6,7 +6,6 @@ export function useProduct(productDetail) {
   const cartStore = useCartStore();
   const { addNewProduct, cartState, addDirectProduct } = cartStore;
 
-
   const myFavourStore = useMyFavourStore();
   const { addMyFavourList, cancelMyFavour } = myFavourStore;
   const { getMyFavourList } = storeToRefs(myFavourStore);
@@ -48,7 +47,7 @@ export function useProduct(productDetail) {
     productDetail.value.qty = 0;
     console.log(cartState.cartList);
   };
-  
+
   const directBuy = () => {
     if (!validate()) return;
     addDirectProduct(productDetail.value);
@@ -68,6 +67,6 @@ export function useProduct(productDetail) {
     cancelFavourHandle,
     messageShow,
     addToCart,
-    directBuy
-  }
+    directBuy,
+  };
 }
