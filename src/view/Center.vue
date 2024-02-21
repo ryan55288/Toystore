@@ -349,7 +349,7 @@ const newProducts = reactive([
   width: 100%;
   padding-top: 300px;
   height: 965px;
-  background-image: url(../assets/img/bg/centerTop-bg.svg);
+  background-image: url(../assets/img/bg/centerTop-bg.jpg);
   background-repeat: no-repeat;
   background-color: var(--green-color1);
   background-position: center;
