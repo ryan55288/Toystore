@@ -62,7 +62,7 @@
       </div>
     </section>
 
-    <section class="section5 pt-60 mb-40">
+    <section class="section5 pt-60">
       <div v-if="selectProductList.length" class="all-button">
         <button @click="submit">結帳去</button>
       </div>
@@ -142,7 +142,7 @@ const submit = () => {
 
 <style scoped lang="scss">
 .section5 {
-  height: 160px;
+  min-height: 300px;
   .all-button {
     display: flex;
     justify-content: end;
