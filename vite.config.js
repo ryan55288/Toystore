@@ -36,12 +36,11 @@ export default defineConfig({
           // 0 ~ 100
           quality: 25,
         },
+        svg: {
+          quality: 25,
+        }
       },
-      conversion: [
-        { from: "png", to: "webp" },
-        { from: "jpeg", to: "png" },
-      ],
-      cache: false,
+      cache: true,
     }),
   ],
   resolve: {
